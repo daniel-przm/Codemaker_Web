@@ -1,10 +1,17 @@
 ---
-import { getSchools } from "@/lib/google-sheets";
+import { getSchools, getCentrosAsociados } from "@/lib/schools";
 
-const allCentros = await getSchools();
+interface Props {
+  tipo: 'cursos' | 'centros';
+}
 
-const centrosActivos = allCentros.filter(c => c.status === 'live');
-const centrosPasados = allCentros.filter(c => c.status === 'past');
+const { tipo } = Astro.props;
+
+const cursospropios = await getSchools();
+const centrosActivos = cursospropios.filter(c => c.status === 'live');
+const centrosPasados = cursospropios.filter(c => c.status === 'past');
+
+const centrosasociados = await getCentrosAsociados();
 
 const levelColors = {
   Junior: "bg-green-500",
@@ -39,78 +46,213 @@ function getSchoolInitial(name: string) {
   class="w-full py-10 px-6 sm:px-10 bg-white"
 >
   <div class="max-w-5xl mx-auto space-y-12">
-    <!-- SECCIÓN: EN CURSO -->
-    <div>
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-        <h3 class="text-2xl font-bold text-slate-900">Proyectos educativos en curso</h3>
-      </div>
-      
-      <ul role="list" class="grid gap-4">
-        {centrosActivos.map((colegio) => (
-          <li class="bg-slate-50 border border-slate-100 shadow-sm rounded-xl p-6 flex flex-col lg:flex-row items-center gap-6">
-            <div class="flex gap-x-4 flex-1 w-full lg:w-auto items-center">
-              <!-- Stylized Avatar instead of Image -->
-              <div 
-                class="size-16 flex-none rounded-xl flex items-center justify-center text-white font-black uppercase text-2xl shadow-inner border border-white/20"
-                style={`background-color: ${colegio.color || '#007AFB'}`}
-              >
-                {getSchoolInitial(colegio.nombre)}
-              </div>
-              
-              <div class="flex-auto flex flex-col justify-center">
-                <p class="text-lg font-bold text-gray-900 leading-tight">{colegio.nombre}</p>
-                {colegio.direccion && <p class="mt-1 text-sm text-gray-500">{colegio.direccion}</p>}
-              </div>
-            </div>
 
-            <div class="flex flex-wrap items-center gap-4 flex-1 justify-center lg:justify-start">
-              {colegio.niveles?.map((nivel) => (
-                <div class="flex items-center gap-2">
-                  <div class={`w-3 h-3 rounded-full ${levelColors[nivel] || 'bg-gray-400'}`}></div>
-                  <span class="text-sm font-semibold text-gray-700">{nivel}</span>
+    {tipo === 'cursos' ? (
+      <>
+        <!-- CURSOS: activos con niveles y botón -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+            <h3 class="text-2xl font-bold text-slate-900">Proyectos educativos en curso</h3>
+          </div>
+          <ul role="list" class="grid gap-4">
+            {centrosActivos.map((colegio) => (
+              <li class="bg-slate-50 border border-slate-100 shadow-sm rounded-xl p-6 flex flex-col lg:flex-row items-center gap-6">
+                <div class="flex gap-x-4 flex-1 w-full lg:w-auto items-center">
+                  <div
+                    class="size-16 flex-none rounded-xl flex items-center justify-center text-white font-black uppercase text-2xl shadow-inner border border-white/20"
+                    style={`background-color: ${colegio.color || '#007AFB'}`}
+                  >
+                    {getSchoolInitial(colegio.nombre)}
+                  </div>
+                  <div class="flex-auto flex flex-col justify-center">
+                    <p class="text-lg font-bold text-gray-900 leading-tight">{colegio.nombre}</p>
+                    {colegio.direccion && <p class="mt-1 text-sm text-gray-500">{colegio.direccion}</p>}
+                  </div>
+                </div>
+                <div class="flex flex-wrap items-center gap-4 flex-1 justify-center lg:justify-start">
+                  {colegio.niveles?.map((nivel) => (
+                    <div class="flex items-center gap-2">
+                      <div class={`w-3 h-3 rounded-full ${levelColors[nivel] || 'bg-gray-400'}`}></div>
+                      <span class="text-sm font-semibold text-gray-700">{nivel}</span>
+                    </div>
+                  ))}
+                </div>
+                <div class="flex flex-col sm:flex-row items-center justify-end gap-3 w-full lg:w-auto">
+                  <a
+                    href={`/${colegio.id}`}
+                    class="w-full sm:w-auto text-center inline-flex justify-center items-center text-white transition duration-300 ease-in-out px-8 py-3 rounded-xl bg-[#007AFB] hover:bg-[#00477A] text-sm font-bold shadow-md"
+                  >
+                    Ver detalles
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ml-2 size-4">
+                      <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CURSOS: finalizados -->
+        {centrosPasados.length > 0 && (
+          <div class="pt-8 border-t border-slate-100">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-3 h-3 rounded-full bg-slate-400"></div>
+              <h3 class="text-2xl font-bold text-slate-700">Proyectos educativos finalizados</h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {centrosPasados.map((colegio) => (
+                <div class="bg-white border border-slate-100 p-4 rounded-xl flex items-center gap-4 hover:shadow-md transition-shadow">
+                  <div class="size-10 flex-none rounded-lg flex items-center justify-center text-white font-bold uppercase text-xs shadow-sm bg-slate-400">
+                    {getSchoolInitial(colegio.nombre)}
+                  </div>
+                  <div class="flex flex-col justify-center">
+                    <p class="text-sm font-bold text-slate-800 leading-tight">{colegio.nombre}</p>
+                    {colegio.direccion && <p class="text-xs text-slate-500 mt-0.5">{colegio.direccion}</p>}
+                  </div>
                 </div>
               ))}
             </div>
-
-            <div class="flex flex-col sm:flex-row items-center justify-end gap-3 w-full lg:w-auto">
-              <a
-                href={`/${colegio.id}`}
-                class="w-full sm:w-auto text-center inline-flex justify-center items-center text-white transition duration-300 ease-in-out px-8 py-3 rounded-xl bg-[#007AFB] hover:bg-[#00477A] text-sm font-bold shadow-md"
-              >
-                Ver detalles
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ml-2 size-4">
-                  <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
-                </svg>
-              </a>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <!-- SECCIÓN: HISTORIAL -->
-    <div class="pt-8 border-t border-slate-100">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-3 h-3 rounded-full bg-slate-400"></div>
-        <h3 class="text-2xl font-bold text-slate-700">Proyectos educativos finalizados</h3>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {centrosPasados.map((colegio) => (
-          <div class="bg-white border border-slate-100 p-4 rounded-xl flex items-center gap-4 hover:shadow-md transition-shadow">
-            <div 
-              class="size-10 flex-none rounded-lg flex items-center justify-center text-white font-bold uppercase text-xs shadow-sm bg-slate-400"
-            >
-              {getSchoolInitial(colegio.nombre)}
-            </div>
-            <div class="flex flex-col justify-center">
-              <p class="text-sm font-bold text-slate-800 leading-tight">{colegio.nombre}</p>
-              {colegio.direccion && <p class="text-xs text-slate-500 mt-0.5">{colegio.direccion}</p>}
-            </div>
           </div>
-        ))}
-      </div>
-    </div>
+        )}
+      </>
+    ) : (
+      <>
+        <!-- MAPA -->
+        <div
+          id="centros-map"
+          class="w-full rounded-2xl border border-slate-200 shadow-sm"
+          style="height: 288px; z-index: 0;"
+          data-centros={JSON.stringify(centrosasociados.map(c => ({ nombre: c.nombre, localidad: c.localidad, lat: c.lat, lng: c.lng })))}
+        ></div>
+
+        <!-- LISTA -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {centrosasociados.map((centro) => (
+            <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl flex items-center gap-4">
+              <div class="size-10 flex-none rounded-lg flex items-center justify-center text-white font-bold uppercase text-xs shadow-sm bg-[#00477A]">
+                {getSchoolInitial(centro.nombre)}
+              </div>
+              <div class="flex flex-col justify-center">
+                <p class="text-sm font-bold text-slate-800 leading-tight">{centro.nombre}</p>
+                <p class="text-xs text-slate-500 mt-0.5">{centro.localidad}, {centro.pais}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+
   </div>
 </section>
+
+<script>
+  function initMap() {
+    const mapEl = document.getElementById('centros-map');
+    if (!mapEl || (mapEl as any)._leaflet_id) return; // ya inicializado
+
+    const raw = mapEl.dataset.centros;
+    if (!raw) return;
+    const centros: { nombre: string; localidad: string; lat: number; lng: number }[] = JSON.parse(raw);
+
+    // @ts-ignore
+    const L = (window as any).L;
+    if (!L) return;
+
+    const map = L.map('centros-map', { scrollWheelZoom: false });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19,
+    }).addTo(map);
+
+    const bounds: [number, number][] = [];
+
+    // Agrupar por coordenadas exactas
+    const groups = new Map<string, typeof centros>();
+    centros.forEach(c => {
+      const key = `${c.lat},${c.lng}`;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key)!.push(c);
+    });
+
+    groups.forEach((lista, key) => {
+      const [lat, lng] = key.split(',').map(Number);
+      const count = lista.length;
+
+      const markerHtml = count > 1
+        ? `<div style="width:28px;height:28px;background:#007AFB;border:2px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;">${count}</div>`
+        : `<div style="width:14px;height:14px;background:#007AFB;border:2px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.3)"></div>`;
+
+      const markerIcon = L.divIcon({
+        className: '',
+        html: markerHtml,
+        iconSize: count > 1 ? [28, 28] : [14, 14],
+        iconAnchor: count > 1 ? [14, 14] : [7, 7],
+      });
+
+      const popupContent = lista
+        .map(c => `<div style="padding:2px 0"><strong style="color:#0f172a">${c.nombre}</strong><br><span style="color:#64748b;font-size:12px">${c.localidad}</span></div>`)
+        .join('<hr style="margin:6px 0;border-color:#e2e8f0">');
+
+      L.marker([lat, lng], { icon: markerIcon, zIndexOffset: count > 1 ? 1000 : 0 })
+        .addTo(map)
+        .bindPopup(`<div style="min-width:180px">${popupContent}</div>`);
+
+      bounds.push([lat, lng]);
+    });
+
+    if (bounds.length > 0) {
+      const fitAll = () => {
+        map.invalidateSize();
+        map.fitBounds(bounds, { padding: [40, 40] });
+      };
+
+      // ResizeObserver: se dispara en cuanto el contenedor tiene dimensiones reales
+      const ro = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
+            fitAll();
+            ro.disconnect();
+          }
+        }
+      });
+      ro.observe(mapEl);
+
+      // Fallback por si el ResizeObserver no se dispara (ej. ya tiene tamaño)
+      setTimeout(fitAll, 400);
+    }
+  }
+
+  // Leaflet se carga una sola vez (CSS + JS); esperamos a que esté disponible
+  function loadLeafletAndInit() {
+    if ((window as any).L) {
+      initMap();
+      return;
+    }
+
+    // CSS primero, en el <head>
+    if (!document.querySelector('link[href*="leaflet"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      document.head.appendChild(link);
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    // Damos un pequeño margen para que el CSS se aplique antes de inicializar
+    script.onload = () => setTimeout(initMap, 50);
+    document.head.appendChild(script);
+  }
+
+  // El mapa puede abrirse dentro de un modal; esperamos a que el DOM esté listo
+  document.addEventListener('DOMContentLoaded', loadLeafletAndInit);
+  // Si el modal se abre después del DOMContentLoaded (click), también lo inicializamos
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('#open-centros');
+    if (btn) setTimeout(loadLeafletAndInit, 50);
+  });
+</script>

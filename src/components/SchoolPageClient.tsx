@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import type { SchoolData } from "@/lib/google-sheets";
-import { getSchools } from "@/lib/google-sheets";
+import type { SchoolData } from "@/lib/schools";
+import { getSchools } from "@/lib/schools";
 
 interface Props {
     schoolId: string;
@@ -108,7 +108,7 @@ export default function SchoolPageClient({ schoolId }: Props) {
                 if (found) {
                     setSchool(found);
                     // Update page title dynamically
-                    document.title = `CodeMaker | ${found.nombre}`;
+                    document.title = `Codemaker | ${found.nombre}`;
                 } else {
                     setError(true);
                 }

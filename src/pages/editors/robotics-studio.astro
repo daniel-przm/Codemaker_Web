@@ -5,7 +5,7 @@ import Footer from '../../components/footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
 ---
 
-<Layout title="Sculpting Studio | Codemaker">
+<Layout title="Robotics Studio | Codemaker">
   <Nav />
 
   <main class="bg-white min-h-screen text-slate-900 font-sans">
@@ -16,22 +16,22 @@ import ContactModal from '../../components/ContactModal.astro';
 
         <div class="flex-1 space-y-6">
           <div class="flex flex-wrap gap-2">
-            <span class="chip chip-slate">Todas las edades</span>
-            <span class="chip chip-rose">Creativo</span>
-            <span class="chip chip-purple">3D</span>
+            <span class="chip chip-slate">10 – 16 años</span>
+            <span class="chip chip-rose">Avanzado</span>
+            <span class="chip chip-indigo">Robótica</span>
           </div>
           <h1 class="text-4xl md:text-6xl font-black text-slate-900">
-            Sculpting <span class="text-[#007AFB]">Studio</span>
+            Robotics <span class="text-[#007AFB]">Studio</span>
           </h1>
           <p class="text-xl text-slate-600 leading-relaxed font-medium max-w-xl">
-            Esculpe digitalmente como si fuera arcilla. Deforma una malla 3D con pinceles artísticos y crea personajes, criaturas y formas orgánicas únicas.
+            Programa un robot 3D con sensores reales en un simulador completo. Todo desde el navegador, sin necesidad de hardware físico.
           </p>
         </div>
 
         <div class="flex-1 w-full md:max-w-lg">
-          <div class="relative rounded-2xl p-[2px] shiny-border-3d shadow-2xl">
+          <div class="relative rounded-2xl p-[2px] shiny-border-code shadow-2xl">
             <div class="rounded-[0.9rem] overflow-hidden bg-slate-950 aspect-video">
-              <img src="/images/sculptstudio.png" alt="Sculpting Studio" class="w-full h-full object-cover" />
+              <img src="/images/roboticsstudio.png" alt="Robotics Studio" class="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -42,10 +42,10 @@ import ContactModal from '../../components/ContactModal.astro';
     <!-- ═══ QUÉ ES ═══ -->
     <section class="py-20 px-6 sm:px-10 border-b border-slate-100">
       <div class="max-w-3xl mx-auto text-center space-y-6">
-        <h2 class="section-title">¿Qué es Sculpting Studio?</h2>
+        <h2 class="section-title">¿Qué es Robotics Studio?</h2>
         <div class="w-16 h-1 bg-[#007AFB] mx-auto rounded-full"></div>
         <p class="text-lg text-slate-600 leading-relaxed">
-          Sculpting Studio es el entorno de escultura digital orgánica de Codemaker3D. A diferencia del modelado geométrico, que parte de primitivas rígidas, aquí los alumnos <strong class="text-slate-800">deforman una esfera de arcilla virtual</strong> con pinceles artísticos que inflan, suavizan o aplanan la superficie. El resultado es completamente libre: un personaje, un animal, una criatura imaginaria. Todo coloreado directamente sobre la malla.
+          Robotics Studio es el simulador de robótica educativa de Codemaker3D. Los alumnos programan un robot virtual completo —con motores, <strong class="text-slate-800">sensores IR</strong>, sensor de distancia y <strong class="text-slate-800">matriz LED frontal</strong>— usando programación por bloques tipo Scratch, y lo prueban en un tablero editable con pistas siguelíneas, obstáculos y laberintos. Todo el ciclo de robótica ocurre en el navegador: sin robots físicos, sin cables, sin riesgo de avería.
         </p>
       </div>
     </section>
@@ -58,26 +58,26 @@ import ContactModal from '../../components/ContactModal.astro';
 
           <div class="feature-card">
             <span class="feature-num">01</span>
-            <h3 class="feature-title">Tres pinceles artísticos</h3>
-            <p class="feature-desc"><strong>Standard</strong>: infla o hunde la malla (Shift para invertir). <strong>Smooth</strong>: alisa irregularidades y transiciones bruscas. <strong>Flatten</strong>: nivela áreas de la malla a un plano uniforme.</p>
+            <h3 class="feature-title">Robot 3D personalizable</h3>
+            <p class="feature-desc">Color del cuerpo y las ruedas a elección del alumno. Matriz LED frontal de 16×8 píxeles con editor visual interactivo y presets de expresiones. LEDs RGB de iluminación programables desde los bloques.</p>
           </div>
 
           <div class="feature-card">
             <span class="feature-num">02</span>
-            <h3 class="feature-title">Tamaño e intensidad ajustables</h3>
-            <p class="feature-desc">Control preciso del tamaño del pincel (0.1–2.0) y su intensidad (0.01–0.5). Trabaja grandes volúmenes con pincel amplio e intensidad alta, y micro detalles con pincel fino e intensidad baja.</p>
+            <h3 class="feature-title">Tablero editable por baldosas</h3>
+            <p class="feature-desc">Diseña el circuito colocando suelo, muros, salida, meta y checkpoints. Pistas siguelíneas con rectas y curvas para crear cualquier circuito. Presets listos: Circuito siguelíneas y Laberinto.</p>
           </div>
 
           <div class="feature-card">
             <span class="feature-num">03</span>
-            <h3 class="feature-title">Pintura directa sobre la malla</h3>
-            <p class="feature-desc">Herramienta de pincel con selector de color libre para colorear directamente cada zona de la escultura. Sin mapas UV ni canales adicionales: pintar es tan sencillo como esculpir.</p>
+            <h3 class="feature-title">Programación Blockly para robótica</h3>
+            <p class="feature-desc">Bloques específicos organizados por categorías: <strong>Movimiento</strong> (por pasos y preciso), <strong>Sensores</strong> (IR izq/der, distancia), <strong>LED</strong> (encender, matriz, expresiones) y <strong>Control</strong> (bucles, condicionales, esperar). Panel redimensionable.</p>
           </div>
 
           <div class="feature-card">
             <span class="feature-num">04</span>
-            <h3 class="feature-title">Tutorial guiado en 4 pasos</h3>
-            <p class="feature-desc">Sistema de guía integrado que lleva al alumno por todo el flujo de trabajo: <strong>Forma base → Detalle → Suavizado → Pintura</strong>. Aprendizaje autónomo desde el primer día.</p>
+            <h3 class="feature-title">Panel de sensores en tiempo real</h3>
+            <p class="feature-desc">Cámara POV (desde los ojos del robot) y cámara Selfie. Lectura en vivo de sensores IR izquierdo y derecho (Negro/Blanco), distancia al obstáculo en centímetros y estado actual de los LEDs.</p>
           </div>
 
         </div>
@@ -89,32 +89,32 @@ import ContactModal from '../../components/ContactModal.astro';
       <div class="max-w-5xl mx-auto space-y-14">
         <div class="text-center space-y-3">
           <h2 class="section-title">Valor pedagógico</h2>
-          <p class="text-slate-500 max-w-2xl mx-auto">Competencias que trabaja este editor, especialmente vinculadas a Educación Plástica y Visual en Primaria y ESO.</p>
+          <p class="text-slate-500 max-w-2xl mx-auto">Competencias curriculares alineadas con Tecnología y Robótica en ESO, y con el bloque de Programación del currículo LOMLOE.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
           <div class="pedagogy-card">
             <div class="pedagogy-icon bg-blue-50 text-[#007AFB] border-blue-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
             </div>
-            <h4 class="pedagogy-title">Educación plástica y visual</h4>
-            <p class="pedagogy-desc">Trabaja los bloques curriculares de «Expresión y creación plástica» del área de Educación Artística: volumen, textura, forma orgánica, composición y uso del color.</p>
+            <h4 class="pedagogy-title">Fundamentos de robótica</h4>
+            <p class="pedagogy-desc">Actuadores, sensores y lógica de control forman la base del currículo de Robótica en ESO. El alumno los maneja directamente, comprendiendo cómo los sistemas físicos reciben, procesan y responden a información.</p>
           </div>
 
           <div class="pedagogy-card">
             <div class="pedagogy-icon bg-emerald-50 text-emerald-600 border-emerald-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
             </div>
-            <h4 class="pedagogy-title">Anatomía y proporciones</h4>
-            <p class="pedagogy-desc">Explorar la anatomía animal o humana de forma táctil. El alumno descubre las proporciones y los volúmenes del cuerpo a través de la manipulación directa, no de la observación pasiva.</p>
+            <h4 class="pedagogy-title">Programación reactiva</h4>
+            <p class="pedagogy-desc">Leer un sensor y actuar en consecuencia es la estructura «si / entonces» en su forma más pura. Los alumnos desarrollan el razonamiento condicional y aprenden a depurar su código cuando el robot no se comporta como esperaban.</p>
           </div>
 
           <div class="pedagogy-card">
             <div class="pedagogy-icon bg-purple-50 text-purple-600 border-purple-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h4 class="pedagogy-title">Proceso creativo iterativo</h4>
-            <p class="pedagogy-desc">El historial de deshacer y el reseteo a la esfera base enseñan que el error no es un fracaso sino parte del proceso. Se desarrolla la resiliencia creativa y la mejora progresiva de la obra.</p>
+            <h4 class="pedagogy-title">STEAM sin hardware</h4>
+            <p class="pedagogy-desc">Robotics Studio democratiza el acceso a la robótica avanzada. Sin presupuesto en equipamiento, cualquier centro puede practicar algoritmos siguelíneas, laberintos y simulación de sensores con rigor científico.</p>
           </div>
 
         </div>
@@ -125,10 +125,10 @@ import ContactModal from '../../components/ContactModal.astro';
     <section class="py-20 px-6 sm:px-10 bg-slate-100">
       <div class="max-w-3xl mx-auto text-center space-y-6">
         <h2 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
-          Incorpora la escultura digital a tus clases de plástica
+          Enseña robótica sin hardware ni presupuesto extra
         </h2>
         <p class="text-lg text-slate-600">
-          Nuestro equipo puede orientarte sobre cómo usar Sculpting Studio en el aula y qué actividades funcionan mejor según el nivel educativo.
+          Nuestro equipo puede orientarte sobre cómo usar Robotics Studio en el aula y cómo combinarlo con el bloque de Programación y Robótica del currículo.
         </p>
         <button class="contact-trigger btn-primary">
           Contacta con nosotros
@@ -171,8 +171,8 @@ import ContactModal from '../../components/ContactModal.astro';
     background-image: radial-gradient(rgba(0,122,251,0.10) 1.5px, transparent 1.5px);
     background-size: 20px 20px;
   }
-  .shiny-border-3d {
-    background: linear-gradient(135deg, #64748b 10%, #C084FC 90%);
+  .shiny-border-code {
+    background: linear-gradient(135deg, #64748b 10%, #007AFB 90%);
     background-size: 400%;
     animation: shine 6s linear infinite;
   }

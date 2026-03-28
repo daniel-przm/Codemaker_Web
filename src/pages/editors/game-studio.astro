@@ -1,0 +1,205 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/nav.astro';
+import Footer from '../../components/footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+---
+
+<Layout title="Game Studio | Codemaker">
+  <Nav />
+
+  <main class="bg-white min-h-screen text-slate-900 font-sans">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="pt-32 pb-20 px-6 sm:px-10 border-b border-slate-100 patron-puntos">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+
+        <div class="flex-1 space-y-6">
+          <div class="flex flex-wrap gap-2">
+            <span class="chip chip-slate">10 – 16 años</span>
+            <span class="chip chip-rose">Avanzado</span>
+            <span class="chip chip-indigo">Programación</span>
+          </div>
+          <h1 class="text-4xl md:text-6xl font-black text-slate-900">
+            Game <span class="text-[#007AFB]">Studio</span>
+          </h1>
+          <p class="text-xl text-slate-600 leading-relaxed font-medium max-w-xl">
+            Crea, programa y juega tus propios videojuegos 3D. Un motor completo con físicas reales, biblioteca de assets y programación visual por bloques.
+          </p>
+        </div>
+
+        <div class="flex-1 w-full md:max-w-lg">
+          <div class="relative rounded-2xl p-[2px] shiny-border-code shadow-2xl">
+            <div class="rounded-[0.9rem] overflow-hidden bg-slate-950 aspect-video">
+              <img src="/images/game3dstudio.png" alt="Game Studio" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ QUÉ ES ═══ -->
+    <section class="py-20 px-6 sm:px-10 border-b border-slate-100">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <h2 class="section-title">¿Qué es Game Studio?</h2>
+        <div class="w-16 h-1 bg-[#007AFB] mx-auto rounded-full"></div>
+        <p class="text-lg text-slate-600 leading-relaxed">
+          Game Studio es el motor de creación de videojuegos educativo de Codemaker3D, inspirado en Unity. Integra tres capas en un único editor: <strong class="text-slate-800">construcción de escenas 3D</strong> con primitivas y una biblioteca de assets GLB, un <strong class="text-slate-800">inspector de propiedades</strong> con físicas Rigidbody completas, y <strong class="text-slate-800">programación visual Blockly</strong> para que cada objeto tenga su propio comportamiento. El juego se ejecuta directamente en el navegador con el motor de físicas Rapier.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ FUNCIONALIDADES ═══ -->
+    <section class="py-20 px-6 sm:px-10 bg-slate-50">
+      <div class="max-w-5xl mx-auto space-y-12">
+        <h2 class="section-title text-center">Funcionalidades principales</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <div class="feature-card">
+            <div class="feature-img-slot">
+              <!-- Captura: /images/screenshots/game-scene.png -->
+              <img src="/images/screenshots/game-scene.png" alt="Construcción de escenas" class="w-full h-full object-cover" onerror="this.style.opacity='0'" />
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">Construcción de escenas</h3>
+              <p class="feature-desc">Primitivas 3D (cubo, esfera, cilindro, cono, toroide, plano) y objeto Jugador con controlador en primera persona. Biblioteca de assets GLB organizados por categorías: Personajes, Naturaleza, Vehículos, Hogar y Ciudad. Drag & Drop directo a la escena.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-img-slot">
+              <!-- Captura: /images/screenshots/game-inspector.png -->
+              <img src="/images/screenshots/game-inspector.png" alt="Inspector de propiedades y físicas" class="w-full h-full object-cover" onerror="this.style.opacity='0'" />
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">Inspector de propiedades y físicas</h3>
+              <p class="feature-desc">Edita posición, rotación y escala. Asigna materiales con color, textura, rugosidad y opacidad. Configura el Rigidbody: tipo (Dinámico/Estático/Kinemático), masa, fricción y restitución. Colisionadores Box, Sphere, Capsule y Mesh.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-img-slot">
+              <!-- Captura: /images/screenshots/game-blockly.png -->
+              <img src="/images/screenshots/game-blockly.png" alt="Programación Blockly" class="w-full h-full object-cover" onerror="this.style.opacity='0'" />
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">Programación visual Blockly</h3>
+              <p class="feature-desc">Cada objeto tiene su propio programa. Bloques de <strong>eventos</strong> (al iniciar, al hacer clic), <strong>movimiento</strong> en 6 direcciones, <strong>rotación</strong> en cualquier eje, y <strong>control</strong> con condicionales, bucles y variables. Sin escribir una línea de código.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-img-slot">
+              <!-- Captura: /images/screenshots/game-play.png -->
+              <img src="/images/screenshots/game-play.png" alt="Modo Play con Rapier" class="w-full h-full object-cover" onerror="this.style.opacity='0'" />
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">Modo Play con motor Rapier</h3>
+              <p class="feature-desc">Un botón ejecuta todos los scripts de todos los objetos simultáneamente. Físicas realistas: gravedad, colisiones, fricción y rebote. El alumno juega su propia creación con movimiento WASD y salto en primera persona.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ VALOR PEDAGÓGICO ═══ -->
+    <section class="py-20 px-6 sm:px-10 bg-white">
+      <div class="max-w-5xl mx-auto space-y-14">
+        <div class="text-center space-y-3">
+          <h2 class="section-title">Valor pedagógico</h2>
+          <p class="text-slate-500 max-w-2xl mx-auto">Competencias curriculares alineadas con Tecnología y Programación en ESO, e iniciación al pensamiento computacional.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+          <div class="pedagogy-card">
+            <div class="pedagogy-icon bg-blue-50 text-[#007AFB] border-blue-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h4 class="pedagogy-title">Pensamiento computacional</h4>
+            <p class="pedagogy-desc">Descomponer el comportamiento de un juego en eventos y acciones es la esencia de la programación. Los alumnos aprenden condicionales, bucles y variables en un contexto con significado inmediato.</p>
+          </div>
+
+          <div class="pedagogy-card">
+            <div class="pedagogy-icon bg-emerald-50 text-emerald-600 border-emerald-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><path d="M12 2a10 10 0 1 0 10 10"/></svg>
+            </div>
+            <h4 class="pedagogy-title">Física aplicada</h4>
+            <p class="pedagogy-desc">Gravedad, inercia, fricción, masa y coeficiente de restitución son parámetros que el alumno ajusta y ve en tiempo real. Conceptos abstractos de Física cobran vida en el juego que ellos mismos han creado.</p>
+          </div>
+
+          <div class="pedagogy-card">
+            <div class="pedagogy-icon bg-purple-50 text-purple-600 border-purple-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+            </div>
+            <h4 class="pedagogy-title">Diseño de experiencias</h4>
+            <p class="pedagogy-desc">El diseño de niveles (level design) exige ponerse en el lugar del jugador. Los alumnos desarrollan empatía, narrativa interactiva y criterio estético, integrando arte, tecnología y lenguaje.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="py-20 px-6 sm:px-10 bg-slate-100">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <h2 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+          Incorpora el desarrollo de videojuegos a tu aula de Tecnología
+        </h2>
+        <p class="text-lg text-slate-600">
+          Nuestro equipo puede explicarte cómo integrar Game Studio en el currículo de Programación o Tecnología y qué proyectos proponer a cada curso.
+        </p>
+        <button class="contact-trigger btn-primary">
+          Contacta con nosotros
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+  <ContactModal />
+</Layout>
+
+<style>
+  .section-title    { @apply text-3xl md:text-4xl font-black text-slate-900; }
+
+  .chip             { @apply px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border; }
+  .chip-slate       { @apply bg-slate-100 text-slate-600 border-slate-200; }
+  .chip-emerald     { @apply bg-emerald-50 text-emerald-700 border-emerald-100; }
+  .chip-amber       { @apply bg-amber-50 text-amber-700 border-amber-100; }
+  .chip-rose        { @apply bg-rose-50 text-rose-700 border-rose-100; }
+  .chip-purple      { @apply bg-purple-50 text-purple-600 border-purple-100; }
+  .chip-indigo      { @apply bg-indigo-50 text-indigo-600 border-indigo-100; }
+  .chip-blue        { @apply bg-blue-50 text-[#007AFB] border-blue-100; }
+
+  .btn-primary      { @apply inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-[#007AFB] text-white font-bold hover:bg-[#00477A] transition-all shadow-lg shadow-blue-100 active:scale-95 text-lg; }
+  .btn-primary-inv  { @apply inline-flex items-center justify-center px-10 py-5 rounded-2xl bg-white text-[#007AFB] font-black hover:bg-slate-100 transition-all shadow-xl active:scale-95 text-xl; }
+
+  .feature-card     { @apply bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow; }
+  .feature-img-slot { @apply aspect-video bg-slate-100 overflow-hidden; }
+  .feature-body     { @apply p-7 space-y-3; }
+  .feature-title    { @apply text-xl font-bold text-slate-900; }
+  .feature-desc     { @apply text-slate-600 leading-relaxed; }
+
+  .pedagogy-card  { @apply space-y-4 text-center; }
+  .pedagogy-icon  { @apply size-16 rounded-2xl flex items-center justify-center mx-auto border; }
+  .pedagogy-title { @apply text-xl font-bold text-slate-900; }
+  .pedagogy-desc  { @apply text-slate-600 leading-relaxed text-sm; }
+
+  .patron-puntos {
+    background-image: radial-gradient(rgba(0,122,251,0.10) 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+  }
+  .shiny-border-code {
+    background: linear-gradient(135deg, #64748b 10%, #007AFB 90%);
+    background-size: 400%;
+    animation: shine 6s linear infinite;
+  }
+  @keyframes shine {
+    0%        { background-position: 100% 50%; }
+    30%, 70%  { background-position:   0% 50%; }
+    100%      { background-position: 100% 50%; }
+  }
+</style>

@@ -11,16 +11,16 @@ const tagStyles: Record<string, string> = {
 
 <section id="apps" class="bg-white w-full py-20 px-10 border-t text-slate-900 patron-puntos">
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg font-bold mb-2 shiny-sec-text-dev">CodeMaker_Dev</h2>
+    <h2 class="text-lg font-bold mb-2 shiny-sec-text-dev">Nuestras APPs</h2>
     <h3 class="text-4xl md:text-5xl font-medium text-slate-900 mb-8">
       Herramientas interactivas para el aprendizaje
     </h3>
     <h4 class="text-md md:text-lg text-left md:text-left">
-      En CodeMaker hemos desarrollado una completa suite de aplicaciones educativas para fomentar el aprendizaje de tecnologías como la
+      En Codemaker hemos desarrollado una completa suite de aplicaciones educativas para fomentar el aprendizaje de tecnologías como la
       <span class="font-bold  text-purple-500">programación, desarrollo de videojuegos, modelado 3D y robótica</span>,
       adaptadas a todos las edades y niveles educativos, inspiradas en aplicaciones profesionales como
       <span class="font-bold text-fuchsia-500">Blender, Unity o VSCode</span>
-      con las que creamos una experiencia de aprendizaje interactiva y atractiva para los alumnos a la vez que adquieren capacidades fácilmente extrapolables a las herramientas más utilizadas en el mundo tecnológico actual.
+      con las que creamos una experiencia de aprendizaje interactiva y atractiva para los alumnos a la vez que adquieren capacidades claves del siglo XXI.
     </h4>
     <br />
     <div class="border-t border-slate-100 mt-2 mb-8"></div>
@@ -83,64 +83,66 @@ const tagStyles: Record<string, string> = {
           title: "Voxel Studio", 
           href: "/editors/voxel-studio", 
           tags: ["3D", "iniciación"],
-          description: "Crea mundos increíbles bloque a bloque. Una herramienta sencilla y potente para iniciarse en el diseño 3D."
+          description: "Crea mundos bloque a bloque. La forma más sencilla e intuitiva de dar los primeros pasos en 3D."
         },
-        { 
-          src: "../images/modelingstudio.png", 
-          alt: "Modeling Studio", 
-          title: "Modeling Studio", 
-          href: "/editors/modeling-studio", 
+        {
+          src: "../images/modelingstudio.png",
+          alt: "Modeling Studio",
+          title: "Modeling Studio",
+          href: "/editors/modeling-studio",
           tags: ["3D", "intermedio"],
-          description: "Domina el modelado poligonal avanzado. Diseña objetos complejos con precisión profesional."
+          description: "Modelado 3D con operaciones booleanas y planos técnicos en PDF. El editor más completo de la suite."
         },
-        { 
-          src: "../images/sculptstudio.png", 
-          alt: "Sculpting Studio", 
-          title: "Sculpting Studio", 
-          href: "/editors/sculpting-studio", 
+        {
+          src: "../images/sculptstudio.png",
+          alt: "Sculpting Studio",
+          title: "Sculpting Studio",
+          href: "/editors/sculpting-studio",
           tags: ["3D", "avanzado"],
-          description: "Esculpe digitalmente como si fuera arcilla. Ideal para crear personajes y formas orgánicas detalladas."
+          description: "Esculpe como si fuera arcilla. Crea personajes y formas orgánicas con pinceles digitales en 3D."
         },
-        { 
-          src: "../images/game2dstudio.png", 
-          alt: "Game 2D Studio", 
-          title: "Game 2D Studio", 
-          comingSoon: true, 
-          tags: ["code", "2d", "iniciación"],
-          description: "Desarrolla tus propios videojuegos 2D. Aprende lógica de programación de forma visual e intuitiva."
-        },
-        { 
-          src: "../images/game3dstudio.png", 
-          alt: "Game 3D Studio", 
-          title: "Game 3D Studio", 
-          comingSoon: true, 
+        {
+          src: "../images/game3dstudio.png",
+          alt: "Game Studio",
+          title: "Game Studio",
+          href: "/editors/game-studio",
           tags: ["code", "3d", "avanzado"],
-          description: "Crea experiencias inmersivas en 3D. El siguiente nivel en el desarrollo de videojuegos profesionales."
+          description: "Diseña y programa videojuegos 3D con físicas reales. Blockly visual y motor Rapier para tus ideas."
         },
-        { 
-          src: "../images/roboticsstudio.png", 
-          alt: "Robotics Studio", 
-          title: "Robotics Studio", 
-          comingSoon: true, 
+        {
+          src: "../images/roboticsstudio.png",
+          alt: "Robotics Studio",
+          title: "Robotics Studio",
+          href: "/editors/robotics-studio",
           tags: ["code", "avanzado"],
-          description: "Simula y programa robots en entornos virtuales. La puerta de entrada a la ingeniería y la robótica."
+          description: "Programa un robot 3D con sensores y bloques visuales. Simulación completa sin necesidad de hardware."
+        },
+        {
+          src: "",
+          alt: "",
+          title: "Próximamente",
+          comingSoon: true,
+          tags: [],
+          description: "Nuevos editores sobre impresión 3D, programación en texto e inteligencia artificial en camino."
         },
       ].map((proyecto) => (
         <div class="flex flex-col items-center text-center space-y-4 group">
           <div class="w-full rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2">
             <div class="relative rounded-2xl p-[2px] shiny-sec-border-dev">
               <div class="rounded-[0.9rem] overflow-hidden bg-slate-950 aspect-video relative">
-                <img
-                  src={proyecto.src}
-                  alt={proyecto.alt}
-                  oncontextmenu="return false;"
-                  class={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${proyecto.comingSoon ? 'opacity-50 grayscale' : ''}`}
-                  loading="lazy"
-                />
+                {proyecto.src && (
+                  <img
+                    src={proyecto.src}
+                    alt={proyecto.alt}
+                    oncontextmenu="return false;"
+                    class={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${proyecto.comingSoon ? 'opacity-50 grayscale' : ''}`}
+                    loading="lazy"
+                  />
+                )}
                 {proyecto.comingSoon && (
                   <div class="absolute inset-0 flex items-center justify-center">
                     <span class="text-white font-bold text-xs bg-slate-900/80 px-4 py-1.5 rounded-full uppercase tracking-widest border border-white/20">
-                      Próximamente
+                      En desarrollo
                     </span>
                   </div>
                 )}
@@ -155,7 +157,7 @@ const tagStyles: Record<string, string> = {
               <h5 class="text-base font-bold text-slate-800 uppercase tracking-wide">
                 {proyecto.title}
               </h5>
-              <div class="flex flex-wrap items-center justify-center gap-1.5">
+              <div class="flex flex-wrap items-center justify-center gap-1.5 min-h-[20px]">
                 {proyecto.tags.map(tag => {
                   const style = tagStyles[tag] || "bg-gray-100 text-gray-600 border-gray-200";
                   return (
@@ -176,199 +178,64 @@ const tagStyles: Record<string, string> = {
                 Próximamente
               </span>
             ) : (
-              <button
-                type="button"
-                data-href={proyecto.href}
-                class="demo-button text-[10px] uppercase font-bold px-6 py-2 rounded-xl border-2 border-[#007AFB] text-[#007AFB] hover:bg-[#007AFB] hover:text-white transition-all duration-300 active:scale-95 shadow-sm bg-white mt-auto"
+              <a
+                href={proyecto.href}
+                class="text-[10px] uppercase font-bold px-6 py-2 rounded-xl border-2 border-[#007AFB] text-[#007AFB] hover:bg-[#007AFB] hover:text-white transition-all duration-300 active:scale-95 shadow-sm bg-white mt-auto"
               >
-                Probar Editor
-              </button>
+                Ver más
+              </a>
             )}
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Modal de Advertencia Demo -->
-    <div id="demo-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6">
-      <div class="absolute inset-0 bg-slate-950/40 backdrop-blur-sm" id="demo-modal-overlay"></div>
-      <div class="relative bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden border border-slate-100 transform transition-all scale-95 opacity-0 duration-300" id="demo-modal-content">
-        <div class="p-8 text-center">
-          <div class="w-16 h-16 bg-blue-50 text-[#007AFB] rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="8" x2="12" y2="12"></line>
-              <line x1="12" y1="16" x2="12.01" y2="16"></line>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">Aviso de versión Demo</h3>
-          <div class="text-slate-600 mb-8 leading-relaxed space-y-4">
-            <p>
-              Estás a punto de probar una <span class="font-bold text-[#007AFB]">versión demo limitada</span>. 
-              Esta demo técnica te permite explorar las funcionalidades básicas de nuestra herramienta.
-            </p>
-            <div class="bg-blue-50 p-4 rounded-xl flex items-start gap-4 text-left border border-blue-100">
-              <div class="text-blue-500 shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                  <line x1="8" y1="21" x2="16" y2="21"></line>
-                  <line x1="12" y1="17" x2="12" y2="21"></line>
-                </svg>
-              </div>
-              <p class="text-sm text-blue-800">
-                Para tener una buena experiencia, te recomendamos probar esta app en un <span class="font-bold uppercase tracking-wider">PC y con ratón</span>.
-              </p>
-            </div>
-          </div>
-          <div class="flex flex-col sm:flex-row gap-3">
-            <button id="demo-close-modal" class="flex-1 px-6 py-3 rounded-2xl border-2 border-slate-200 text-slate-600 font-bold hover:bg-slate-50 transition-colors">
-              Cancelar
-            </button>
-            <button id="demo-confirm-button" class="flex-1 px-6 py-3 rounded-2xl bg-[#007AFB] text-white font-bold hover:bg-[#00477A] shadow-lg shadow-blue-200 transition-all active:scale-95">
-              Continuar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      let pendingUrl = '';
-      const modal = document.getElementById('demo-modal');
-      const modalContent = document.getElementById('demo-modal-content');
-      const overlay = document.getElementById('demo-modal-overlay');
-      const closeBtn = document.getElementById('demo-close-modal');
-      const confirmBtn = document.getElementById('demo-confirm-button');
-      const demoButtons = document.querySelectorAll('.demo-button');
-      const modalTitle = modalContent?.querySelector('h3');
-      const modalBody = modalContent?.querySelector('.text-slate-600');
-
-      // Store initial state
-      const defaultTitle = modalTitle?.textContent || '';
-      const defaultBody = modalBody?.innerHTML || '';
-      const defaultCloseText = closeBtn?.textContent || 'Cancelar';
-
-      function updateModalContent(isMobile: boolean) {
-        if (!modalTitle || !modalBody || !confirmBtn || !closeBtn) return;
-
-        if (isMobile) {
-          modalTitle.textContent = 'Dispositivo no compatible';
-          modalBody.innerHTML = `
-            <p>
-              Lo sentimos, esta aplicación <span class="font-bold text-red-500">no está disponible en móviles</span>.
-            </p>
-            <div class="bg-red-50 p-4 rounded-xl flex items-start gap-4 text-left border border-red-100 mt-4">
-              <div class="text-red-500 shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                </svg>
-              </div>
-              <p class="text-sm text-red-800">
-                Esta herramienta requiere una pantalla más grande y un ratón. Por favor, accede desde un <span class="font-bold uppercase tracking-wider">PC o Tablet</span>.
-              </p>
-            </div>
-          `;
-          confirmBtn.style.display = 'none';
-          closeBtn.textContent = 'Entendido';
-          closeBtn.classList.remove('border-slate-200', 'text-slate-600', 'hover:bg-slate-50');
-          closeBtn.classList.add('bg-slate-900', 'text-white', 'hover:bg-slate-800', 'border-transparent');
-        } else {
-          modalTitle.textContent = defaultTitle;
-          modalBody.innerHTML = defaultBody;
-          confirmBtn.style.display = '';
-          closeBtn.textContent = defaultCloseText;
-          
-          // Restore button styles
-          closeBtn.classList.add('border-slate-200', 'text-slate-600', 'hover:bg-slate-50');
-          closeBtn.classList.remove('bg-slate-900', 'text-white', 'hover:bg-slate-800', 'border-transparent');
-        }
-      }
-
-      function openModal(url: string) {
-        pendingUrl = url;
-        const isMobile = window.innerWidth < 768;
-        
-        updateModalContent(isMobile);
-
-        modal?.classList.remove('hidden');
-        modal?.classList.add('flex');
-        
-        // Trigger animation
-        setTimeout(() => {
-          modalContent?.classList.remove('scale-95', 'opacity-0');
-          modalContent?.classList.add('scale-100', 'opacity-100');
-        }, 10);
-      }
-
-      function closeModal() {
-        modalContent?.classList.add('scale-95', 'opacity-0');
-        modalContent?.classList.remove('scale-100', 'opacity-100');
-        
-        setTimeout(() => {
-          modal?.classList.add('hidden');
-          modal?.classList.remove('flex');
-          pendingUrl = '';
-        }, 300);
-      }
-
-      demoButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const url = (e.currentTarget as HTMLElement).dataset.href;
-          if (url) openModal(url);
-        });
-      });
-
-      overlay?.addEventListener('click', closeModal);
-      closeBtn?.addEventListener('click', closeModal);
-      confirmBtn?.addEventListener('click', () => {
-        if (pendingUrl) {
-          window.location.href = pendingUrl;
-        }
-      });
-
-      // Close on Escape
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
-          closeModal();
-        }
-      });
-    </script>
-
 
     <!-- Texto y botón en 2 columnas -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 items-start w-full py-12 gap-12 border-t border-slate-100 mt-12">
+    <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] items-stretch w-full py-12 gap-12 border-t border-slate-100 mt-12">
       <!-- Columna Izquierda: Listado de herramientas -->
       <div class="space-y-6">
-        <h4 class="text-xl font-bold text-slate-900">
-          Otras herramientas incluidas en la suite:
-        </h4>
-        <ul class="space-y-4">
+        <div>
+          <h4 class="text-xl font-bold text-slate-900">
+            Una plataforma educativa completa, no solo editores
+          </h4>
+          <p class="text-sm text-slate-500 mt-1">Gestión de aulas, evaluación y gamificación integrados desde el primer día.</p>
+        </div>
+        <ul class="space-y-5">
           <li class="flex items-start gap-4">
-            <div class="mt-1 p-2 rounded-lg bg-blue-50 text-[#007AFB]">
+            <div class="mt-0.5 p-2 rounded-lg bg-blue-50 text-[#007AFB] shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <div>
               <p class="font-bold text-slate-800">Gestión de aulas y alumnos</p>
-              <p class="text-sm text-slate-600">Organiza tus clases y monitoriza el acceso de tus alumnos de forma sencilla.</p>
+              <p class="text-sm text-slate-500 mt-0.5">Crea clases, añade alumnos y configura qué editores están disponibles para cada grupo. Los alumnos acceden con código de clase, sin necesidad de correo electrónico. Puedes asignar actividades preestablecidas o dejar que abran proyectos libres.</p>
             </div>
           </li>
           <li class="flex items-start gap-4">
-            <div class="mt-1 p-2 rounded-lg bg-green-50 text-green-600">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            <div class="mt-0.5 p-2 rounded-lg bg-emerald-50 text-emerald-600 shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
             </div>
             <div>
-              <p class="font-bold text-slate-800">Evaluación continua y gamificación</p>
-              <p class="text-sm text-slate-600">Gamifica el aprendizaje y realiza un seguimiento automático del progreso.</p>
+              <p class="font-bold text-slate-800">Calificación de proyectos en 3D</p>
+              <p class="text-sm text-slate-500 mt-0.5">Explora los proyectos de tus alumnos/as, califícalos y añade un comentario de feedback.</p>
             </div>
           </li>
           <li class="flex items-start gap-4">
-            <div class="mt-1 p-2 rounded-lg bg-purple-50 text-purple-600">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <div class="mt-0.5 p-2 rounded-lg bg-amber-50 text-amber-600 shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
             </div>
             <div>
-              <p class="font-bold text-slate-800">Colaboración docente</p>
-              <p class="text-sm text-slate-600">Herramientas diseñadas para compartir recursos y experiencias entre profesores.</p>
+              <p class="font-bold text-slate-800">Insignias por competencias</p>
+              <p class="text-sm text-slate-500 mt-0.5">El profesor/a puede otorgar insignias como Creatividad, Trabajo en equipo, etc. Alineadas con las competencias clave del currículo LOMLOE.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="mt-0.5 p-2 rounded-lg bg-purple-50 text-purple-600 shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z"/><path d="M8 7h6M8 11h8M8 15h5"/></svg>
+            </div>
+            <div>
+              <p class="font-bold text-slate-800">Biblioteca de tutoriales y proyectos curriculares</p>
+              <p class="text-sm text-slate-500 mt-0.5">Proyectos ya desarrollados y listos para el aula, filtrables por asignatura, etapa educativa, dificultad y editor. Diseñados y alineados con el currículo para que el profesor llegue, abra y empiece.</p>
             </div>
           </li>
         </ul>
@@ -377,27 +244,19 @@ const tagStyles: Record<string, string> = {
       <!-- Columna Derecha: Contacto y Botones -->
       <div class="bg-slate-50 p-8 md:p-10 rounded-[2.5rem] border border-slate-100 flex flex-col justify-center gap-8 shadow-sm">
         <h4 class="text-xl md:text-2xl text-slate-700 leading-relaxed font-medium">
-          Contacta con nosotros para implementar estas herramientas en tu centro de forma profesional o pruébalas gratis ahora mismo.
+          Contacta con nosotros para implementar estas herramientas en tu centro de forma profesional o pruébalas <span class="text-[#007AFB] font-black">gratis</span> ahora mismo.
         </h4>
         
-        <div class="flex flex-col sm:flex-row gap-4">
-          <button
-            class="contact-trigger flex-1 inline-flex justify-center items-center text-slate-50 px-8 py-4 rounded-2xl bg-[#007AFB] hover:bg-[#00477A] font-bold transition-all shadow-lg hover:shadow-blue-200 active:scale-95 text-lg"
+        <div class="flex flex-col gap-4">
+          <a
+            href="/licencias"
+            class="flex-1 inline-flex justify-center items-center text-[#007AFB] px-8 py-4 rounded-2xl bg-white border-2 border-[#007AFB] hover:bg-slate-50 font-bold transition-all shadow-sm active:scale-95 text-lg"
           >
-            Quiero estas apps
+            Ver licencias
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ml-2 size-5">
               <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z"></path>
             </svg>
-          </button>
-          
-          <button
-            class="pricing-trigger flex-1 inline-flex justify-center items-center text-[#007AFB] px-8 py-4 rounded-2xl bg-white border-2 border-[#007AFB] hover:bg-slate-50 font-bold transition-all shadow-sm active:scale-95 text-lg"
-          >
-            Pruébalas gratis
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ml-2 size-5">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path>
-            </svg>
-          </button>
+          </a>
         </div>
       </div>
     </div>

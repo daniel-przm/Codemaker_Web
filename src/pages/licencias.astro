@@ -1,0 +1,310 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/nav.astro';
+import Footer from '../components/footer.astro';
+import ContactModal from '../components/ContactModal.astro';
+---
+
+<Layout title="Licencias | Codemaker">
+  <Nav />
+  <ContactModal />
+
+  <main class="bg-white min-h-screen text-slate-900 font-sans">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="pt-32 pb-24 px-6 sm:px-10 patron-puntos border-b border-slate-100">
+      <div class="max-w-4xl mx-auto text-center space-y-6">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold uppercase tracking-widest mb-2">
+          Fase de lanzamiento · 100 plazas o hasta el 14 sept. 2026
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-tight">
+          Planes y <span class="text-[#007AFB]">licencias</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          Codemaker está en fase de lanzamiento. Los que entran ahora son early adopters y acceden al PRO al precio más bajo que existirá jamás.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ BANNER EARLY ADOPTER ═══ -->
+    <section class="py-12 px-6 sm:px-10 bg-amber-400 border-b border-amber-500">
+      <div class="max-w-3xl mx-auto space-y-5">
+        <div class="text-center">
+          <p class="text-xs font-black uppercase tracking-widest text-amber-800 mb-2">Oferta activa</p>
+          <p class="text-2xl md:text-3xl font-black text-amber-950">Promoción early adopter</p>
+        </div>
+        <div class="bg-amber-500/40 rounded-2xl p-6 space-y-4 text-amber-950">
+          <p class="text-sm leading-relaxed">
+            Codemaker está en <strong>fase de lanzamiento</strong>. Durante esta etapa, el plan PRO tiene un precio especial de <strong>99 €/año</strong> para recompensar a quienes confían en el producto desde el principio.
+          </p>
+          <p class="text-sm leading-relaxed">
+            Esta promoción está disponible para los <strong>100 primeros registros PRO</strong> o hasta el <strong>14 de septiembre de 2026</strong>, lo que ocurra primero. Cuando se cierre, el precio pasará a <strong>169 €/año</strong>. Quienes entren durante la promoción conservarán el precio de <strong>99 €/año de por vida</strong>.
+          </p>
+          <a href="/roadmap" class="inline-flex items-center gap-1.5 text-sm font-bold text-amber-900 hover:text-amber-950 underline underline-offset-2 transition-colors">
+            Ver el calendario de lanzamientos (roadmap)
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <div class="flex flex-col sm:flex-row gap-3 pt-1">
+            <div class="flex-1 bg-amber-400/60 rounded-xl px-4 py-3 text-center">
+              <p class="text-xs font-bold uppercase tracking-wide text-amber-800 mb-0.5">Precio de lanzamiento (ahora)</p>
+              <p class="text-2xl font-black">99 €<span class="text-base font-semibold">/año</span></p>
+            </div>
+            <div class="flex items-center justify-center text-amber-700 font-black text-lg">→</div>
+            <div class="flex-1 bg-amber-300/40 rounded-xl px-4 py-3 text-center">
+              <p class="text-xs font-bold uppercase tracking-wide text-amber-800 mb-0.5">Precio tras lanzamiento</p>
+              <p class="text-2xl font-black text-amber-800">169 €<span class="text-base font-semibold">/año</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TARJETAS DE PLANES ═══ -->
+    <section class="py-20 px-6 sm:px-10">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+
+        <!-- BASIC -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <span class="plan-badge bg-slate-100 text-slate-600 border-slate-200">Gratuita</span>
+            <h2 class="plan-name">Basic</h2>
+            <div class="plan-price">
+              <span class="text-5xl font-black text-slate-900">0 €</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">Sin tarjeta · Activación inmediata</p>
+            <p class="text-sm text-slate-500 leading-relaxed mt-3">Para docentes que quieren explorar la plataforma y enseñarla a sus alumnos sin compromiso.</p>
+          </div>
+          <ul class="plan-features mt-6">
+            <li class="feature-yes">Voxel Studio</li>
+            <li class="feature-yes">Modeling Studio</li>
+            <li class="feature-yes">Robotics Studio</li>
+            <li class="feature-yes">Tutoriales básicos</li>
+            <li class="feature-yes">Guardado en la nube</li>
+            <li class="feature-divider">PRO — bloqueado</li>
+            <li class="feature-no">Sculpting Studio</li>
+            <li class="feature-no">Game Studio</li>
+            <li class="feature-no">IAStudio <span class="text-[10px] text-slate-300 ml-1">(próximamente)</span></li>
+            <li class="feature-no">Máx. 10 proyectos (ilimitados en PRO)</li>
+            <li class="feature-no">Gestión de clases y alumnos</li>
+            <li class="feature-no">Calificaciones e insignias</li>
+            <li class="feature-no">Tutoriales avanzados</li>
+          </ul>
+          <div class="mt-auto pt-8">
+            <a href="https://3d.codemaker.es/login/teacher" class="plan-btn-outline flex flex-col items-center justify-center text-center gap-0.5">
+              <span>Empezar gratis</span>
+              <span class="text-[10px] font-normal text-slate-400">Empieza gratis sin tarjeta, tan solo registrándote</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PRO — destacado -->
+        <div class="plan-card plan-card-featured">
+          <div class="plan-header">
+            <div class="flex items-center justify-between">
+              <span class="plan-badge bg-amber-400/25 text-amber-300 border-amber-400/40">Early adopter · Lanzamiento</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-200 bg-white/10 px-2 py-1 rounded-md">Recomendado</span>
+            </div>
+            <h2 class="plan-name text-white mt-2">Pro</h2>
+
+            <!-- Precio anual destacado -->
+            <div class="mt-4 bg-white/10 rounded-2xl p-4 space-y-1">
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-5xl font-black text-white">99 €</span>
+                <span class="text-blue-200 text-sm">/año</span>
+              </div>
+              <p class="text-[11px] text-blue-300">Solo 100 plazas o hasta el 14 sept. · Después: <span class="line-through">169 €/año</span> — el tuyo se congela en 99 € de por vida</p>
+            </div>
+
+            <!-- Precio mensual secundario -->
+            <div class="mt-3 flex items-center justify-between">
+              <p class="text-blue-200 text-sm">O mes a mes: <strong class="text-white">14,99 €/mes</strong></p>
+            </div>
+
+            <p class="text-sm text-blue-100 leading-relaxed mt-3">Para el docente que quiere sacar el máximo partido con sus alumnos. Todo incluido, siempre.</p>
+          </div>
+
+          <ul class="plan-features mt-6">
+            <li class="feature-yes-inv">Todos los studios (Voxel, Modeling, Robotics, Sculpting, Game)</li>
+            <li class="feature-yes-inv">IAStudio en cuanto esté disponible</li>
+            <li class="feature-yes-inv">Proyectos ilimitados en la nube</li>
+            <li class="feature-yes-inv">Clases y alumnos ilimitados</li>
+            <li class="feature-yes-inv">Calificación de proyectos con nota y comentarios</li>
+            <li class="feature-yes-inv">Sistema de insignias para alumnos</li>
+            <li class="feature-yes-inv">Tablón de anuncios por clase</li>
+            <li class="feature-yes-inv">Todos los tutoriales y recursos</li>
+            <li class="feature-yes-inv">Acceso al proyecto del alumno (corrección)</li>
+            <li class="feature-yes-inv">Todas las funcionalidades futuras incluidas</li>
+          </ul>
+
+          <div class="mt-auto pt-8">
+            <a href="https://3d.codemaker.es/login/teacher" class="plan-btn-primary-inv flex flex-col items-center justify-center text-center gap-0.5">
+              <span>Empezar prueba de 14 días</span>
+              <span class="text-[10px] font-normal text-blue-400">Sin cargo hasta que acabe el periodo de prueba</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ TABLA COMPARATIVA ═══ -->
+    <section class="py-16 px-6 sm:px-10 bg-slate-50 border-t border-slate-100">
+      <div class="max-w-3xl mx-auto space-y-10">
+        <h2 class="text-3xl font-black text-slate-900 text-center">Comparativa de planes</h2>
+
+        <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-100 text-slate-600 text-xs uppercase tracking-wider">
+                <th class="text-left px-6 py-4 font-bold w-1/2">Funcionalidad</th>
+                <th class="text-center px-6 py-4 font-bold">Basic</th>
+                <th class="text-center px-6 py-4 font-bold text-[#007AFB]">Pro</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 bg-white">
+              {(() => {
+                const YES = 'YES';
+                const NO  = 'NO';
+                const rows = [
+                  ["Voxel Studio",                        YES,          YES],
+                  ["Modeling Studio",                     YES,          YES],
+                  ["Robotics Studio",                     YES,          YES],
+                  ["Sculpting Studio",                    NO,           YES],
+                  ["Game Studio",                         NO,           YES],
+                  ["IAStudio (próximamente)",              NO,           YES],
+                  ["Proyectos guardados",                 "Hasta 10",   "Ilimitados"],
+                  ["Tutoriales básicos",                  YES,          YES],
+                  ["Tutoriales avanzados",                NO,           YES],
+                  ["Gestión de clases y alumnos",         NO,           YES],
+                  ["Calificación de proyectos",           NO,           YES],
+                  ["Insignias para alumnos",              NO,           YES],
+                  ["Tablón de anuncios por clase",        NO,           YES],
+                  ["Acceso al proyecto del alumno",       NO,           YES],
+                  ["Funcionalidades futuras incluidas",   NO,           YES],
+                ];
+                const Cell = (val: string, col: 'basic' | 'pro') => {
+                  if (val === YES) return <td class="px-6 py-4 text-center"><span class="cell-yes" /></td>;
+                  if (val === NO)  return <td class="px-6 py-4 text-center"><span class="cell-no" /></td>;
+                  const cls = col === 'pro'
+                    ? 'px-6 py-4 text-center font-semibold text-[#007AFB]'
+                    : 'px-6 py-4 text-center text-slate-500';
+                  return <td class={cls}>{val}</td>;
+                };
+                return rows.map(([feat, basic, pro]) => (
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="px-6 py-4 font-medium text-slate-800">{feat}</td>
+                    {Cell(basic as string, 'basic')}
+                    {Cell(pro as string, 'pro')}
+                  </tr>
+                ));
+              })()}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CENTROS EDUCATIVOS Y ACADEMIAS ═══ -->
+    <section class="py-20 px-6 sm:px-10 bg-slate-900 border-t border-slate-800">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+
+        <div class="flex flex-col space-y-5">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-md bg-slate-700 text-slate-300 border border-slate-600 w-fit">Centros y academias</span>
+          <h2 class="text-3xl md:text-4xl font-black text-white leading-tight">
+            ¿Varios profesores o necesidades especiales?
+          </h2>
+          <p class="text-slate-400 leading-relaxed">
+            Los centros educativos, institutos y academias de extraescolares pueden acceder a condiciones negociadas a medida.
+          </p>
+          <ul class="space-y-3 text-sm text-slate-300 flex-1">
+            <li class="flex gap-3 items-start">
+              <span class="text-[#007AFB] font-bold mt-0.5">→</span>
+              <span><strong class="text-white">Precio por volumen</strong> — tarifas adaptadas al número de profesores y alumnos</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-[#007AFB] font-bold mt-0.5">→</span>
+              <span><strong class="text-white">Facturación al centro</strong> — factura a nombre de la institución con los datos fiscales que necesites</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-[#007AFB] font-bold mt-0.5">→</span>
+              <span><strong class="text-white">Posibilidad de formación personalizada</strong> — onboarding, sesiones prácticas y acompañamiento para el equipo docente</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-800 rounded-[2rem] p-8 border border-slate-700 flex flex-col space-y-5">
+          <p class="text-white font-bold">Solicitud de acceso para centros</p>
+          <p class="text-sm text-slate-400">Cuéntanos tu situación y te contactamos para diseñar juntos la mejor opción.</p>
+          <ul class="text-sm text-slate-400 space-y-2 flex-1">
+            <li class="flex gap-2 items-start"><span class="text-[#007AFB] mt-0.5">→</span> Nombre y email del responsable</li>
+            <li class="flex gap-2 items-start"><span class="text-[#007AFB] mt-0.5">→</span> Nombre del centro</li>
+            <li class="flex gap-2 items-start"><span class="text-[#007AFB] mt-0.5">→</span> Número aproximado de profesores y alumnos</li>
+            <li class="flex gap-2 items-start"><span class="text-[#007AFB] mt-0.5">→</span> Lo que necesitas</li>
+          </ul>
+          <a href="https://3d.codemaker.es/centros" class="w-full py-3.5 rounded-xl bg-[#007AFB] text-white font-bold hover:bg-[#005ec7] transition-all active:scale-95 text-sm shadow-lg shadow-blue-900/40 mt-auto text-center block">
+            Ponerme en contacto y solicitar presupuesto personalizado
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="py-20 px-6 sm:px-10 bg-slate-100 border-t border-slate-200">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <h2 class="text-3xl md:text-4xl font-black text-slate-900">
+          ¿No sabes por dónde empezar?
+        </h2>
+        <p class="text-lg text-slate-600">
+          Ponte en contacto con nosotros y te orientamos sobre qué plan encaja mejor con tu situación, sin compromiso.
+        </p>
+        <button class="contact-trigger inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-[#007AFB] text-white font-bold hover:bg-[#005ec7] transition-all shadow-lg shadow-blue-200 active:scale-95 text-lg">
+          Contactar con el equipo
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ─── Backgrounds ─── */
+  .patron-puntos {
+    background-image: radial-gradient(rgba(0,122,251,0.10) 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+  }
+
+  /* ─── Plan cards ─── */
+  .plan-card         { @apply flex flex-col p-8 rounded-[2rem] bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow; }
+  .plan-card-featured { @apply bg-[#007AFB] border-blue-500 shadow-xl shadow-blue-200 hover:shadow-2xl hover:shadow-blue-300; }
+
+  .plan-header  { @apply space-y-2; }
+  .plan-badge   { @apply inline-block text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border mb-1; }
+  .plan-name    { @apply text-2xl font-black text-slate-900; }
+  .plan-price   { @apply flex items-baseline gap-1 mt-3; }
+
+  /* ─── Feature lists ─── */
+  .plan-features     { @apply space-y-3 text-sm; }
+
+  .feature-yes       { @apply flex items-start gap-2.5 text-slate-700; }
+  .feature-yes::before { content: ''; @apply block w-4 h-4 shrink-0 mt-0.5 bg-emerald-100 rounded-full; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E"); background-size: 10px; background-repeat: no-repeat; background-position: center; }
+
+  .feature-no        { @apply flex items-start gap-2.5 text-slate-400; }
+  .feature-no::before { content: ''; @apply block w-4 h-4 shrink-0 mt-0.5 bg-slate-100 rounded-full; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E"); background-size: 10px; background-repeat: no-repeat; background-position: center; }
+
+  .feature-yes-inv   { @apply flex items-start gap-2.5 text-blue-50; }
+  .feature-yes-inv::before { content: ''; @apply block w-4 h-4 shrink-0 mt-0.5 bg-white/20 rounded-full; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E"); background-size: 10px; background-repeat: no-repeat; background-position: center; }
+
+  .feature-divider   { @apply text-[10px] font-bold uppercase tracking-widest text-slate-300 border-t border-slate-100 pt-3 mt-1 list-none; }
+  .feature-divider::before { content: none; }
+
+  /* ─── Table icons ─── */
+  .cell-yes { @apply inline-block w-5 h-5 bg-emerald-100 rounded-full; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E"); background-size: 11px; background-repeat: no-repeat; background-position: center; }
+  .cell-no  { @apply inline-block w-5 h-5 bg-slate-100 rounded-full; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E"); background-size: 11px; background-repeat: no-repeat; background-position: center; }
+
+  /* ─── Buttons ─── */
+  .plan-btn-outline      { @apply w-full py-3.5 rounded-xl border-2 border-[#007AFB] text-[#007AFB] font-bold hover:bg-[#007AFB] hover:text-white transition-all active:scale-95 text-sm; }
+  .plan-btn-primary-inv  { @apply w-full py-3.5 rounded-xl bg-white text-[#007AFB] font-bold hover:bg-blue-50 transition-all active:scale-95 text-sm shadow-md; }
+</style>

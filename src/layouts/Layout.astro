@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { 
-  title = "CodeMaker", 
+  title = "Codemaker", 
   description = "Escuela de programación, diseño 3D y tecnología para todas las edades. Aprende divirtiéndote con nuestra metodología innovadora.",
   image = "/images/og-image.png"
 } = Astro.props;
@@ -30,7 +30,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://codemake
     />
 
     <!-- SEO -->
-    <title>{title} | CodeMaker</title>
+    <title>{title} | Codemaker</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 

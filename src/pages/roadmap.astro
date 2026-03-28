@@ -1,0 +1,220 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/nav.astro';
+import Footer from '../components/footer.astro';
+import ContactModal from '../components/ContactModal.astro';
+
+const milestones = [
+  {
+    date: "Marzo 2026",
+    title: "Lanzamiento de la app",
+    items: [
+      "Apertura de la plataforma al público",
+      "Voxel Studio disponible",
+      "Primeros tutoriales incluidos",
+    ],
+    icon: "cube",
+    accent: "blue",
+  },
+  {
+    date: "Abril 2026",
+    title: "Robotics Studio",
+    items: [
+      "Lanzamiento de Robotics Studio",
+      "Primeros tutoriales incluidos",
+    ],
+    icon: "bot",
+    accent: "blue",
+  },
+  {
+    date: "Mayo 2026",
+    title: "Modeling Studio",
+    items: [
+      "Lanzamiento de Modeling Studio",
+      "Primeros tutoriales incluidos",
+    ],
+    icon: "sphere",
+    accent: "blue",
+  },
+  {
+    date: "Junio 2026",
+    title: "Sculpting Studio",
+    items: [
+      "Lanzamiento de Sculpting Studio",
+      "Primeros tutoriales incluidos",
+    ],
+    icon: "bust",
+    accent: "blue",
+  },
+  {
+    date: "Septiembre 2026",
+    title: "Game Studio",
+    items: [
+      "Lanzamiento de Game Studio",
+      "Primeros tutoriales incluidos",
+    ],
+    icon: "gamepad",
+    accent: "blue",
+  },
+  {
+    date: "14 sept. 2026",
+    title: "Lanzamiento oficial · Fin oferta early adopters",
+    items: [
+      "Cierre del precio de lanzamiento (99 €/año)",
+      "El precio PRO sube a 169 €/año",
+      "Los early adopters conservan 99 €/año de por vida",
+    ],
+    icon: "flag",
+    accent: "amber",
+  },
+  {
+    date: "Más adelante",
+    title: "Nuevos editores y mejoras continuas",
+    items: [
+      "Nuevos studios en desarrollo: IAStudio y más por anunciar",
+      "Mejoras y nuevas funcionalidades en los studios actuales",
+      "Los suscriptores PRO reciben todo lo nuevo sin coste adicional",
+    ],
+    icon: "sparkles",
+    accent: "slate",
+  },
+];
+---
+
+<Layout title="Roadmap | Codemaker">
+  <Nav />
+  <ContactModal />
+
+  <main class="bg-white min-h-screen text-slate-900 font-sans">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="pt-32 pb-20 px-6 sm:px-10 patron-puntos border-b border-slate-100">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-xs font-bold uppercase tracking-widest mb-2">
+          Calendario de lanzamientos · 2026
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black leading-tight text-slate-900">
+          Roadmap de <span class="text-[#007AFB]">Codemaker</span>
+        </h1>
+        <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          Aquí puedes ver el calendario de lanzamiento de cada studio y funcionalidad.
+          Estamos construyendo la plataforma paso a paso y de forma pública.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ TIMELINE ═══ -->
+    <section class="py-20 px-6 sm:px-10">
+      <div class="max-w-2xl mx-auto relative">
+
+        <!-- Vertical line -->
+        <div class="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#007AFB] via-slate-200 to-slate-100"></div>
+
+        <div class="space-y-8">
+          {milestones.map((m) => (
+            <div class="relative pl-20 md:pl-24">
+
+              <!-- Node -->
+              <div class={`absolute left-0 top-1 w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center border ${m.accent === 'amber' ? 'bg-amber-50 border-amber-200 text-amber-600' : m.accent === 'slate' ? 'bg-slate-100 border-slate-300 text-slate-500' : 'bg-blue-50 border-blue-200 text-[#007AFB]'}`}>
+                {m.icon === "cube" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                )}
+                {m.icon === "bot" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="10" x="3" y="11" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" x2="8" y1="16" y2="16"/><line x1="16" x2="16" y1="16" y2="16"/></svg>
+                )}
+                {m.icon === "sphere" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3c-3.31 4-3.31 14 0 18"/><path d="M12 3c3.31 4 3.31 14 0 18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+                )}
+                {m.icon === "bust" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-1a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v1"/><line x1="3" y1="21" x2="21" y2="21"/></svg>
+                )}
+                {m.icon === "gamepad" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="12" y2="12"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="15" x2="15.01" y1="13" y2="13"/><line x1="18" x2="18.01" y1="11" y2="11"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg>
+                )}
+                {m.icon === "flag" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg>
+                )}
+                {m.icon === "sparkles" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.88 5.76a1 1 0 0 0 .95.69h6.06l-4.9 3.56a1 1 0 0 0-.36 1.12L17.51 20 12 16.44 6.49 20l1.88-5.87a1 1 0 0 0-.36-1.12L3.11 9.45h6.06a1 1 0 0 0 .95-.69L12 3z"/></svg>
+                )}
+              </div>
+
+              <!-- Card -->
+              <div class={`rounded-2xl p-5 border ${m.accent === 'amber' ? 'bg-amber-50 border-amber-200' : m.accent === 'slate' ? 'bg-slate-50 border-slate-200 border-dashed' : 'bg-white border-slate-200 shadow-sm'}`}>
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                  <h3 class="text-base font-black text-slate-900 leading-snug">{m.title}</h3>
+                  <span class={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg shrink-0 ${m.accent === 'amber' ? 'bg-amber-100 text-amber-700 border border-amber-200' : m.accent === 'slate' ? 'bg-slate-100 text-slate-500 border border-slate-300' : 'bg-blue-50 text-[#007AFB] border border-blue-200'}`}>
+                    {m.date}
+                  </span>
+                </div>
+                <ul class="space-y-2">
+                  {m.items.map((item) => (
+                    <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                      <span class={`shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full ${m.accent === 'amber' ? 'bg-amber-500' : m.accent === 'slate' ? 'bg-slate-400' : 'bg-[#007AFB]'}`}></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ BANNER EARLY ADOPTER ═══ -->
+    <section class="py-12 px-6 sm:px-10 bg-amber-400 border-t border-b border-amber-500">
+      <div class="max-w-3xl mx-auto space-y-5">
+        <div class="text-center">
+          <p class="text-xs font-black uppercase tracking-widest text-amber-800 mb-2">Oferta activa</p>
+          <p class="text-2xl md:text-3xl font-black text-amber-950">Los studios se desbloquean automáticamente</p>
+        </div>
+        <div class="bg-amber-500/40 rounded-2xl p-6 text-amber-950 text-sm leading-relaxed space-y-2">
+          <p>
+            Al suscribirte al plan PRO, <strong>todos los studios que vayan lanzándose quedan disponibles en tu cuenta automáticamente</strong>, sin que tengas que hacer nada. Paga hoy y accede a cada studio en cuanto llegue su fecha.
+          </p>
+          <p>
+            La oferta de <strong>99 €/año</strong> cierra el <strong>14 de septiembre de 2026</strong> o al llegar a 100 suscriptores PRO. Quienes entren durante la promoción conservarán ese precio de por vida.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="py-20 px-6 sm:px-10 bg-slate-50 border-t border-slate-100">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <h2 class="text-3xl md:text-4xl font-black text-slate-900">
+          Accede ahora al precio más bajo que existirá
+        </h2>
+        <p class="text-lg text-slate-500 leading-relaxed">
+          Entra a <strong class="text-slate-800">99 €/año</strong> antes de que cierre la oferta el 14 de septiembre.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+          <a
+            href="https://3d.codemaker.es/login/teacher"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-[#007AFB] text-white font-bold hover:bg-[#005ec7] transition-all shadow-lg shadow-blue-200 active:scale-95 text-base"
+          >
+            Empezar prueba gratuita de 14 días
+          </a>
+          <a
+            href="/licencias"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-2xl border-2 border-[#007AFB] text-[#007AFB] font-bold hover:bg-[#007AFB] hover:text-white transition-all active:scale-95 text-base"
+          >
+            Ver planes y precios
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .patron-puntos {
+    background-image: radial-gradient(rgba(0,122,251,0.10) 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+  }
+</style>
