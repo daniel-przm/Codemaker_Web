@@ -54,47 +54,35 @@ import ContactModal from '../../components/ContactModal.astro';
     <section class="py-20 px-6 sm:px-10 bg-slate-50">
       <div class="max-w-5xl mx-auto space-y-12">
         <h2 class="section-title text-center">Funcionalidades principales</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <div class="feature-card">
-            <div class="feature-img-slot">
-              <!-- Captura: /images/screenshots/game-scene.png -->
-              <img src="/images/screenshots/game-scene.png" alt="Construcción de escenas" class="w-full h-full object-cover" onerror="this.style.opacity='0'" />
-            </div>
-            <div class="feature-body">
+            <div class="feature-img"></div>
+            <div class="feature-content">
               <h3 class="feature-title">Construcción de escenas</h3>
               <p class="feature-desc">Primitivas 3D (cubo, esfera, cilindro, cono, toroide, plano) y objeto Jugador con controlador en primera persona. Biblioteca de assets GLB organizados por categorías: Personajes, Naturaleza, Vehículos, Hogar y Ciudad. Drag & Drop directo a la escena.</p>
             </div>
           </div>
 
           <div class="feature-card">
-            <div class="feature-img-slot">
-              <!-- Captura: /images/screenshots/game-inspector.png -->
-              <img src="/images/screenshots/game-inspector.png" alt="Inspector de propiedades y físicas" class="w-full h-full object-cover" onerror="this.style.opacity='0'" />
-            </div>
-            <div class="feature-body">
+            <div class="feature-img"></div>
+            <div class="feature-content">
               <h3 class="feature-title">Inspector de propiedades y físicas</h3>
               <p class="feature-desc">Edita posición, rotación y escala. Asigna materiales con color, textura, rugosidad y opacidad. Configura el Rigidbody: tipo (Dinámico/Estático/Kinemático), masa, fricción y restitución. Colisionadores Box, Sphere, Capsule y Mesh.</p>
             </div>
           </div>
 
           <div class="feature-card">
-            <div class="feature-img-slot">
-              <!-- Captura: /images/screenshots/game-blockly.png -->
-              <img src="/images/screenshots/game-blockly.png" alt="Programación Blockly" class="w-full h-full object-cover" onerror="this.style.opacity='0'" />
-            </div>
-            <div class="feature-body">
+            <div class="feature-img"></div>
+            <div class="feature-content">
               <h3 class="feature-title">Programación visual Blockly</h3>
               <p class="feature-desc">Cada objeto tiene su propio programa. Bloques de <strong>eventos</strong> (al iniciar, al hacer clic), <strong>movimiento</strong> en 6 direcciones, <strong>rotación</strong> en cualquier eje, y <strong>control</strong> con condicionales, bucles y variables. Sin escribir una línea de código.</p>
             </div>
           </div>
 
           <div class="feature-card">
-            <div class="feature-img-slot">
-              <!-- Captura: /images/screenshots/game-play.png -->
-              <img src="/images/screenshots/game-play.png" alt="Modo Play con Rapier" class="w-full h-full object-cover" onerror="this.style.opacity='0'" />
-            </div>
-            <div class="feature-body">
+            <div class="feature-img"></div>
+            <div class="feature-content">
               <h3 class="feature-title">Modo Play con motor Rapier</h3>
               <p class="feature-desc">Un botón ejecuta todos los scripts de todos los objetos simultáneamente. Físicas realistas: gravedad, colisiones, fricción y rebote. El alumno juega su propia creación con movimiento WASD y salto en primera persona.</p>
             </div>
@@ -177,11 +165,11 @@ import ContactModal from '../../components/ContactModal.astro';
   .btn-primary      { @apply inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-[#007AFB] text-white font-bold hover:bg-[#00477A] transition-all shadow-lg shadow-blue-100 active:scale-95 text-lg; }
   .btn-primary-inv  { @apply inline-flex items-center justify-center px-10 py-5 rounded-2xl bg-white text-[#007AFB] font-black hover:bg-slate-100 transition-all shadow-xl active:scale-95 text-xl; }
 
-  .feature-card     { @apply bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow; }
-  .feature-img-slot { @apply aspect-video bg-slate-100 overflow-hidden; }
-  .feature-body     { @apply p-7 space-y-3; }
-  .feature-title    { @apply text-xl font-bold text-slate-900; }
-  .feature-desc     { @apply text-slate-600 leading-relaxed; }
+  .feature-card    { @apply bg-white rounded-2xl border border-slate-200 p-5 flex gap-5 items-start hover:shadow-md transition-shadow; }
+  .feature-img     { @apply w-28 h-28 rounded-xl flex-shrink-0 bg-slate-200; }
+  .feature-content { @apply flex flex-col gap-1 min-w-0; }
+  .feature-title   { @apply text-lg font-bold text-slate-900; }
+  .feature-desc    { @apply text-slate-600 leading-relaxed text-sm; }
 
   .pedagogy-card  { @apply space-y-4 text-center; }
   .pedagogy-icon  { @apply size-16 rounded-2xl flex items-center justify-center mx-auto border; }

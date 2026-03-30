@@ -57,27 +57,39 @@ import ContactModal from '../../components/ContactModal.astro';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <div class="feature-card">
-            <span class="feature-num">01</span>
-            <h3 class="feature-title">Robot 3D personalizable</h3>
-            <p class="feature-desc">Color del cuerpo y las ruedas a elección del alumno. Matriz LED frontal de 16×8 píxeles con editor visual interactivo y presets de expresiones. LEDs RGB de iluminación programables desde los bloques.</p>
+            <img src="/images/FeaturesStudios/Robotics_Personalizacion.png" alt="Robot 3D personalizable" class="feature-img" loading="lazy" />
+            <div class="feature-content">
+
+              <h3 class="feature-title">Robot 3D personalizable</h3>
+              <p class="feature-desc">Color del cuerpo y las ruedas a elección del alumno. Matriz LED frontal de 16×8 píxeles con editor visual interactivo y presets de expresiones. LEDs RGB de iluminación programables desde los bloques.</p>
+            </div>
           </div>
 
           <div class="feature-card">
-            <span class="feature-num">02</span>
-            <h3 class="feature-title">Tablero editable por baldosas</h3>
-            <p class="feature-desc">Diseña el circuito colocando suelo, muros, salida, meta y checkpoints. Pistas siguelíneas con rectas y curvas para crear cualquier circuito. Presets listos: Circuito siguelíneas y Laberinto.</p>
+            <img src="/images/FeaturesStudios/Robotics_Terreno.png" alt="Tablero editable por baldosas" class="feature-img" loading="lazy" />
+            <div class="feature-content">
+
+              <h3 class="feature-title">Tablero editable por baldosas</h3>
+              <p class="feature-desc">Diseña el circuito colocando suelo, muros, salida, meta y checkpoints. Pistas siguelíneas con rectas y curvas para crear cualquier circuito. Presets listos: Circuito siguelíneas y Laberinto.</p>
+            </div>
           </div>
 
           <div class="feature-card">
-            <span class="feature-num">03</span>
-            <h3 class="feature-title">Programación Blockly para robótica</h3>
-            <p class="feature-desc">Bloques específicos organizados por categorías: <strong>Movimiento</strong> (por pasos y preciso), <strong>Sensores</strong> (IR izq/der, distancia), <strong>LED</strong> (encender, matriz, expresiones) y <strong>Control</strong> (bucles, condicionales, esperar). Panel redimensionable.</p>
+            <img src="/images/FeaturesStudios/Robotics_Blocky.png" alt="Programación Blockly para robótica" class="feature-img" loading="lazy" />
+            <div class="feature-content">
+
+              <h3 class="feature-title">Programación Blockly para robótica</h3>
+              <p class="feature-desc">Bloques específicos organizados por categorías: <strong>Movimiento</strong> (por pasos y preciso), <strong>Sensores</strong> (IR izq/der, distancia), <strong>LED</strong> (encender, matriz, expresiones) y <strong>Control</strong> (bucles, condicionales, esperar). Panel redimensionable.</p>
+            </div>
           </div>
 
           <div class="feature-card">
-            <span class="feature-num">04</span>
-            <h3 class="feature-title">Panel de sensores en tiempo real</h3>
-            <p class="feature-desc">Cámara POV (desde los ojos del robot) y cámara Selfie. Lectura en vivo de sensores IR izquierdo y derecho (Negro/Blanco), distancia al obstáculo en centímetros y estado actual de los LEDs.</p>
+            <img src="/images/FeaturesStudios/Robotics_Sensores.png" alt="Panel de sensores en tiempo real" class="feature-img" loading="lazy" />
+            <div class="feature-content">
+
+              <h3 class="feature-title">Panel de sensores en tiempo real</h3>
+              <p class="feature-desc">Cámara POV (desde los ojos del robot) y cámara Selfie. Lectura en vivo de sensores IR izquierdo y derecho (Negro/Blanco), distancia al obstáculo en centímetros y estado actual de los LEDs.</p>
+            </div>
           </div>
 
         </div>
@@ -157,10 +169,12 @@ import ContactModal from '../../components/ContactModal.astro';
   .btn-primary      { @apply inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-[#007AFB] text-white font-bold hover:bg-[#00477A] transition-all shadow-lg shadow-blue-100 active:scale-95 text-lg; }
   .btn-primary-inv  { @apply inline-flex items-center justify-center px-10 py-5 rounded-2xl bg-white text-[#007AFB] font-black hover:bg-slate-100 transition-all shadow-xl active:scale-95 text-xl; }
 
-  .feature-card  { @apply bg-white rounded-2xl border border-slate-200 p-7 space-y-3 hover:shadow-md transition-shadow; }
-  .feature-num   { @apply block text-xs font-black uppercase tracking-widest text-[#007AFB] mb-1; }
-  .feature-title { @apply text-xl font-bold text-slate-900; }
-  .feature-desc  { @apply text-slate-600 leading-relaxed; }
+  .feature-card    { @apply bg-white rounded-2xl border border-slate-200 p-5 flex gap-5 items-start hover:shadow-md transition-shadow; }
+  .feature-img     { @apply w-28 h-28 object-cover rounded-xl flex-shrink-0; }
+  .feature-content { @apply flex flex-col gap-1 min-w-0; }
+  .feature-num     { @apply block text-xs font-black uppercase tracking-widest text-[#007AFB]; }
+  .feature-title   { @apply text-lg font-bold text-slate-900; }
+  .feature-desc    { @apply text-slate-600 leading-relaxed text-sm; }
 
   .pedagogy-card  { @apply space-y-4 text-center; }
   .pedagogy-icon  { @apply size-16 rounded-2xl flex items-center justify-center mx-auto border; }

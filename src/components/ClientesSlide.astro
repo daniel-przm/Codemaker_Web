@@ -1,10 +1,12 @@
 ---
-import { colegios } from "../data/colegios";
+import { cursospropios } from "../data/cursospropios";
 
-const technologies = colegios.map(c => ({
-  name: c.nombre,
-  file: c.logo.split('/').pop().replace('.png', '')
-}));
+const technologies = cursospropios
+  .filter(c => c.logo)
+  .map(c => ({
+    name: c.nombre,
+    file: c.logo!.split('/').pop()!.replace('.png', '')
+  }));
 ---
 
 <div class="relative overflow-x-hidden mt-12 mb-2">

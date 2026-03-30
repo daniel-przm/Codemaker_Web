@@ -57,30 +57,41 @@ import ContactModal from '../../components/ContactModal.astro';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <div class="feature-card">
-            <span class="feature-num">01</span>
-            <h3 class="feature-title">Primitivas y operaciones booleanas</h3>
-            <p class="feature-desc">Cubo, esfera, cilindro, cono, pirámide, prisma y toroide. Operaciones CSG de unión, sustracción e intersección para crear geometrías complejas a partir de formas simples.</p>
+            <img src="/images/FeaturesStudios/Modeling_Figuras.png" alt="Primitivas y operaciones booleanas" class="feature-img" loading="lazy" />
+            <div class="feature-content">
+
+              <h3 class="feature-title">Primitivas y operaciones booleanas</h3>
+              <p class="feature-desc">Cubo, esfera, cilindro, cono, pirámide, prisma y toroide. Operaciones CSG de unión, sustracción e intersección para crear geometrías complejas a partir de formas simples.</p>
+            </div>
           </div>
 
           <div class="feature-card">
-            <span class="feature-num">02</span>
-            <h3 class="feature-title">Transformaciones con Gizmos 3D</h3>
-            <p class="feature-desc">Mover, rotar y escalar con controles visuales interactivos (TransformControls). Snap a rejilla configurable para alineación precisa, y modo hueco para ver el interior de las composiciones.</p>
+            <img src="/images/FeaturesStudios/Modeling_Gizmos.png" alt="Transformaciones con Gizmos 3D" class="feature-img" loading="lazy" />
+            <div class="feature-content">
+
+              <h3 class="feature-title">Transformaciones con Gizmos 3D</h3>
+              <p class="feature-desc">Mover, rotar y escalar con controles visuales interactivos (TransformControls). Snap a rejilla configurable para alineación precisa, y modo hueco para ver el interior de las composiciones.</p>
+            </div>
           </div>
 
           <div class="feature-card">
-            <span class="feature-num">03</span>
-            <h3 class="feature-title">Materiales y 8 texturas</h3>
-            <p class="feature-desc">Paleta de 10 colores con selector libre. Texturas predefinidas: madera, piedra, metal, tela, césped, cristal, asfalto y teja. Escenarios de iluminación oscuro y claro.</p>
+            <img src="/images/FeaturesStudios/Modeling_Texturas.png" alt="Materiales y 8 texturas" class="feature-img" loading="lazy" />
+            <div class="feature-content">
+
+              <h3 class="feature-title">Materiales y 8 texturas</h3>
+              <p class="feature-desc">Paleta de 10 colores con selector libre. Texturas predefinidas: madera, piedra, metal, tela, césped, cristal, asfalto y teja. Escenarios de iluminación oscuro y claro.</p>
+            </div>
           </div>
 
           <div class="feature-card feature-card-highlight">
-            <span class="feature-num">04</span>
-            <h3 class="feature-title">
-              Planos técnicos profesionales
-              <span class="inline-block ml-2 text-[10px] font-black uppercase tracking-wider text-[#007AFB] bg-blue-50 border border-blue-100 px-2 py-0.5 rounded-md align-middle">Exclusivo</span>
-            </h3>
-            <p class="feature-desc">4 vistas simultáneas (alzado, perfil, planta, perspectiva), acotación con snapping a vértices, escalas normalizadas CAD (1:1 a 1:100) y cajetín profesional. Exportación a PDF A4 o PNG.</p>
+            <img src="/images/FeaturesStudios/Modeling_Planos.png" alt="Planos técnicos profesionales" class="feature-img" loading="lazy" />
+            <div class="feature-content">
+
+              <h3 class="feature-title">
+                Planos técnicos profesionales
+              </h3>
+              <p class="feature-desc">4 vistas simultáneas (alzado, perfil, planta, perspectiva), acotación con snapping a vértices, escalas normalizadas CAD (1:1 a 1:100) y cajetín profesional. Exportación a PDF A4 o PNG.</p>
+            </div>
           </div>
 
         </div>
@@ -160,11 +171,13 @@ import ContactModal from '../../components/ContactModal.astro';
   .btn-primary      { @apply inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-[#007AFB] text-white font-bold hover:bg-[#00477A] transition-all shadow-lg shadow-blue-100 active:scale-95 text-lg; }
   .btn-primary-inv  { @apply inline-flex items-center justify-center px-10 py-5 rounded-2xl bg-white text-[#007AFB] font-black hover:bg-slate-100 transition-all shadow-xl active:scale-95 text-xl; }
 
-  .feature-card           { @apply bg-white rounded-2xl border border-slate-200 p-7 space-y-3 hover:shadow-md transition-shadow; }
+  .feature-card           { @apply bg-white rounded-2xl border border-slate-200 p-5 flex gap-5 items-start hover:shadow-md transition-shadow; }
   .feature-card-highlight { @apply border-[#007AFB]/40 ring-1 ring-[#007AFB]/20; }
-  .feature-num            { @apply block text-xs font-black uppercase tracking-widest text-[#007AFB] mb-1; }
-  .feature-title          { @apply text-xl font-bold text-slate-900; }
-  .feature-desc           { @apply text-slate-600 leading-relaxed; }
+  .feature-img            { @apply w-28 h-28 object-cover rounded-xl flex-shrink-0; }
+  .feature-content        { @apply flex flex-col gap-1 min-w-0; }
+  .feature-num            { @apply block text-xs font-black uppercase tracking-widest text-[#007AFB]; }
+  .feature-title          { @apply text-lg font-bold text-slate-900; }
+  .feature-desc           { @apply text-slate-600 leading-relaxed text-sm; }
 
   .pedagogy-card  { @apply space-y-4 text-center; }
   .pedagogy-icon  { @apply size-16 rounded-2xl flex items-center justify-center mx-auto border; }

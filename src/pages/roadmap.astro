@@ -6,6 +6,46 @@ import ContactModal from '../components/ContactModal.astro';
 
 const milestones = [
   {
+    date: "2022",
+    title: "Nace la suite · Primer editor de modelado 3D",
+    items: [
+      "Inicio del desarrollo de Codemaker3D",
+      "Primera versión de Modeling Studio en desarrollo interno",
+    ],
+    icon: "wrench",
+    accent: "slate",
+  },
+  {
+    date: "2023",
+    title: "Primeros alumnos internos",
+    items: [
+      "Modeling Studio comienza a usarse con alumnos propios",
+      "Primeros ciclos de feedback y mejoras del editor",
+    ],
+    icon: "users",
+    accent: "slate",
+  },
+  {
+    date: "2024",
+    title: "Desarrollo de Robotics Studio",
+    items: [
+      "Inicio del desarrollo del simulador de robótica educativa",
+      "Diseño del sistema de sensores, Blockly y tablero editable",
+    ],
+    icon: "bot",
+    accent: "slate",
+  },
+  {
+    date: "2025",
+    title: "Robotics Studio en beta interna",
+    items: [
+      "Robotics Studio en fase beta con alumnos propios",
+      "Iteraciones sobre el motor de simulación y la experiencia de usuario",
+    ],
+    icon: "flask",
+    accent: "slate",
+  },
+  {
     date: "Marzo 2026",
     title: "Lanzamiento de la app",
     items: [
@@ -76,7 +116,7 @@ const milestones = [
       "Los suscriptores PRO reciben todo lo nuevo sin coste adicional",
     ],
     icon: "sparkles",
-    accent: "slate",
+    accent: "green",
   },
 ];
 ---
@@ -108,14 +148,14 @@ const milestones = [
       <div class="max-w-2xl mx-auto relative">
 
         <!-- Vertical line -->
-        <div class="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#007AFB] via-slate-200 to-slate-100"></div>
+        <div class="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-slate-300 via-[#007AFB] to-emerald-400"></div>
 
         <div class="space-y-8">
           {milestones.map((m) => (
             <div class="relative pl-20 md:pl-24">
 
               <!-- Node -->
-              <div class={`absolute left-0 top-1 w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center border ${m.accent === 'amber' ? 'bg-amber-50 border-amber-200 text-amber-600' : m.accent === 'slate' ? 'bg-slate-100 border-slate-300 text-slate-500' : 'bg-blue-50 border-blue-200 text-[#007AFB]'}`}>
+              <div class={`absolute left-0 top-1 w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center border ${m.accent === 'amber' ? 'bg-amber-50 border-amber-200 text-amber-600' : m.accent === 'slate' ? 'bg-slate-100 border-slate-300 text-slate-400' : m.accent === 'green' ? 'bg-emerald-50 border-emerald-200 text-emerald-600' : 'bg-blue-50 border-blue-200 text-[#007AFB]'}`}>
                 {m.icon === "cube" && (
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
                 )}
@@ -137,20 +177,29 @@ const milestones = [
                 {m.icon === "sparkles" && (
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.88 5.76a1 1 0 0 0 .95.69h6.06l-4.9 3.56a1 1 0 0 0-.36 1.12L17.51 20 12 16.44 6.49 20l1.88-5.87a1 1 0 0 0-.36-1.12L3.11 9.45h6.06a1 1 0 0 0 .95-.69L12 3z"/></svg>
                 )}
+                {m.icon === "wrench" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77Z"/></svg>
+                )}
+                {m.icon === "users" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                )}
+                {m.icon === "flask" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6l-4 9a1 1 0 0 0 .9 1.5h10.2a1 1 0 0 0 .9-1.5l-4-9V3"/></svg>
+                )}
               </div>
 
               <!-- Card -->
-              <div class={`rounded-2xl p-5 border ${m.accent === 'amber' ? 'bg-amber-50 border-amber-200' : m.accent === 'slate' ? 'bg-slate-50 border-slate-200 border-dashed' : 'bg-white border-slate-200 shadow-sm'}`}>
+              <div class={`rounded-2xl p-5 border ${m.accent === 'amber' ? 'bg-amber-50 border-amber-200' : m.accent === 'slate' ? 'bg-slate-50 border-slate-200 border-dashed' : m.accent === 'green' ? 'bg-emerald-50 border-emerald-200 border-dashed' : 'bg-white border-slate-200 shadow-sm'}`}>
                 <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                  <h3 class="text-base font-black text-slate-900 leading-snug">{m.title}</h3>
-                  <span class={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg shrink-0 ${m.accent === 'amber' ? 'bg-amber-100 text-amber-700 border border-amber-200' : m.accent === 'slate' ? 'bg-slate-100 text-slate-500 border border-slate-300' : 'bg-blue-50 text-[#007AFB] border border-blue-200'}`}>
+                  <h3 class={`text-base font-black leading-snug ${m.accent === 'slate' ? 'text-slate-400' : 'text-slate-900'}`}>{m.title}</h3>
+                  <span class={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg shrink-0 ${m.accent === 'amber' ? 'bg-amber-100 text-amber-700 border border-amber-200' : m.accent === 'slate' ? 'bg-slate-100 text-slate-500 border border-slate-300' : m.accent === 'green' ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' : 'bg-blue-50 text-[#007AFB] border border-blue-200'}`}>
                     {m.date}
                   </span>
                 </div>
                 <ul class="space-y-2">
                   {m.items.map((item) => (
-                    <li class="flex items-start gap-2.5 text-sm text-slate-600">
-                      <span class={`shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full ${m.accent === 'amber' ? 'bg-amber-500' : m.accent === 'slate' ? 'bg-slate-400' : 'bg-[#007AFB]'}`}></span>
+                    <li class={`flex items-start gap-2.5 text-sm ${m.accent === 'slate' ? 'text-slate-400' : 'text-slate-600'}`}>
+                      <span class={`shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full ${m.accent === 'amber' ? 'bg-amber-500' : m.accent === 'slate' ? 'bg-slate-400' : m.accent === 'green' ? 'bg-emerald-500' : 'bg-[#007AFB]'}`}></span>
                       {item}
                     </li>
                   ))}
