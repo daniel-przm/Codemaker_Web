@@ -63,6 +63,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://codemake
     --secondary: #00477A;
   }
 
+  html {
+    font-size: 17px;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
   * {
     font-family:
       "Montserrat Alternates",

@@ -1,0 +1,337 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ContactModal from '../components/ContactModal.astro';
+
+const studios = [
+  {
+    name: "Voxel Studio",
+    age: "8–10 años",
+    desc: "Construcción por bloques estilo Minecraft. Ideal para iniciarse en el pensamiento espacial.",
+    src: "/images/voxelstudio.png",
+    badge: "emerald",
+  },
+  {
+    name: "Modeling Studio",
+    age: "10–16 años",
+    desc: "Modelado 3D geométrico con exportación de planos técnicos en PDF. Como Tinkercad, pero integrado.",
+    src: "/images/modelingstudio.png",
+    badge: "blue",
+  },
+  {
+    name: "Robotics Studio",
+    age: "10–16 años",
+    desc: "Simulación de robots programados con bloques visuales. Sin hardware, sin pilas, sin averías.",
+    src: "/images/roboticsstudio.png",
+    badge: "violet",
+  },
+  {
+    name: "Sculpting Studio",
+    age: "Todas las edades",
+    desc: "Escultura digital orgánica con pinceles. Perfecto para plástica y proyectos creativos.",
+    src: "/images/sculptstudio.png",
+    badge: "pink",
+  },
+  {
+    name: "Game Studio",
+    age: "10–16 años",
+    desc: "Motor de videojuegos con físicas reales y programación Blockly. Crean juegos 3D propios.",
+    src: "/images/game3dstudio.png",
+    badge: "orange",
+  },
+  {
+    name: "IAStudio",
+    age: "Próximamente",
+    desc: "Aprende Inteligencia Artificial de forma práctica: experimenta con modelos, entiende cómo funcionan y crea tus propios proyectos.",
+    src: "",
+    badge: "slate",
+  },
+];
+
+const aulaFeatures = [
+  ["Hasta 150 alumnos, sin límite de clases", "Organiza por grupos o asignaturas"],
+  ["Activa studios por clase", "Cada clase tiene acceso solo a lo que toca ese día"],
+  ["Revisa proyectos en 3D", "Accede a los proyectos del alumno y evalúa con nota y feedback"],
+  ["Alumnos sin email", "Solo código de clase y su nombre para entrar"],
+  ["Sistema de insignias", "Gamifica el progreso de cada alumno"],
+];
+---
+
+<Layout
+  title="Codemaker3D para profes de juegosrobotica — Acceso PRO gratis hasta junio"
+  description="Suite educativa 3D con modelado, vóxeles, robótica y videojuegos. Acceso PRO gratis hasta final de curso para la comunidad de juegosrobotica.es."
+>
+  <Nav />
+  <ContactModal />
+
+  <main class="bg-white min-h-screen text-slate-900 font-sans">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="pt-32 pb-24 px-6 sm:px-10 patron-puntos border-b border-slate-100">
+      <div class="max-w-5xl mx-auto space-y-10">
+
+        <!-- Dos columnas: texto | captura -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <!-- Texto -->
+          <div class="space-y-5">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-xs font-bold uppercase tracking-widest">
+              Para la comunidad de juegosrobotica.es
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+              Bienvenido a <span class="text-[#007AFB]">Codemaker3D</span>, profe
+            </h1>
+            <p class="text-lg text-slate-500 leading-relaxed">
+              La suite educativa 3D que incluye modelado, esculpido, videojuegos, robótica e Inteligencia Artificial — todo unificado, sin instalaciones, directo en el navegador.
+            </p>
+          </div>
+
+          <!-- Captura -->
+          <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 aspect-video">
+            <img
+              src="/images/roboticsstudio.png"
+              alt="Robotics Studio — Codemaker3D"
+              class="w-full h-full object-cover"
+              oncontextmenu="return false;"
+              draggable="false"
+            />
+          </div>
+        </div>
+
+        <!-- Panel oferta — ancho completo -->
+        <div class="bg-amber-400 rounded-2xl p-6 text-center space-y-4 shadow-lg shadow-amber-100">
+          <p class="text-xl font-black text-amber-950">Acceso PRO gratis hasta el 30 de junio</p>
+          <p class="text-sm text-amber-900 leading-relaxed">
+            Sin coste, sin tarjeta. En septiembre, si te ha sido útil, puedes continuar por <strong>99 €/año</strong> — precio garantizado de por vida.
+          </p>
+          <a
+            href="https://3d.codemaker.es/login/teacher"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-950 text-amber-50 font-bold hover:bg-amber-900 transition-all active:scale-95 text-sm shadow mx-auto"
+          >
+            Crear mi cuenta gratis
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ STUDIOS ═══ -->
+    <section class="py-20 px-6 sm:px-10 border-b border-slate-100">
+      <div class="max-w-4xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+          <h2 class="text-4xl md:text-5xl font-black text-slate-900">
+            Seis herramientas.<br class="hidden sm:block" /> Una sola plataforma.
+          </h2>
+          <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            Cada studio está diseñado para una disciplina distinta, con la dificultad ajustada a la edad. Tus alumnos crean proyectos 3D reales desde el primer día.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {studios.map((s) => (
+            <div class={`studio-card ${!s.src ? 'opacity-60' : ''}`}>
+              <!-- Screenshot -->
+              <div class="rounded-xl overflow-hidden bg-slate-900 aspect-video relative shadow-sm">
+                {s.src ? (
+                  <img
+                    src={s.src}
+                    alt={s.name}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                    oncontextmenu="return false;"
+                    draggable="false"
+                  />
+                ) : (
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-slate-500 font-bold text-xs uppercase tracking-widest">En desarrollo</span>
+                  </div>
+                )}
+              </div>
+              <!-- Info -->
+              <div class="pt-1 space-y-1.5">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="studio-name">{s.name}</h3>
+                  <span class={`studio-age-badge badge-${s.badge}`}>{s.age}</span>
+                </div>
+                <p class="studio-desc">{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center pt-2">
+          <a href="/roadmap" class="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-[#007AFB] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            ¿Cuándo se lanza cada studio? Ver el roadmap completo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CALLOUT ACADEMIAS ═══ -->
+    <section class="py-20 px-6 sm:px-10 bg-[#007AFB]">
+      <div class="max-w-3xl mx-auto text-center space-y-8">
+        <span class="inline-block text-xs font-black uppercase tracking-widest px-3 py-1 rounded-md bg-white/20 text-white border border-white/30">
+          Para academias y extraescolares
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black text-white leading-tight">
+          Imagina impartir todo el curso dentro de la misma plataforma.
+        </h2>
+
+        <!-- Herramientas actuales → Codemaker -->
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          {["Tinkercad", "Scratch", "MakeCode", "CoSpaces", "mBlock", "Code.org"].map(tool => (
+            <span class="bg-white/15 text-white/80 text-sm font-semibold px-3 py-1.5 rounded-lg border border-white/20 line-through decoration-white/50">
+              {tool}
+            </span>
+          ))}
+          <span class="text-white font-black text-xl mx-1">→</span>
+          <span class="bg-white text-[#007AFB] text-sm font-black px-4 py-1.5 rounded-lg shadow-lg">
+            Codemaker3D
+          </span>
+        </div>
+
+        <p class="text-blue-100 text-lg leading-relaxed max-w-2xl mx-auto">
+          Modelado 3D, escultura, videojuegos, robótica, programación e IA — todo en una única suite, centralizado. Sin cambiar de herramienta, sin que el alumno tenga que aprender interfaces y accesos distintos, sin que tú tengas que gestionar múltiples cuentas, sin pagar licencias en diferentes softwares.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ GESTIÓN DE AULA ═══ -->
+    <section class="py-20 px-6 sm:px-10 bg-slate-900 border-b border-slate-800">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-5">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-md bg-slate-700 text-slate-300 border border-slate-600">
+            Gestión de aulas y alumnos integrada
+          </span>
+          <h2 class="text-3xl md:text-4xl font-black text-white leading-tight">
+            Múltiples tecnologías, un solo ecosistema
+          </h2>
+          <p class="text-slate-400 leading-relaxed">
+            Creas clases, añades alumnos, activas o desactivas studios según la actividad del día, y revisas cada proyecto en 3D con nota y comentarios.
+          </p>
+          <p class="text-slate-400 leading-relaxed">
+            Tus alumnos entran solo con un <strong class="text-white">código de clase y su nombre</strong> — sin cuenta, sin email, sin trámites.
+          </p>
+        </div>
+
+        <div class="bg-slate-800 rounded-[2rem] p-8 border border-slate-700 space-y-5">
+          {aulaFeatures.map(([feat, desc]) => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-[#007AFB]/20 border border-[#007AFB]/40 flex items-center justify-center shrink-0 mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#007AFB" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <p class="text-white font-semibold text-sm">{feat}</p>
+                <p class="text-slate-400 text-xs mt-0.5">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TRES PASOS ═══ -->
+    <section class="py-20 px-6 sm:px-10 border-b border-slate-100">
+      <div class="max-w-2xl mx-auto space-y-12">
+        <div class="text-center">
+          <h2 class="text-4xl md:text-5xl font-black text-slate-900">Tres pasos y listo</h2>
+        </div>
+
+        <div class="space-y-8">
+          <!-- Paso 2 -->
+          <div class="flex gap-5 items-start">
+            <div class="w-12 h-12 rounded-2xl bg-[#007AFB] text-white font-black text-xl flex items-center justify-center shrink-0 shadow-lg shadow-blue-200">1</div>
+            <div class="space-y-2.5 pt-1.5">
+              <p class="font-black text-slate-900 text-lg">Regístrate con tus datos e introduce el código de invitación</p>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                En el campo <strong class="text-slate-700">"Código de invitación"</strong>, escribe:
+              </p>
+              <div class="inline-block bg-slate-900 text-emerald-400 font-mono font-bold px-5 py-2.5 rounded-xl tracking-widest border border-slate-700 select-all text-sm">
+                JUEGOSROBOTICA
+              </div>
+            </div>
+          </div>
+
+          <!-- Paso 1 -->
+          <div class="flex gap-5 items-start">
+            <div class="w-12 h-12 rounded-2xl bg-[#007AFB] text-white font-black text-xl flex items-center justify-center shrink-0 shadow-lg shadow-blue-200">2</div>
+            <div class="space-y-1.5 pt-1.5">
+              <p class="font-black text-slate-900 text-lg">Crea tu cuenta</p>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                Elige la licencia <strong class="text-slate-700">BASIC</strong> (gratuita) para saltarte el pago.
+              </p>
+            </div>
+          </div>
+
+
+          <!-- Paso 3 -->
+          <div class="flex gap-5 items-start">
+            <div class="w-12 h-12 rounded-2xl bg-[#007AFB] text-white font-black text-xl flex items-center justify-center shrink-0 shadow-lg shadow-blue-200">3</div>
+            <div class="space-y-1.5 pt-1.5">
+              <p class="font-black text-slate-900 text-lg">Te cambio de BASIC a PRO en menos de 48 h</p>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                Activo tu licencia PRO manualmente y te mando un email de confirmación. A partir de ahí tienes <strong class="text-slate-700">acceso completo y gratis a todo hasta el 30 de junio</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center pt-2">
+          <a
+            href="https://3d.codemaker.es/login/teacher"
+            class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-[#007AFB] text-white font-bold hover:bg-[#005ec7] transition-all shadow-lg shadow-blue-200 active:scale-95 text-lg"
+          >
+            Empezar ahora — es gratis
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FIRMA / CIERRE ═══ -->
+    <section class="py-20 px-6 sm:px-10 bg-slate-50 border-t border-slate-200">
+      <div class="max-w-xl mx-auto text-center space-y-6">
+        <img
+          src="/images/Dani.jpeg"
+          alt="Dani, desarrollador de Codemaker3D"
+          class="w-36 h-36 rounded-full object-cover mx-auto shadow-lg shadow-blue-200 border-4 border-white"
+        />
+        <p class="text-slate-600 leading-relaxed text-lg">
+          Soy <strong class="text-slate-900">Dani</strong>, uno de los desarrolladores de Codemaker3D y tu persona de contacto en este proceso. Soy profe de FP de informática, y paralelamente junto a mis compañeros docentes y técnicos, lanzamos en 2014 el proyecto Codemaker. Empezamos impartiendo cursos y extraescolares de programación, robótica, 3D... y poco a poco empezamos a desarrollar nuestras propias aplicaciones. Hoy abrimos nuestras apps a todos los docentes apasionados por formar a sus alumnos y alumnas en las habilidades STEAM.
+        </p>
+        <p class="text-slate-500 text-sm">
+          Si tienes cualquier duda, contacta conmigo.
+        </p>
+        <button class="contact-trigger inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#007AFB] text-[#007AFB] font-bold hover:bg-[#007AFB] hover:text-white transition-all active:scale-95 text-sm">
+          Escribirme directamente
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .patron-puntos {
+    background-image: radial-gradient(rgba(0,122,251,0.10) 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+  }
+
+  /* ─── Studio cards ─── */
+  .studio-card { @apply flex flex-col gap-3 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow; }
+
+  .studio-name { @apply text-base font-black text-slate-900; }
+  .studio-desc { @apply text-sm text-slate-500 leading-relaxed; }
+
+  .studio-age-badge { @apply shrink-0 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md; }
+  .badge-emerald { @apply bg-emerald-50 text-emerald-700 border border-emerald-200; }
+  .badge-blue    { @apply bg-blue-50 text-blue-700 border border-blue-200; }
+  .badge-violet  { @apply bg-violet-50 text-violet-700 border border-violet-200; }
+  .badge-pink    { @apply bg-pink-50 text-pink-700 border border-pink-200; }
+  .badge-orange  { @apply bg-orange-50 text-orange-700 border border-orange-200; }
+  .badge-slate   { @apply bg-slate-100 text-slate-500 border border-slate-200; }
+</style>
