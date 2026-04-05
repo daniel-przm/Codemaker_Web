@@ -79,15 +79,15 @@ function getSchoolInitial(name: string) {
                   ))}
                 </div>
                 <div class="flex flex-col sm:flex-row items-center justify-end gap-3 w-full lg:w-auto">
-                  <a
-                    href={`/centros/${colegio.id}`}
-                    class="w-full sm:w-auto text-center inline-flex justify-center items-center text-white transition duration-300 ease-in-out px-8 py-3 rounded-xl bg-[#007AFB] hover:bg-[#00477A] text-sm font-bold shadow-md"
+                  <span
+                    class="w-full sm:w-auto text-center inline-flex justify-center items-center text-slate-400 px-8 py-3 rounded-xl bg-slate-100 text-sm font-bold cursor-not-allowed select-none"
+                    title="Próximamente"
                   >
                     Ver detalles
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ml-2 size-4">
                       <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
                     </svg>
-                  </a>
+                  </span>
                 </div>
               </li>
             ))}

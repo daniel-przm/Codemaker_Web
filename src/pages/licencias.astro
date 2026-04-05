@@ -35,7 +35,7 @@ import ContactModal from '../components/ContactModal.astro';
         </div>
         <div class="bg-amber-500/40 rounded-2xl p-6 space-y-4 text-amber-950">
           <p class="text-sm leading-relaxed">
-            Codemaker está en <strong>fase de lanzamiento</strong>. Durante esta etapa, el plan PRO tiene un precio especial de <strong>99 €/año</strong> para recompensar a quienes confían en el producto desde el principio.
+            Codemaker está en <strong>fase de lanzamiento</strong>. Durante esta etapa, el plan PRO tiene un precio especial de <strong>99 €/año</strong> (o <strong>14,99 €/mes</strong> sin permanencia) para recompensar a quienes confían en el producto desde el principio.
           </p>
           <p class="text-sm leading-relaxed">
             Esta promoción está disponible para los <strong>100 primeros registros PRO</strong> o hasta el <strong>30 de septiembre de 2026</strong>, lo que ocurra primero. Cuando se cierre, el precio pasará a <strong>199 €/año</strong>. Quienes entren durante la promoción conservarán el precio de <strong>99 €/año de por vida</strong>.
@@ -61,19 +61,25 @@ import ContactModal from '../components/ContactModal.astro';
 
     <!-- ═══ TARJETAS DE PLANES ═══ -->
     <section class="py-20 px-6 sm:px-10">
-      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
 
         <!-- BASIC -->
         <div class="plan-card">
-          <div class="plan-header">
+          <!-- Tier -->
+          <div class="flex items-center justify-between mb-2">
             <span class="plan-badge bg-slate-100 text-slate-600 border-slate-200">Gratuita</span>
-            <h2 class="plan-name">Basic</h2>
-            <div class="plan-price">
+          </div>
+          <h2 class="plan-name text-slate-900">Basic</h2>
+          <!-- Precio -->
+          <div class="plan-price-box mt-4 bg-slate-50 border border-slate-200">
+            <div class="flex items-baseline gap-1.5">
               <span class="text-5xl font-black text-slate-900">0 €</span>
             </div>
-            <p class="text-xs text-slate-400 mt-1">Sin tarjeta · Activación inmediata</p>
-            <p class="text-sm text-slate-500 leading-relaxed mt-3">Para docentes que quieren explorar la plataforma y enseñarla a sus alumnos sin compromiso.</p>
+            <p class="text-[11px] text-slate-400 mt-1">Sin tarjeta · Activación inmediata</p>
           </div>
+          <!-- Descripción -->
+          <p class="text-sm text-slate-500 leading-relaxed mt-4">Para docentes que quieren explorar la plataforma y enseñarla a sus alumnos sin compromiso.</p>
+          <!-- Features -->
           <ul class="plan-features mt-6">
             <li class="feature-yes">Voxel Studio</li>
             <li class="feature-yes">Modeling Studio</li>
@@ -84,7 +90,7 @@ import ContactModal from '../components/ContactModal.astro';
             <li class="feature-no">Sculpting Studio</li>
             <li class="feature-no">Game Studio</li>
             <li class="feature-no">IAStudio <span class="text-[10px] text-slate-300 ml-1">(próximamente)</span></li>
-            <li class="feature-no">Máx. 10 proyectos (ilimitados en PRO)</li>
+            <li class="feature-no">Máx. 10 proyectos</li>
             <li class="feature-no">Gestión de clases y alumnos</li>
             <li class="feature-no">Calificaciones e insignias</li>
             <li class="feature-no">Tutoriales avanzados</li>
@@ -92,37 +98,48 @@ import ContactModal from '../components/ContactModal.astro';
           <div class="mt-auto pt-8">
             <a href="https://3d.codemaker.es/login/teacher" class="plan-btn-outline flex flex-col items-center justify-center text-center gap-0.5">
               <span>Empezar gratis</span>
-              <span class="text-[10px] font-normal text-slate-400">Empieza gratis sin tarjeta, tan solo registrándote</span>
+              <span class="text-[10px] font-normal text-slate-400">Sin tarjeta, solo regístrate</span>
             </a>
           </div>
         </div>
 
-        <!-- PRO — destacado -->
+        <!-- PRO -->
         <div class="plan-card plan-card-featured">
-          <div class="plan-header">
-            <div class="flex items-center justify-between">
-              <span class="plan-badge bg-amber-400/25 text-amber-300 border-amber-400/40">Early adopter · Lanzamiento</span>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-200 bg-white/10 px-2 py-1 rounded-md">Recomendado</span>
+          <!-- Tier -->
+          <div class="flex items-center justify-between mb-2">
+            <span class="plan-badge bg-amber-400/25 text-amber-300 border-amber-400/40">Early adopter</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-blue-200 bg-white/10 px-2 py-1 rounded-md border border-white/10">Recomendado</span>
+          </div>
+          <div class="flex items-center justify-between mt-1">
+            <h2 class="plan-name text-white">Pro</h2>
+            <!-- Switch anual / mensual -->
+            <div class="flex items-center bg-white/10 rounded-full p-0.5 gap-0.5">
+              <button id="btn-anual" class="billing-btn billing-btn-active">Anual</button>
+              <button id="btn-mensual" class="billing-btn">Mensual</button>
             </div>
-            <h2 class="plan-name text-white mt-2">Pro</h2>
-
-            <!-- Precio anual destacado -->
-            <div class="mt-4 bg-white/10 rounded-2xl p-4 space-y-1">
+          </div>
+          <!-- Precio -->
+          <div class="plan-price-box mt-4 bg-white/10 border border-white/20">
+            <!-- Vista anual -->
+            <div id="price-anual">
               <div class="flex items-baseline gap-1.5">
                 <span class="text-5xl font-black text-white">99 €</span>
                 <span class="text-blue-200 text-sm">/año</span>
               </div>
-              <p class="text-[11px] text-blue-300">Solo 100 plazas o hasta el 30 sept. · Después: <span class="line-through">199 €/año</span> — el tuyo se congela en 99 € de por vida</p>
+              <p class="text-[11px] text-blue-300 mt-1">≈ 8,25 €/mes · 100 plazas o hasta el 30 sept.</p>
             </div>
-
-            <!-- Precio mensual secundario -->
-            <div class="mt-3 flex items-center justify-between">
-              <p class="text-blue-200 text-sm">O mes a mes: <strong class="text-white">14,99 €/mes</strong></p>
+            <!-- Vista mensual -->
+            <div id="price-mensual" class="hidden">
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-5xl font-black text-white">14,99 €</span>
+                <span class="text-blue-200 text-sm">/mes</span>
+              </div>
+              <p class="text-[11px] text-blue-300 mt-1">Sin permanencia · cancela cuando quieras</p>
             </div>
-
-            <p class="text-sm text-blue-100 leading-relaxed mt-3">Para el docente que quiere sacar el máximo partido con sus alumnos. Todo incluido, siempre.</p>
           </div>
-
+          <!-- Descripción -->
+          <p class="text-sm text-blue-100 leading-relaxed mt-4">Para el docente que quiere sacar el máximo partido con sus alumnos. Todo incluido, siempre.</p>
+          <!-- Features -->
           <ul class="plan-features mt-6">
             <li class="feature-yes-inv">Todos los studios (Voxel, Modeling, Robotics, Sculpting, Game)</li>
             <li class="feature-yes-inv">IAStudio en cuanto esté disponible</li>
@@ -135,11 +152,46 @@ import ContactModal from '../components/ContactModal.astro';
             <li class="feature-yes-inv">Acceso al proyecto del alumno (corrección)</li>
             <li class="feature-yes-inv">Todas las funcionalidades futuras incluidas</li>
           </ul>
-
           <div class="mt-auto pt-8">
             <a href="https://3d.codemaker.es/login/teacher" class="plan-btn-primary-inv flex flex-col items-center justify-center text-center gap-0.5">
               <span>Empezar prueba de 14 días</span>
               <span class="text-[10px] font-normal text-blue-400">Sin cargo hasta que acabe el periodo de prueba</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CENTROS -->
+        <div class="plan-card plan-card-centros">
+
+          <!-- Tier -->
+          <div class="flex items-center justify-between mb-2">
+            <span class="plan-badge bg-slate-700 text-slate-300 border-slate-600">Centros y academias</span>
+          </div>
+          <h2 class="plan-name text-white">Centros</h2>
+          <!-- Precio -->
+          <div class="plan-price-box mt-4 bg-white/10 border border-white/10">
+            <div class="flex items-baseline gap-1.5">
+              <span class="text-5xl font-black text-white">A medida</span>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-1">Precio según número de profesores y alumnos</p>
+          </div>
+          <!-- Descripción -->
+          <p class="text-sm text-slate-300 leading-relaxed mt-4">Plan a medida para centros educativos, institutos y academias con varios profesores y gran cantidad de alumnado.</p>
+          <!-- Features -->
+          <ul class="plan-features mt-6">
+            <li class="feature-yes-inv">Todo lo incluido en PRO</li>
+            <li class="feature-yes-inv">Múltiples profesores</li>
+            <li class="feature-yes-inv">Alumnos ilimitados</li>
+            <li class="feature-yes-inv">Facturación a nombre del centro</li>
+            <li class="feature-yes-inv">Precio especial por volumen</li>
+            <li class="feature-yes-inv">Onboarding y formación para el equipo</li>
+            <li class="feature-yes-inv">Acompañamiento y soporte prioritario</li>
+            <li class="feature-yes-inv">Planes docentes de diferentes materias</li>
+          </ul>
+          <div class="mt-auto pt-8">
+            <a href="https://3d.codemaker.es/centros" class="plan-btn-outline-inv flex flex-col items-center justify-center text-center gap-0.5">
+              <span>Solicitar presupuesto</span>
+              <span class="text-[10px] font-normal text-slate-500">Cuéntanos tu situación y te contactamos</span>
             </a>
           </div>
         </div>
@@ -156,9 +208,10 @@ import ContactModal from '../components/ContactModal.astro';
           <table class="w-full text-sm">
             <thead>
               <tr class="bg-slate-100 text-slate-600 text-xs uppercase tracking-wider">
-                <th class="text-left px-6 py-4 font-bold w-1/2">Funcionalidad</th>
+                <th class="text-left px-6 py-4 font-bold">Funcionalidad</th>
                 <th class="text-center px-6 py-4 font-bold">Basic</th>
                 <th class="text-center px-6 py-4 font-bold text-[#007AFB]">Pro</th>
+                <th class="text-center px-6 py-4 font-bold text-slate-700">Centros</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-100 bg-white">
@@ -166,35 +219,42 @@ import ContactModal from '../components/ContactModal.astro';
                 const YES = 'YES';
                 const NO  = 'NO';
                 const rows = [
-                  ["Voxel Studio",                        YES,          YES],
-                  ["Modeling Studio",                     YES,          YES],
-                  ["Robotics Studio",                     YES,          YES],
-                  ["Sculpting Studio",                    NO,           YES],
-                  ["Game Studio",                         NO,           YES],
-                  ["IAStudio (próximamente)",              NO,           YES],
-                  ["Proyectos guardados",                 "Hasta 10",   "Ilimitados"],
-                  ["Tutoriales básicos",                  YES,          YES],
-                  ["Tutoriales avanzados",                NO,           YES],
-                  ["Gestión de clases y alumnos",         NO,           YES],
-                  ["Calificación de proyectos",           NO,           YES],
-                  ["Insignias para alumnos",              NO,           YES],
-                  ["Tablón de anuncios por clase",        NO,           YES],
-                  ["Acceso al proyecto del alumno",       NO,           YES],
-                  ["Funcionalidades futuras incluidas",   NO,           YES],
+                  ["Voxel Studio",                        YES,          YES,           YES],
+                  ["Modeling Studio",                     YES,          YES,           YES],
+                  ["Robotics Studio",                     YES,          YES,           YES],
+                  ["Sculpting Studio",                    NO,           YES,           YES],
+                  ["Game Studio",                         NO,           YES,           YES],
+                  ["IAStudio (próximamente)*",              NO,           YES,           YES],
+                  ["Proyectos guardados**",                 "Hasta 10",   "Ilimitados",  "Ilimitados"],
+                  ["Tutoriales básicos",                  YES,          YES,           YES],
+                  ["Tutoriales avanzados",                NO,           YES,           YES],
+                  ["Gestión de clases y alumnos",         NO,           YES,           YES],
+                  ["Calificación de proyectos",           NO,           YES,           YES],
+                  ["Insignias para alumnos",              NO,           YES,           YES],
+                  ["Tablón de anuncios por clase",        NO,           YES,           YES],
+                  ["Acceso al proyecto del alumno",       NO,           YES,           YES],
+                  ["Número de profesores",                "1",          "1",           "A medida"],
+                  ["Número de alumnos",                   "—",          "Hasta 150",   "A medida"],
+                  ["Facturación personalizada para el centro",               NO,           NO,            YES],
+                  ["Formación y onboarding",              NO,           NO,            YES],
+                  ["Soporte prioritario",                 NO,           NO,            YES],
+                  ["Funcionalidades futuras incluidas",   NO,           YES,           YES],
                 ];
-                const Cell = (val: string, col: 'basic' | 'pro') => {
-                  if (val === YES) return <td class="px-6 py-4 text-center"><span class="cell-yes" /></td>;
-                  if (val === NO)  return <td class="px-6 py-4 text-center"><span class="cell-no" /></td>;
-                  const cls = col === 'pro'
-                    ? 'px-6 py-4 text-center font-semibold text-[#007AFB]'
-                    : 'px-6 py-4 text-center text-slate-500';
+                const Cell = (val: string, col: 'basic' | 'pro' | 'centros') => {
+                  if (val === YES) return <td class="px-4 py-4 text-center"><span class="cell-yes" /></td>;
+                  if (val === NO)  return <td class="px-4 py-4 text-center"><span class="cell-no" /></td>;
+                  const cls =
+                    col === 'pro'     ? 'px-4 py-4 text-center font-semibold text-[#007AFB]' :
+                    col === 'centros' ? 'px-4 py-4 text-center font-semibold text-slate-700' :
+                                        'px-4 py-4 text-center text-slate-500';
                   return <td class={cls}>{val}</td>;
                 };
-                return rows.map(([feat, basic, pro]) => (
+                return rows.map(([feat, basic, pro, centros]) => (
                   <tr class="hover:bg-slate-50 transition-colors">
-                    <td class="px-6 py-4 font-medium text-slate-800">{feat}</td>
+                    <td class="px-4 py-4 font-medium text-slate-800">{feat}</td>
                     {Cell(basic as string, 'basic')}
                     {Cell(pro as string, 'pro')}
+                    {Cell(centros as string, 'centros')}
                   </tr>
                 ));
               })()}
@@ -202,51 +262,8 @@ import ContactModal from '../components/ContactModal.astro';
           </table>
         </div>
       </div>
-    </section>
-
-    <!-- ═══ CENTROS EDUCATIVOS Y ACADEMIAS ═══ -->
-    <section class="py-20 px-6 sm:px-10 bg-slate-900 border-t border-slate-800">
-      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-
-        <div class="flex flex-col space-y-5">
-          <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-md bg-slate-700 text-slate-300 border border-slate-600 w-fit">Centros y academias</span>
-          <h2 class="text-3xl md:text-4xl font-black text-white leading-tight">
-            ¿Varios profesores o necesidades especiales?
-          </h2>
-          <p class="text-slate-400 leading-relaxed">
-            Los centros educativos, institutos y academias de extraescolares pueden acceder a condiciones negociadas a medida.
-          </p>
-          <ul class="space-y-3 text-sm text-slate-300 flex-1">
-            <li class="flex gap-3 items-start">
-              <span class="text-[#007AFB] font-bold mt-0.5">→</span>
-              <span><strong class="text-white">Precio por volumen</strong> — tarifas adaptadas al número de profesores y alumnos</span>
-            </li>
-            <li class="flex gap-3 items-start">
-              <span class="text-[#007AFB] font-bold mt-0.5">→</span>
-              <span><strong class="text-white">Facturación al centro</strong> — factura a nombre de la institución con los datos fiscales que necesites</span>
-            </li>
-            <li class="flex gap-3 items-start">
-              <span class="text-[#007AFB] font-bold mt-0.5">→</span>
-              <span><strong class="text-white">Posibilidad de formación personalizada</strong> — onboarding, sesiones prácticas y acompañamiento para el equipo docente</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="bg-slate-800 rounded-[2rem] p-8 border border-slate-700 flex flex-col space-y-5">
-          <p class="text-white font-bold">Solicitud de acceso para centros</p>
-          <p class="text-sm text-slate-400">Cuéntanos tu situación y te contactamos para diseñar juntos la mejor opción.</p>
-          <ul class="text-sm text-slate-400 space-y-2 flex-1">
-            <li class="flex gap-2 items-start"><span class="text-[#007AFB] mt-0.5">→</span> Nombre y email del responsable</li>
-            <li class="flex gap-2 items-start"><span class="text-[#007AFB] mt-0.5">→</span> Nombre del centro</li>
-            <li class="flex gap-2 items-start"><span class="text-[#007AFB] mt-0.5">→</span> Número aproximado de profesores y alumnos</li>
-            <li class="flex gap-2 items-start"><span class="text-[#007AFB] mt-0.5">→</span> Lo que necesitas</li>
-          </ul>
-          <a href="https://3d.codemaker.es/centros" class="w-full py-3.5 rounded-xl bg-[#007AFB] text-white font-bold hover:bg-[#005ec7] transition-all active:scale-95 text-sm shadow-lg shadow-blue-900/40 mt-auto text-center block">
-            Ponerme en contacto y solicitar presupuesto personalizado
-          </a>
-        </div>
-
-      </div>
+      <p class="text-center mt-12 text-sm">* IAStudio ofrecera créditos de IA incluidos en los planes, con opción de ampliarlos en caso de necesitar un uso más intensivo.</p>
+      <p class="text-center text-sm">** Proyectos ilimitados siempre que se considere un uso responsable de la app.</p>
     </section>
 
     <!-- ═══ CTA ═══ -->
@@ -277,12 +294,13 @@ import ContactModal from '../components/ContactModal.astro';
   }
 
   /* ─── Plan cards ─── */
-  .plan-card         { @apply flex flex-col p-8 rounded-[2rem] bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow; }
+  .plan-card          { @apply flex flex-col p-8 rounded-[2rem] bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow; }
   .plan-card-featured { @apply bg-[#007AFB] border-blue-500 shadow-xl shadow-blue-200 hover:shadow-2xl hover:shadow-blue-300; }
+  .plan-card-centros  { @apply bg-slate-900 border-slate-700 shadow-xl hover:shadow-2xl; }
 
   .plan-header  { @apply space-y-2; }
   .plan-badge   { @apply inline-block text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border mb-1; }
-  .plan-name    { @apply text-2xl font-black text-slate-900; }
+  .plan-name    { @apply text-2xl font-black; }
   .plan-price   { @apply flex items-baseline gap-1 mt-3; }
 
   /* ─── Feature lists ─── */
@@ -304,7 +322,36 @@ import ContactModal from '../components/ContactModal.astro';
   .cell-yes { @apply inline-block w-5 h-5 bg-emerald-100 rounded-full; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E"); background-size: 11px; background-repeat: no-repeat; background-position: center; }
   .cell-no  { @apply inline-block w-5 h-5 bg-slate-100 rounded-full; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E"); background-size: 11px; background-repeat: no-repeat; background-position: center; }
 
+  /* ─── Price box ─── */
+  .plan-price-box { @apply rounded-2xl p-4 space-y-1; }
+
   /* ─── Buttons ─── */
   .plan-btn-outline      { @apply w-full py-3.5 rounded-xl border-2 border-[#007AFB] text-[#007AFB] font-bold hover:bg-[#007AFB] hover:text-white transition-all active:scale-95 text-sm; }
   .plan-btn-primary-inv  { @apply w-full py-3.5 rounded-xl bg-white text-[#007AFB] font-bold hover:bg-blue-50 transition-all active:scale-95 text-sm shadow-md; }
+  .plan-btn-outline-inv  { @apply w-full py-3.5 rounded-xl border-2 border-slate-600 text-slate-300 font-bold hover:bg-slate-700 hover:text-white transition-all active:scale-95 text-sm; }
+
+  /* ─── Billing toggle ─── */
+  .billing-btn        { @apply relative z-10 px-3 py-0.5 rounded-full text-xs font-bold text-blue-200 transition-all; }
+  .billing-btn-active { @apply bg-white text-[#007AFB] shadow-sm; }
 </style>
+
+<script>
+  const priceAnual   = document.getElementById('price-anual');
+  const priceMensual = document.getElementById('price-mensual');
+  const btnAnual     = document.getElementById('btn-anual');
+  const btnMensual   = document.getElementById('btn-mensual');
+
+  btnAnual?.addEventListener('click', () => {
+    priceAnual?.classList.remove('hidden');
+    priceMensual?.classList.add('hidden');
+    btnAnual.classList.add('billing-btn-active');
+    btnMensual?.classList.remove('billing-btn-active');
+  });
+
+  btnMensual?.addEventListener('click', () => {
+    priceMensual?.classList.remove('hidden');
+    priceAnual?.classList.add('hidden');
+    btnMensual.classList.add('billing-btn-active');
+    btnAnual?.classList.remove('billing-btn-active');
+  });
+</script>
