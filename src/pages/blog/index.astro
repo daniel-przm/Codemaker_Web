@@ -1,0 +1,181 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Nav from "@/components/Nav.astro";
+import Footer from "@/components/Footer.astro";
+
+const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
+---
+
+<Layout
+  title="Blog"
+  description="Artículos sobre programación, diseño 3D, robótica y tecnología educativa del equipo de Codemaker."
+>
+  <Nav />
+
+  <main class="min-h-screen bg-white pt-32 pb-24 px-4">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Header -->
+      <div class="mb-14 max-w-2xl">
+        <p class="text-xs text-blue-600 uppercase tracking-[0.2em] font-semibold mb-3">Blog</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
+          Tecnología y educación
+        </h1>
+        <p class="text-slate-500 text-lg leading-relaxed">
+          Artículos sobre programación, diseño 3D, robótica y metodología educativa del equipo de Codemaker.
+        </p>
+      </div>
+
+      <!-- Tag filter -->
+      {allTags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-12" id="tag-filters">
+          <button
+            class="tag-btn active text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full border transition-all"
+            data-tag="all"
+          >
+            Todos
+          </button>
+          {allTags.map((tag) => (
+            <button
+              class="tag-btn text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full border transition-all"
+              data-tag={tag.toLowerCase().replace(/\s+/g, "-")}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <!-- Posts grid -->
+      <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => {
+          const tagSlugs = post.data.tags.map((t) => t.toLowerCase().replace(/\s+/g, "-"));
+          return (
+            <article
+              class="post-card group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              data-tags={tagSlugs.join(",")}
+            >
+              {post.data.image ? (
+                <div class="overflow-hidden h-48 bg-slate-100">
+                  <img
+                    src={post.data.image}
+                    alt={post.data.imageAlt ?? post.data.title}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              ) : (
+                <div class="h-48 bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center border-b border-slate-100">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+              )}
+
+              <div class="p-6 flex flex-col flex-1">
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  {post.data.tags.map((tag) => (
+                    <span class="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-blue-50 text-blue-600 border border-blue-100">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-lg font-bold text-slate-900 leading-snug mb-3 group-hover:text-blue-700 transition-colors">
+                  <a href={`/blog/${post.slug}`} class="after:absolute after:inset-0">
+                    {post.data.title}
+                  </a>
+                </h2>
+
+                <!-- Description -->
+                <p class="text-slate-500 text-sm leading-relaxed flex-1 mb-5">
+                  {post.data.description}
+                </p>
+
+                <!-- Date + Read more -->
+                <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                  <time
+                    datetime={post.data.pubDate.toISOString()}
+                    class="text-xs text-slate-400"
+                  >
+                    {post.data.pubDate.toLocaleDateString("es-ES", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span class="text-xs font-semibold text-blue-600 group-hover:text-blue-800 flex items-center gap-1 transition-colors">
+                    Leer
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-0.5"><polyline points="9 18 15 12 9 6"/></svg>
+                  </span>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <!-- Empty state -->
+      <p id="empty-state" class="hidden text-center text-slate-400 py-16 text-sm">
+        No hay artículos con esta etiqueta todavía.
+      </p>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  #posts-grid article {
+    position: relative;
+  }
+
+  .tag-btn {
+    background: transparent;
+    color: #94a3b8;
+    border-color: #e2e8f0;
+    cursor: pointer;
+  }
+
+  .tag-btn:hover {
+    color: #475569;
+    border-color: #cbd5e1;
+    background: #f8fafc;
+  }
+
+  .tag-btn.active {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".tag-btn");
+  const cards = document.querySelectorAll<HTMLElement>(".post-card");
+  const emptyState = document.getElementById("empty-state");
+
+  function filterPosts(activeTag: string) {
+    let visible = 0;
+    cards.forEach((card) => {
+      const tags = card.dataset.tags?.split(",") ?? [];
+      const show = activeTag === "all" || tags.includes(activeTag);
+      card.style.display = show ? "" : "none";
+      if (show) visible++;
+    });
+    if (emptyState) emptyState.classList.toggle("hidden", visible > 0);
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      filterPosts(btn.dataset.tag ?? "all");
+    });
+  });
+</script>

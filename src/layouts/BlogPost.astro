@@ -1,0 +1,261 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Nav from "@/components/Nav.astro";
+import Footer from "@/components/Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  tags: string[];
+  image?: string;
+  imageAlt?: string;
+  slug: string;
+}
+
+const { title, description, pubDate, updatedDate, tags, image, imageAlt, slug } = Astro.props;
+
+const canonicalURL = new URL(`/blog/${slug}`, "https://codemaker.es");
+const formattedDate = pubDate.toLocaleDateString("es-ES", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+const isoDate = pubDate.toISOString();
+const isoUpdated = updatedDate?.toISOString() ?? isoDate;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description: description,
+  datePublished: isoDate,
+  dateModified: isoUpdated,
+  url: canonicalURL.toString(),
+  image: image ? new URL(image, "https://codemaker.es").toString() : undefined,
+  author: {
+    "@type": "Organization",
+    name: "Codemaker",
+    url: "https://codemaker.es",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Codemaker",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://codemaker.es/svg/LogoInvertido.svg",
+    },
+  },
+  keywords: tags.join(", "),
+  inLanguage: "es",
+};
+---
+
+<Layout title={title} description={description} image={image}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <Nav />
+
+  <main class="min-h-screen bg-white pt-32 pb-24 px-4">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- Back link -->
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-2 text-slate-400 hover:text-slate-700 transition-colors text-sm mb-10 group"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:-translate-x-1"><polyline points="15 18 9 12 15 6"/></svg>
+        Volver al blog
+      </a>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        {tags.map((tag) => (
+          <a
+            href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, "-")}`}
+            class="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-blue-50 text-blue-600 border border-blue-100 hover:bg-blue-100 transition-colors"
+          >
+            {tag}
+          </a>
+        ))}
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
+        {title}
+      </h1>
+
+      <!-- Date -->
+      <time datetime={isoDate} class="text-sm text-slate-400">
+        {formattedDate}
+        {updatedDate && (
+          <span class="ml-3 text-slate-300">
+            · Actualizado el {updatedDate.toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}
+          </span>
+        )}
+      </time>
+
+      <!-- Featured image -->
+      {image && (
+        <div class="mt-8 rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+          <img
+            src={image}
+            alt={imageAlt ?? title}
+            class="w-full h-64 md:h-80 object-cover"
+            loading="eager"
+          />
+        </div>
+      )}
+
+      <!-- Article body -->
+      <article class="mt-10 prose-blog">
+        <slot />
+      </article>
+
+      <!-- Bottom tags -->
+      <div class="mt-16 pt-8 border-t border-slate-100">
+        <p class="text-xs text-slate-400 uppercase tracking-widest mb-3">Etiquetas</p>
+        <div class="flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <a
+              href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, "-")}`}
+              class="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-slate-50 text-slate-500 border border-slate-200 hover:border-blue-200 hover:text-blue-600 transition-colors"
+            >
+              {tag}
+            </a>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style is:global>
+  .prose-blog {
+    color: #475569; /* slate-600 */
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  .prose-blog h2 {
+    color: #0f172a; /* slate-900 */
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose-blog h3 {
+    color: #1e293b; /* slate-800 */
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-blog p {
+    margin-bottom: 1.25rem;
+  }
+
+  .prose-blog strong {
+    color: #1e293b;
+    font-weight: 700;
+  }
+
+  .prose-blog em {
+    color: #334155;
+    font-style: italic;
+  }
+
+  .prose-blog a {
+    color: #2563eb;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .prose-blog a:hover {
+    color: #1d4ed8;
+  }
+
+  .prose-blog ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .prose-blog ul li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-blog ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+    font-weight: 700;
+  }
+
+  .prose-blog ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .prose-blog ol li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-blog blockquote {
+    border-left: 3px solid #2563eb;
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    color: #64748b;
+    font-style: italic;
+  }
+
+  .prose-blog code {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    font-size: 0.9em;
+    color: #2563eb;
+    font-family: monospace;
+  }
+
+  .prose-blog pre {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .prose-blog pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.875rem;
+    color: #334155;
+  }
+
+  .prose-blog hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 2.5rem 0;
+  }
+
+  .prose-blog img {
+    border-radius: 12px;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #f1f5f9;
+  }
+</style>
