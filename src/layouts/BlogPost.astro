@@ -16,7 +16,7 @@ interface Props {
 
 const { title, description, pubDate, updatedDate, tags, image, imageAlt, slug } = Astro.props;
 
-const canonicalURL = new URL(`/blog/${slug}`, "https://codemaker.es");
+const canonicalURL = new URL(`/blog/${slug}/`, "https://codemaker.es");
 const formattedDate = pubDate.toLocaleDateString("es-ES", {
   year: "numeric",
   month: "long",

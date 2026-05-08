@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
 ---
 
-<Layout title="Sculpting Studio | Codemaker">
+<Layout title="FormStudio | Codemaker">
   <Nav />
 
   <main class="bg-white min-h-screen text-slate-900 font-sans">
@@ -21,17 +21,17 @@ import ContactModal from '../../components/ContactModal.astro';
             <span class="chip chip-purple">3D</span>
           </div>
           <h1 class="text-4xl md:text-6xl font-black text-slate-900">
-            Sculpting <span class="text-[#007AFB]">Studio</span>
+            Form <span class="text-[#007AFB]">Studio</span>
           </h1>
           <p class="text-xl text-slate-600 leading-relaxed font-medium max-w-xl">
-            Esculpe digitalmente como si fuera arcilla. Deforma una malla 3D con pinceles artísticos y crea personajes, criaturas y formas orgánicas únicas.
+            Modela formas orgánicas y complejas por subdivisión de superficies. Como en Blender o ZBrush, pero directamente en el navegador sin instalar nada.
           </p>
         </div>
 
         <div class="flex-1 w-full md:max-w-lg">
           <div class="relative rounded-2xl p-[2px] shiny-border-3d shadow-2xl">
             <div class="rounded-[0.9rem] overflow-hidden bg-slate-950 aspect-video">
-              <img src="/images/sculptstudio.png" alt="Sculpting Studio" class="w-full h-full object-cover" />
+              <img src="/images/sculptstudio.png" alt="FormStudio" class="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -42,10 +42,10 @@ import ContactModal from '../../components/ContactModal.astro';
     <!-- ═══ QUÉ ES ═══ -->
     <section class="py-20 px-6 sm:px-10 border-b border-slate-100">
       <div class="max-w-3xl mx-auto text-center space-y-6">
-        <h2 class="section-title">¿Qué es Sculpting Studio?</h2>
+        <h2 class="section-title">¿Qué es FormStudio?</h2>
         <div class="w-16 h-1 bg-[#007AFB] mx-auto rounded-full"></div>
         <p class="text-lg text-slate-600 leading-relaxed">
-          Sculpting Studio es el entorno de escultura digital orgánica de Codemaker3D. A diferencia del modelado geométrico, que parte de primitivas rígidas, aquí los alumnos <strong class="text-slate-800">deforman una esfera de arcilla virtual</strong> con pinceles artísticos que inflan, suavizan o aplanan la superficie. El resultado es completamente libre: un personaje, un animal, una criatura imaginaria. Todo coloreado directamente sobre la malla.
+          FormStudio es el editor de modelado orgánico de Codemaker3D. Los alumnos trabajan con una <strong class="text-slate-800">jaula de caras cuadriláteras</strong> que moldean directamente — extrudiendo, cortando, rotando caras — y el editor la suaviza automáticamente en tiempo real. El resultado: formas orgánicas complejas a partir de geometría sencilla, usando el mismo principio que Blender o ZBrush, sin instalar nada.
         </p>
       </div>
     </section>
@@ -59,32 +59,32 @@ import ContactModal from '../../components/ContactModal.astro';
           <div class="feature-card">
             <div class="feature-img"></div>
             <div class="feature-content">
-              <h3 class="feature-title">Tres pinceles artísticos</h3>
-              <p class="feature-desc"><strong>Standard</strong>: infla o hunde la malla (Shift para invertir). <strong>Smooth</strong>: alisa irregularidades y transiciones bruscas. <strong>Flatten</strong>: nivela áreas de la malla a un plano uniforme.</p>
+              <h3 class="feature-title">Dos modos de trabajo</h3>
+              <p class="feature-desc"><strong>Modo Objeto</strong>: vista general de la escena para transformar, duplicar y eliminar objetos completos. <strong>Modo Edición</strong>: doble clic sobre un objeto para entrar en su jaula y manipular caras individualmente. Esc o clic en el fondo para volver al modo general.</p>
             </div>
           </div>
 
           <div class="feature-card">
             <div class="feature-img"></div>
             <div class="feature-content">
-              <h3 class="feature-title">Tamaño e intensidad ajustables</h3>
-              <p class="feature-desc">Control preciso del tamaño del pincel (0.1–2.0) y su intensidad (0.01–0.5). Trabaja grandes volúmenes con pincel amplio e intensidad alta, y micro detalles con pincel fino e intensidad baja.</p>
+              <h3 class="feature-title">7 herramientas de cara</h3>
+              <p class="feature-desc">Clic para seleccionar una cara, Shift + clic para selección múltiple. En el panel lateral: <strong>Mover</strong>, <strong>Rotar</strong>, <strong>Escalar</strong>, <strong>Extruir</strong> (individual o unida), <strong>Crease</strong> (aristas duras en amarillo), <strong>Loop Cut</strong> (corte de bucle con previsualización) y <strong>Pintar</strong> caras con color libre.</p>
             </div>
           </div>
 
           <div class="feature-card">
             <div class="feature-img"></div>
             <div class="feature-content">
-              <h3 class="feature-title">Pintura directa sobre la malla</h3>
-              <p class="feature-desc">Herramienta de pincel con selector de color libre para colorear directamente cada zona de la escultura. Sin mapas UV ni canales adicionales: pintar es tan sencillo como esculpir.</p>
+              <h3 class="feature-title">Subdivisión Catmull-Clark en tiempo real</h3>
+              <p class="feature-desc">La jaula editable se suaviza automáticamente en tres niveles: nivel 1 para editar con la forma visible, nivel 2 para un equilibrio calidad/rendimiento y nivel 3 para la vista final pulida. La jaula no cambia; solo varía la resolución visual del suavizado.</p>
             </div>
           </div>
 
           <div class="feature-card">
             <div class="feature-img"></div>
             <div class="feature-content">
-              <h3 class="feature-title">Tutorial guiado en 4 pasos</h3>
-              <p class="feature-desc">Sistema de guía integrado que lleva al alumno por todo el flujo de trabajo: <strong>Forma base → Detalle → Suavizado → Pintura</strong>. Aprendizaje autónomo desde el primer día.</p>
+              <h3 class="feature-title">Simetría, formas base y panel de objetos</h3>
+              <p class="feature-desc">Edición espejada en eje X en tiempo real para modelar personajes simétricos. Siete formas de partida: esfera, quadball, cubo, cilindro, cápsula, cono y toroide. El panel lateral lista todos los objetos de la escena con opción de duplicar o eliminar cada uno.</p>
             </div>
           </div>
 
@@ -108,32 +108,32 @@ import ContactModal from '../../components/ContactModal.astro';
       <div class="max-w-5xl mx-auto space-y-14">
         <div class="text-center space-y-3">
           <h2 class="section-title">Valor pedagógico</h2>
-          <p class="text-slate-500 max-w-2xl mx-auto">Competencias que trabaja este editor, especialmente vinculadas a Educación Plástica y Visual en Primaria y ESO.</p>
+          <p class="text-slate-500 max-w-2xl mx-auto">Competencias que trabaja este editor, especialmente vinculadas a Tecnología, Educación Plástica y Visual y Diseño en ESO y Bachillerato.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
           <div class="pedagogy-card">
             <div class="pedagogy-icon bg-blue-50 text-[#007AFB] border-blue-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
             </div>
-            <h4 class="pedagogy-title">Educación plástica y visual</h4>
-            <p class="pedagogy-desc">Trabaja los bloques curriculares de «Expresión y creación plástica» del área de Educación Artística: volumen, textura, forma orgánica, composición y uso del color.</p>
+            <h4 class="pedagogy-title">Pensamiento espacial y 3D</h4>
+            <p class="pedagogy-desc">Manipular caras, extruir geometría y ajustar el nivel de subdivisión desarrolla la comprensión tridimensional y la capacidad de visualizar cómo los cambios locales afectan a la forma global. Conecta con los bloques de Tecnología y Diseño del currículo.</p>
           </div>
 
           <div class="pedagogy-card">
             <div class="pedagogy-icon bg-emerald-50 text-emerald-600 border-emerald-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
             </div>
-            <h4 class="pedagogy-title">Anatomía y proporciones</h4>
-            <p class="pedagogy-desc">Explorar la anatomía animal o humana de forma táctil. El alumno descubre las proporciones y los volúmenes del cuerpo a través de la manipulación directa, no de la observación pasiva.</p>
+            <h4 class="pedagogy-title">Proceso de diseño iterativo</h4>
+            <p class="pedagogy-desc">La separación entre jaula editable y malla suavizada enseña que el diseño tiene niveles de abstracción. El historial de deshacer y la posibilidad de ajustar el suavizado en cualquier momento fomentan la mejora progresiva y la tolerancia al error como parte del proceso.</p>
           </div>
 
           <div class="pedagogy-card">
             <div class="pedagogy-icon bg-purple-50 text-purple-600 border-purple-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
             </div>
-            <h4 class="pedagogy-title">Proceso creativo iterativo</h4>
-            <p class="pedagogy-desc">El historial de deshacer y el reseteo a la esfera base enseñan que el error no es un fracaso sino parte del proceso. Se desarrolla la resiliencia creativa y la mejora progresiva de la obra.</p>
+            <h4 class="pedagogy-title">Expresión plástica y diseño digital</h4>
+            <p class="pedagogy-desc">Las herramientas precisas de modelado (Loop Cut, Crease, Extruir) se combinan con la coloración libre por cara y objeto. Esta dualidad trabaja simultáneamente la precisión técnica y la expresión artística, conectando Educación Plástica y Visual con el diseño digital.</p>
           </div>
 
         </div>
@@ -144,10 +144,10 @@ import ContactModal from '../../components/ContactModal.astro';
     <section class="py-20 px-6 sm:px-10 bg-slate-100">
       <div class="max-w-3xl mx-auto text-center space-y-6">
         <h2 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
-          Incorpora la escultura digital a tus clases de plástica
+          Incorpora el modelado 3D por subdivisión a tus clases
         </h2>
         <p class="text-lg text-slate-600">
-          Nuestro equipo puede orientarte sobre cómo usar Sculpting Studio en el aula y qué actividades funcionan mejor según el nivel educativo.
+          Nuestro equipo puede orientarte sobre cómo usar FormStudio en el aula y qué actividades funcionan mejor según el nivel educativo.
         </p>
         <button class="contact-trigger btn-primary">
           Contacta con nosotros
@@ -166,15 +166,10 @@ import ContactModal from '../../components/ContactModal.astro';
 
   .chip             { @apply px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border; }
   .chip-slate       { @apply bg-slate-100 text-slate-600 border-slate-200; }
-  .chip-emerald     { @apply bg-emerald-50 text-emerald-700 border-emerald-100; }
-  .chip-amber       { @apply bg-amber-50 text-amber-700 border-amber-100; }
   .chip-rose        { @apply bg-rose-50 text-rose-700 border-rose-100; }
   .chip-purple      { @apply bg-purple-50 text-purple-600 border-purple-100; }
-  .chip-indigo      { @apply bg-indigo-50 text-indigo-600 border-indigo-100; }
-  .chip-blue        { @apply bg-blue-50 text-[#007AFB] border-blue-100; }
 
   .btn-primary      { @apply inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-[#007AFB] text-white font-bold hover:bg-[#00477A] transition-all shadow-lg shadow-blue-100 active:scale-95 text-lg; }
-  .btn-primary-inv  { @apply inline-flex items-center justify-center px-10 py-5 rounded-2xl bg-white text-[#007AFB] font-black hover:bg-slate-100 transition-all shadow-xl active:scale-95 text-xl; }
 
   .feature-card    { @apply bg-white rounded-2xl border border-slate-200 p-5 flex gap-5 items-start hover:shadow-md transition-shadow; }
   .feature-img     { @apply w-28 h-28 object-cover rounded-xl flex-shrink-0 bg-slate-200; }
