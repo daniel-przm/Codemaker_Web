@@ -3,7 +3,7 @@ title: "Qué es Robotics Studio: programa un robot real sin salir del navegador"
 description: "Robotics Studio es el editor de robótica educativa de Codemaker3D. Diseña un mapa, programa un robot con bloques visuales y observa la simulación 3D en tiempo real, sin hardware."
 pubDate: 2026-05-08
 tags: ["Robótica", "Robotics Studio", "Educación", "Docentes"]
-draft: false
+draft: true
 ---
 
 # RoboticsStudio: Programa un robot real… sin salir del navegador

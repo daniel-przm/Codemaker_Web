@@ -3,7 +3,7 @@ title: "Qué es Voxel Studio: el editor 3D estilo Minecraft en el navegador"
 description: "Voxel Studio es el editor de diseño por vóxeles de Codemaker3D. Construye mundos y estructuras 3D de forma intuitiva, directamente en el navegador, sin instalar nada."
 pubDate: 2026-05-08
 tags: ["Voxel Studio", "3D", "Iniciación", "Docentes"]
-draft: false
+draft: true
 ---
 
 # VoxelStudio: Editor 3D estilo Minecraft en el navegador
