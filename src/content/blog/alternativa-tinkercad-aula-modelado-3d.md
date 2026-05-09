@@ -1,6 +1,6 @@
 ---
-title: "Alternativa española a Tinkercad para el aula: modelado 3D y planos técnicos en español"
-description: "Si Tinkercad se te queda corto para el aula —cuentas Autodesk, traducción a medias, sin planos técnicos— hay alternativas serias. Te explicamos qué pedirle a una y por qué importa."
+title: "Alternativas made in Spain a Tinkercad para 3D en el aula"
+description: "Si Tinkercad se te queda corto para el aula, en Codemaker 3D tenemos buenas alternativas. Te explicamos qué ofrecen nuestros tres studios de diseño."
 pubDate: 2026-05-01
 tags: ["Modelado 3D", "Tinkercad", "Tecnología", "Docentes"]
 image: "/images/blog/alternativa-tinkercad-aula.jpg"
@@ -8,9 +8,9 @@ imageAlt: "Alumno trabajando con el Modeling Studio de Codemaker3D en clase"
 draft: false
 ---
 
-Si das clase de Tecnología, de Plástica o de Informática y has querido introducir el modelado 3D en algún momento, lo más probable es que Tinkercad fuese tu primera prueba. Es lo lógico: lleva más de una década siendo el referente, funciona en el navegador, es gratis y la curva de aprendizaje es razonable para alumnos de Primaria y de los primeros cursos de la ESO. Aunque quizá hayas probado también otras opciones como SketchUp u otras más avanzadas como Fusion360, Autocad, Blender...
+Si das clase de Tecnología, de Plástica, Dibujo Técnico o similar, y has querido introducir el modelado 3D en algún momento, lo más probable es que Tinkercad fuese tu primera prueba. Es lo lógico: lleva más de una década siendo el referente, funciona en el navegador, es gratis y la curva de aprendizaje es razonable para alumnos de Primaria y Secundaria. Aunque quizá hayas encontrado limitaciones que te hayan llevado a probar también otras opciones como SketchUp o incluso Fusion360, Autocad, Blender...
 
-Estas herramientas son muy potentes, pero también se encuentran con algunas limitaciones. Las herramientas más avanzadas tienen una curva de aprendizaje muy elevada para primaria y secundaria, y las herramientas educativas como Tinkercad (que solucionan este problema) le faltan herramientas para cubrir algunas áreas del currículo, como la posibilidad de generar planos normalizados para dibujo técnico, o la posibilidad de incorporar texturas esenciales en las materias más artísticas, por ejemplo. 
+Estas herramientas son muy potentes, pero también se encuentran con algunas limitaciones. Las herramientas más avanzadas tienen una curva de aprendizaje muy elevada para primaria y secundaria además de necesitar equipos potentes, y las herramientas educativas como Tinkercad (que solucionan este problema) carecen de planos normalizados para dibujo técnico, texturas para las materias artísticas o herramientas de modelado orgánico creativo.
 
 Y por otro lado, si usas diferentes herramientas durante un curso (programas de robótica, de videojuegos, de 3D...) sabrás el lío que supone ir saltando de herramienta en herramienta, con cuentas diferentes para los alumnos, formas distintas de evaluar (o muchas que no dan la posibilidad de hacerlo), etc.
 
@@ -30,7 +30,7 @@ Conviene empezar reconociendo lo que Tinkercad hace bien, porque es mucho.
 
 **Se conecta bien con el flujo de impresión 3D.** Exportar STL para enviar a una impresora es directo.
 
-Por todo esto (y porque no ha habido una alternativa decente), Tinkercad ha sido la opción por defecto en miles de aulas durante años. Pero "opción por defecto" y "opción óptima para el aula" no son lo mismo.
+Por todo esto (y porque no ha habido una alternativa real), Tinkercad ha sido la opción por defecto en miles de aulas durante años. Pero "opción por defecto" y "opción óptima para el aula" no son lo mismo.
 
 ---
 
@@ -38,62 +38,66 @@ Por todo esto (y porque no ha habido una alternativa decente), Tinkercad ha sido
 
 Hay cinco fricciones que se repiten en las conversaciones con docentes que llevan más de un curso usándolo.
 
-**No genera planos técnicos.** Esta es la limitación más importante para currículums como el español en el área de Tecnología. El bloque de Expresión y Comunicación Técnica de la LOMLOE pide específicamente vistas normalizadas, acotación según norma, escalas y representación bidimensional. Tinkercad genera modelos 3D bonitos, pero no produce un alzado, un perfil y una planta acotados, ni un PDF imprimible con cajetín profesional. Para esa parte del currículum, el profesor termina recurriendo a otras herramientas, rompiendo el flujo de trabajo del alumno.
+**Compleja para ciertas edades.** Es una gran herramienta para alumnos de 10-12 años en adelante, pero cuando queremos un primer contacto con herramientas 3D en alumnos más pequeños, o incluso en las primeras sesiones de dichas edades, Tinkercad es demasiado complejo. Hasta ahora no existía una herramienta que nos permitiera iniciar en el 3D desde edades tempranas.
 
-**Es escasa para el ámbito más creativo.** La enorme galería de objetos ya creados provoca en muchos casos que los alumnos los usen sin detenerse a crearlos por ellos mismos, y a su vez la falta de herramientas de personalización a nivel visual (como la intexistente posibilidad de añadir texturas) limita los proyectos a nivel creativo.
+**No genera planos técnicos.** Esta es la limitación más importante para currículums como el español en el área de Tecnología o Dibujo Técnico. Habitualmente el currículo pide específicamente vistas normalizadas, acotación según norma, escalas y representación bidimensional. Tinkercad genera modelos 3D bonitos, pero no produce un alzado, un perfil y una planta acotados, ni un PDF imprimible con cajetín profesional. Para esa parte del currículum, el profesor termina recurriendo a otras herramientas, rompiendo el flujo de trabajo del alumno. Pero claro, si vamos a herramientas 2D, perdemos el atractivo del 3D que es realmente la herramienta de trabajo de un ingeniero o arquitecto en la actualidad, estaríamos enseñando tecnologías anticuadas.
+
+**Es escasa para el ámbito más creativo.** Tinkercad cuenta con muchas figuras primitivas con las que empezar y poder ajustar sus medidas y combinarlas entre ellas, esto es ideal para crear piezas de ingeniería, modelos 3D de casas u objetos cotidianos con medidas, pero nos movemos siempre en un plano más técnico, sin herramientas de modelado orgánico o esculpido digital muy utilizadas en la industria del arte digital.
 
 **La gestión de clase es básica.** Tinkercad Classrooms permite agrupar alumnos y ver sus diseños, pero no incluye un sistema integrado de calificación, comentarios sobre el modelo en 3D ni gamificación. Si quieres evaluar formalmente un proyecto, acabas usando alernativas como Google Classroom o similares, lo que añade una capa extra.
 
 **Es una herramienta aislada.** Si tu programación incluye también diseño por vóxeles (tipo Minecraft) para los más pequeños, robótica con simulador, escultura digital o desarrollo de videojuegos, cada una de esas áreas requiere otra plataforma con otra cuenta y otro proceso. Acabas gestionando cinco aplicaciones distintas para un mismo grupo de alumnos.
 
-Ninguna de estas cosas hace que Tinkercad sea mala. Lo que hace es que para muchos docentes —especialmente los que dan Tecnología en ESO, los que trabajan dibujo técnico, o los que coordinan extraescolares STEAM completas— haya opciones de buscar una alternativa mejor.
+Ninguna de estas cosas hace que Tinkercad sea mala. De hecho, los profesores y desarrolladores de Codemaker hemos estado usando Tinkercad durante más de 10 años y es una herramienta que nos encanta. Sin embargo, estas carencias nos han hecho intentar crear una alternativa mejor.
 
 ---
 
-## Qué deberías pedirle a una alternativa de modelado 3D para el aula
+## Nuestra alternativa en Codemaker 3D: tres studios de diseño para cada momento del aula
 
-Antes de cambiar de herramienta, vale la pena tener claros los requisitos. Si vas a probar otra cosa, que cubra al menos lo siguiente:
+En Codemaker3D entendemos que no existe una sola alternativa válida para todos los niveles y todas las materias. Por eso hemos desarrollado tres herramientas de diseño, cada una con un propósito claro, y todas integradas en la misma plataforma con una única cuenta para el docente.
 
-**Que funcione en el navegador, sin instalación.** Esto no es negociable. Cualquier herramienta que requiera permisos de administrador o software local te va a dar problemas en los equipos del centro.
+### Voxel Studio: el primer paso en 3D para los más pequeños
 
-**Que el alumno acceda sin gestionar cuenta.** Lo ideal es código de clase y nombre. Sin emails de menores, sin recuperaciones de contraseña, sin papeleos de RGPD para terceros.
+Si tienes alumnos de primer o segundo ciclo de Primaria —entre 6 y 9 años, aproximadamente—, Tinkercad probablemente sea demasiado complejo para ellos. El modelo de primitivas y operaciones booleanas requiere un pensamiento espacial y una capacidad de abstracción que esos alumnos todavía están desarrollando.
 
-**Que esté íntegramente en español.** Toda la interfaz, los tutoriales, los mensajes de error. No "casi todo".
+El [Voxel Studio de Codemaker3D](/editors/voxel-studio) parte de un lenguaje que ya les resulta familiar: los bloques. Al igual que en Minecraft, los alumnos construyen sus creaciones apilando y combinando vóxeles de colores en un espacio 3D. No hay menús complicados, no hay transformaciones abstractas: solo bloques que se colocan y se quitan.
 
-**Que conserve el modelo conceptual de primitivas + operaciones booleanas.** Si vienes de Tinkercad, lo último que quieres es reaprender desde cero. Cubo, esfera, cilindro, unión, sustracción e intersección son la base universal del modelado geométrico introductorio.
+Lo importante no es que el resultado sea "menos serio" que un modelo de Tinkercad. Lo importante es que ese trabajo con vóxeles desarrolla exactamente las habilidades espaciales —comprensión del eje Z, lectura de profundidad, simetría en 3D— que luego el alumno necesitará cuando en cursos posteriores pase al Modeling Studio. Es una escalera, no un atajo.
 
-**Que cubra el bloque de dibujo técnico.** Cuatro vistas normalizadas, acotación con snap a vértices, escalas CAD (1:1, 1:2, 1:5, 1:10, 1:20...), cajetín profesional y exportación a PDF. Si una herramienta te obliga a saltar a otra para ese bloque, no es realmente una alternativa completa.
+### Modeling Studio: la transición natural desde Tinkercad
 
-**Que tenga gestión de aula integrada.** Crear clases, ver proyectos, calificar con nota y comentario, asignar insignias por competencias. Sin tener que exportar nada.
-
-**Que forme parte de un ecosistema más amplio.** Idealmente que en la misma plataforma puedas activar también vóxeles, robótica, escultura o videojuegos según el grupo y la unidad didáctica. Una sola cuenta, un solo dashboard, varios lenguajes de creación.
-
----
-
-## Codemaker3D Modeling Studio: la alternativa pensada para el aula española
-
-El [Modeling Studio de Codemaker3D](/editors/modeling-studio) nació, en buena medida, para resolver exactamente las fricciones de Tinkercad que acabamos de listar. La filosofía es deliberada: no reinventar la introducción al modelado 3D, sino partir del mismo modelo mental que ya conocen alumnos y profesores —primitivas más operaciones booleanas— y añadirle lo que el aula necesita y Tinkercad no tiene.
-
-**El paradigma es el mismo que Tinkercad.** El alumno arrastra cubos, esferas, cilindros, conos, pirámides, prismas y toroides al espacio de trabajo. Los combina con uniones, los recorta con sustracciones, los mezcla con intersecciones. Quien venga de Tinkercad migra en una clase: el modelo conceptual es idéntico, los gizmos de mover, rotar y escalar funcionan igual, y el snap a rejilla está donde se espera.
+El [Modeling Studio de Codemaker3D](/editors/modeling-studio) es la respuesta más directa para quien viene de Tinkercad y da asignaturas técnicas. El paradigma es el mismo: el alumno arrastra cubos, esferas, cilindros, conos, pirámides y toroides al espacio de trabajo, los combina con uniones, los recorta con sustracciones y los mezcla con intersecciones. Quien venga de Tinkercad migra en una sesión: el modelo conceptual es idéntico, los gizmos de mover, rotar y escalar funcionan igual, y el snap a rejilla está donde se espera.
 
 **Donde se nota la diferencia es en el dibujo técnico.** Modeling Studio incluye un módulo específico de planos: cuatro vistas simultáneas (alzado, perfil, planta y perspectiva), acotación con snapping a vértices, escalas normalizadas CAD del 1:1 al 1:100, cajetín profesional y exportación a PDF A4 listo para imprimir. Lo que en Tinkercad obligaba a saltar a AutoCAD, aquí está integrado en el mismo flujo de trabajo del alumno.
 
-**Los alumnos acceden con código de clase y nombre.** Sin email, sin contraseña, sin cuentas Autodesk ni Google. El profesor crea la clase, comparte el código, y los alumnos entran. Punto. La licencia se hereda del centro, así que la cuestión de RGPD para menores está resuelta de raíz.
+**También resuelve las limitaciones creativas de Tinkercad.** El Modeling Studio permite añadir texturas a los modelos, lo que abre posibilidades para proyectos más visuales y personalizados. Los alumnos dejan de trabajar solo con geometrías grises y pueden dar vida a sus creaciones con materiales y acabados.
 
-**Toda la interfaz está en español nativo.** No traducida con algoritmos, no parcial: pensada y escrita en español desde el primer día.
+Los alumnos acceden con código de clase y nombre, sin email ni contraseña. Toda la interfaz está en español nativo. Y el profesor califica directamente desde el dashboard: nota numérica, comentarios y hasta 16 insignias por competencias (precisión, geometría, dibujo técnico, perseverancia...), sin exportar nada ni abrir otra aplicación.
 
-**El profesor califica desde el mismo dashboard.** Abre el proyecto del alumno en 3D, lo gira, lo inspecciona, pone nota numérica del 0 al 10, escribe comentarios y, si quiere, asigna alguna de las 16 insignias por competencias (precisión, geometría, dibujo técnico, perseverancia...). Sin exportar, sin captura de pantalla, sin documento aparte.
+### Form Studio: modelado orgánico para los proyectos más creativos
 
-**Y forma parte de una suite completa.** Desde la misma cuenta, el profesor puede activar para sus clases también el [Voxel Studio](/editors/voxel-studio) para los más pequeños, el [Robotics Studio](/editors/robotics-studio) para los que tocan robótica, y muy pronto el [FormStudio](/editors/form-studio) y el Game Studio. Una sola plataforma, un dashboard, todas las disciplinas STEAM.
+Ni Tinkercad ni el Modeling Studio están pensados para crear formas orgánicas. Un jarrón, un personaje, una escultura de forma libre: ese tipo de geometría redondeada y fluida es casi imposible de conseguir con primitivas y booleanas.
 
-El Modeling Studio está incluido en el [plan BASIC, que es totalmente gratuito](/licencias). El plan PRO añade gestión de clases, calificaciones, insignias y los studios de pago.
+El [Form Studio de Codemaker3D](/editors/form-studio) es una herramienta de modelado orgánico con la que los alumnos crean formas esculpiendo, estirando y moldeando superficies libremente. No hay cajas ni esferas de partida rígidas: hay una masa digital que el alumno va dando forma con gestos intuitivos. El resultado son modelos con curvas suaves, volúmenes naturales y una expresividad muy diferente a la geometría angular del modelado por booleanas.
+
+Es la opción natural para asignaturas como Plástica, para proyectos de diseño de producto con un componente estético fuerte, o para cualquier unidad didáctica donde la creatividad tenga más peso que la precisión técnica.
 
 ---
 
-## Conclusión: la pregunta no es si Tinkercad es buena (claro que lo es), es si hay una alternativa mejor para ti
+## Una sola plataforma para todas las etapas
 
-Tinkercad ha hecho mucho bien al modelado 3D educativo y le seguirá yendo bien. Pero para un docente que da Tecnología con el currículum LOMLOE, que necesita planos técnicos acotados en PDF y que querría acceder a otros studios (vóxeles, robótica, programación, desarrollo de videojuegos y escultura en la misma plataforma), Codemaker3D es hoy una altenartiva real.
+La ventaja de que los tres studios vivan en Codemaker3D es que el docente gestiona todo desde un mismo dashboard. Una cuenta, un código de clase, un sistema de calificaciones. El alumno de segundo de Primaria que hoy trabaja en el Voxel Studio es el mismo que en cuarto abrirá el Modeling Studio y en sexto explorará el Form Studio: misma plataforma, sin fricciones de migración.
 
-Si te encuentras en alguna de esas situaciones, Modeling Studio probablemente te encaje. Y si no, nada que perder: se prueba gratis, sin instalar nada, y los alumnos pueden empezar con un código de clase en cinco minutos.
+Y los tres studios coexisten con el resto del ecosistema: el [Robotics Studio](/editors/robotics-studio) para robótica y el Game Studio (próximamente) para desarrollo de videojuegos. Una sola plataforma, un solo dashboard, todas las disciplinas STEAM.
 
-[Prueba el Modeling Studio de Codemaker3D gratis en codemaker.es](https://codemaker.es)
+El Voxel Studio y el Modeling Studio están incluidos en el [plan BASIC, totalmente gratuito](/licencias). El plan PRO añade gestión de clases, calificaciones, insignias y el Form Studio.
+
+---
+
+## Conclusión: diferentes herramientas con diferentes enfoques y objetivos
+
+Tinkercad ha hecho mucho bien al modelado 3D educativo. Pero para un docente que necesita cubrir todo el arco —desde los bloques de los más pequeños hasta el dibujo técnico acotado de la ESO, pasando por proyectos creativos y orgánicos— una sola herramienta no puede responder a todo.
+
+Codemaker3D propone una respuesta distinta: tres studios de diseño pensados para momentos distintos del itinerario del alumno, todos integrados en la misma plataforma y gestionados desde el mismo panel del docente. Si eso encaja con lo que buscas, merece la pena probarlo: se accede gratis, sin instalar nada, y los alumnos pueden empezar con un código de clase en cinco minutos.
+
+[Prueba Codemaker3D gratis en codemaker.es](https://codemaker.es)

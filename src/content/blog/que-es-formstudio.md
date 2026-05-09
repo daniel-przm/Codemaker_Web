@@ -1,3 +1,11 @@
+---
+title: "Qué es FormStudio: modelado orgánico por subdivisión en el navegador"
+description: "FormStudio es el editor de esculpido poligonal de Codemaker3D. Parte de una jaula de control y la suaviza con Catmull-Clark en tiempo real, como Blender o ZBrush, todo desde el navegador."
+pubDate: 2026-05-08
+tags: ["Modelado 3D", "FormStudio", "3D", "Docentes"]
+draft: false
+---
+
 # FormStudio: Editor de modelado orgánico por subdivisión en el navegador
 
 FormStudio es el editor de esculpido poligonal de Codemaker3D, diseñado para crear formas orgánicas y complejas mediante subdivisión de superficies. Parte de una malla de control (jaula) y la suaviza automáticamente con el algoritmo Catmull-Clark, igual que en herramientas profesionales como Blender o ZBrush, todo desde el navegador sin instalar nada.

@@ -1,3 +1,11 @@
+---
+title: "Qué es Modeling Studio: modelado 3D paramétrico en el navegador"
+description: "Modeling Studio es el editor de modelado de Codemaker3D para crear piezas y escenas 3D con precisión. Combina modelado sólido CSG, simetría y planos técnicos exportables en PDF."
+pubDate: 2026-05-08
+tags: ["Modelado 3D", "Modeling Studio", "3D", "Docentes"]
+draft: false
+---
+
 # ModelingStudio: Editor de modelado 3D paramétrico en el navegador
 
 ModelingStudio es el editor de modelado de Codemaker3D, diseñado para que estudiantes creen piezas y escenas 3D con precisión. Combina herramientas de modelado sólido (CSG), alineación, simetría y planos técnicos exportables, todo sin instalar nada.
