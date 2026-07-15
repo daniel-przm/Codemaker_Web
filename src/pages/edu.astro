@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ContactModal from '../components/ContactModal.astro';
+---
+
+<Layout
+  title="Cursos y formación | Codemaker"
+  description="Cursos y actividades extraescolares de Codemaker: programación, robótica y diseño 3D."
+  noindex={true}
+>
+  <Nav />
+  <ContactModal />
+
+  <main class="bg-white min-h-screen text-slate-900 font-sans">
+    <section class="pt-40 pb-32 px-6 sm:px-10 patron-puntos">
+      <div class="max-w-2xl mx-auto text-center space-y-6">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold uppercase tracking-widest">
+          Página en construcción
+        </div>
+        <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+          Cursos y <span class="text-[#007AFB]">formación</span>
+        </h1>
+        <p class="text-lg text-slate-500 leading-relaxed">
+          Estamos preparando esta página con toda la información de nuestros cursos y actividades
+          extraescolares de programación, robótica y diseño 3D. Mientras tanto, escríbenos y te
+          contamos la oferta disponible.
+        </p>
+        <button
+          class="contact-trigger inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#007AFB] text-white font-bold hover:bg-[#00477A] transition-all active:scale-95"
+        >
+          Contactar
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .patron-puntos {
+    background-image: radial-gradient(rgba(0, 122, 251, 0.15) 0.5px, transparent 0.5px);
+    background-size: 10px 10px;
+  }
+</style>
