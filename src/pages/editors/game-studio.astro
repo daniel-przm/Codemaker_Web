@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
 ---
 
-<Layout title="Game Studio | Codemaker">
+<Layout title="Game Studio">
   <Nav />
 
   <main class="bg-white min-h-screen text-slate-900 font-sans">
@@ -16,15 +16,14 @@ import ContactModal from '../../components/ContactModal.astro';
 
         <div class="flex-1 space-y-6">
           <div class="flex flex-wrap gap-2">
-            <span class="chip chip-slate">10 – 16 años</span>
-            <span class="chip chip-rose">Avanzado</span>
             <span class="chip chip-indigo">Programación</span>
+            <span class="chip chip-rose">todos los niveles</span>
           </div>
           <h1 class="text-4xl md:text-6xl font-black text-slate-900">
             Game <span class="text-[#007AFB]">Studio</span>
           </h1>
           <p class="text-xl text-slate-600 leading-relaxed font-medium max-w-xl">
-            Crea, programa y juega tus propios videojuegos 3D. Un motor completo con físicas reales, biblioteca de assets y programación visual por bloques.
+            Crea, programa y juega tus propios videojuegos en 3D. Monta el escenario, decide cómo se comporta cada objeto y prográmalo con bloques, sin escribir código.
           </p>
         </div>
 
@@ -45,7 +44,7 @@ import ContactModal from '../../components/ContactModal.astro';
         <h2 class="section-title">¿Qué es Game Studio?</h2>
         <div class="w-16 h-1 bg-[#007AFB] mx-auto rounded-full"></div>
         <p class="text-lg text-slate-600 leading-relaxed">
-          Game Studio es el motor de creación de videojuegos educativo de Codemaker3D, inspirado en Unity. Integra tres capas en un único editor: <strong class="text-slate-800">construcción de escenas 3D</strong> con primitivas y una biblioteca de assets GLB, un <strong class="text-slate-800">inspector de propiedades</strong> con físicas Rigidbody completas, y <strong class="text-slate-800">programación visual Blockly</strong> para que cada objeto tenga su propio comportamiento. El juego se ejecuta directamente en el navegador con el motor de físicas Rapier.
+          Game Studio es el editor de videojuegos 3D de Codemaker. En un mismo sitio, los alumnos <strong class="text-slate-800">construyen el escenario</strong> con formas y objetos ya preparados, <strong class="text-slate-800">deciden cómo se comporta</strong> cada pieza —si cae, si es fija, de qué está hecha— y <strong class="text-slate-800">programan con bloques visuales</strong> lo que pasa en el juego. Todo se juega al momento, sin salir del navegador.
         </p>
       </div>
     </section>
@@ -57,34 +56,55 @@ import ContactModal from '../../components/ContactModal.astro';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <div class="feature-card">
-            <div class="feature-img"></div>
+            <img src="/images/FeaturesStudios/Game_Assets.png" alt="Escenario con objetos y decorados" class="feature-img" oncontextmenu="return false;" loading="lazy" />
             <div class="feature-content">
-              <h3 class="feature-title">Construcción de escenas</h3>
-              <p class="feature-desc">Primitivas 3D (cubo, esfera, cilindro, cono, toroide, plano) y objeto Jugador con controlador en primera persona. Biblioteca de assets GLB organizados por categorías: Personajes, Naturaleza, Vehículos, Hogar y Ciudad. Drag & Drop directo a la escena.</p>
+              <h3 class="feature-title">Construye tu escenario</h3>
+              <p class="feature-desc">Empieza con formas básicas —cubos, esferas, cilindros— o arrastra objetos ya preparados: personajes, vehículos, naturaleza, elementos de ciudad y de casa. Directo a la escena, sin complicaciones.</p>
             </div>
           </div>
 
           <div class="feature-card">
-            <div class="feature-img"></div>
+            <img src="/images/FeaturesStudios/Game_Fisicas.png" alt="Panel de física: estático o dinámico, y material del objeto" class="feature-img" oncontextmenu="return false;" loading="lazy" />
             <div class="feature-content">
-              <h3 class="feature-title">Inspector de propiedades y físicas</h3>
-              <p class="feature-desc">Edita posición, rotación y escala. Asigna materiales con color, textura, rugosidad y opacidad. Configura el Rigidbody: tipo (Dinámico/Estático/Kinemático), masa, fricción y restitución. Colisionadores Box, Sphere, Capsule y Mesh.</p>
+              <h3 class="feature-title">Dale vida a cada objeto</h3>
+              <p class="feature-desc">Decide si una pieza es fija o se puede mover, y de qué está hecha —madera, hielo, piedra, acero...— para que pese y rebote de forma distinta al chocar. Todo con controles visuales, sin fórmulas.</p>
             </div>
           </div>
 
           <div class="feature-card">
-            <div class="feature-img"></div>
+            <img src="/images/FeaturesStudios/Game_Ambientes.png" alt="Panel de ambiente: día, noche, clima y tipo de mundo" class="feature-img" oncontextmenu="return false;" loading="lazy" />
             <div class="feature-content">
-              <h3 class="feature-title">Programación visual Blockly</h3>
-              <p class="feature-desc">Cada objeto tiene su propio programa. Bloques de <strong>eventos</strong> (al iniciar, al hacer clic), <strong>movimiento</strong> en 6 direcciones, <strong>rotación</strong> en cualquier eje, y <strong>control</strong> con condicionales, bucles y variables. Sin escribir una línea de código.</p>
+              <h3 class="feature-title">Cambia el ambiente</h3>
+              <p class="feature-desc">Elige si es de día, atardecer o noche, si llueve o hay niebla, y el tipo de mundo: pradera, desierto, nieve o isla. El escenario cambia de aspecto al instante.</p>
             </div>
           </div>
 
           <div class="feature-card">
-            <div class="feature-img"></div>
+            <img src="/images/FeaturesStudios/Game_Terreno.png" alt="Panel de terreno: esculpir, pintar texturas y añadir agua" class="feature-img" oncontextmenu="return false;" loading="lazy" />
             <div class="feature-content">
-              <h3 class="feature-title">Modo Play con motor Rapier</h3>
-              <p class="feature-desc">Un botón ejecuta todos los scripts de todos los objetos simultáneamente. Físicas realistas: gravedad, colisiones, fricción y rebote. El alumno juega su propia creación con movimiento WASD y salto en primera persona.</p>
+              <h3 class="feature-title">Esculpe el terreno</h3>
+              <p class="feature-desc">Sube, baja y suaviza el terreno como si fuera plastilina. Píntalo con distintas texturas —césped, arena, piedra— y añade agua con el nivel que quieras.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <img src="/images/FeaturesStudios/Game_Programacion.png" alt="Bloques de programación: cuando el jugador choca, gana o pierde puntos" class="feature-img" oncontextmenu="return false;" loading="lazy" />
+            <div class="feature-content">
+              <h3 class="feature-title">Programa con bloques</h3>
+              <p class="feature-desc">Cada objeto tiene su propio comportamiento: qué hace al empezar el juego o al tocarlo, cómo se mueve y gira, y decisiones más avanzadas con condiciones y repeticiones. Todo uniendo bloques, sin escribir una línea de código.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-img-play">
+              <img src="/images/FeaturesStudios/Game_Play.png" alt="Jugando el videojuego creado" oncontextmenu="return false;" loading="lazy" />
+              <span class="feature-play-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </span>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title">Dale al play y a jugar</h3>
+              <p class="feature-desc">Un botón pone en marcha todo lo programado a la vez, con físicas de verdad: gravedad, choques y rebotes. Muévete y salta con tu personaje y juega lo que acabas de crear.</p>
             </div>
           </div>
 
@@ -125,7 +145,7 @@ import ContactModal from '../../components/ContactModal.astro';
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><path d="M12 2a10 10 0 1 0 10 10"/></svg>
             </div>
             <h4 class="pedagogy-title">Física aplicada</h4>
-            <p class="pedagogy-desc">Gravedad, inercia, fricción, masa y coeficiente de restitución son parámetros que el alumno ajusta y ve en tiempo real. Conceptos abstractos de Física cobran vida en el juego que ellos mismos han creado.</p>
+            <p class="pedagogy-desc">Gravedad, inercia, fricción, peso y rebote son parámetros que el alumno ajusta y ve en tiempo real. Conceptos abstractos de Física cobran vida en el juego que ellos mismos han creado.</p>
           </div>
 
           <div class="pedagogy-card">
@@ -164,7 +184,7 @@ import ContactModal from '../../components/ContactModal.astro';
 <style>
   .section-title    { @apply text-3xl md:text-4xl font-black text-slate-900; }
 
-  .chip             { @apply px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border; }
+  .chip             { @apply text-[9px] px-2 py-0.5 rounded-md font-bold uppercase tracking-wider border; }
   .chip-slate       { @apply bg-slate-100 text-slate-600 border-slate-200; }
   .chip-emerald     { @apply bg-emerald-50 text-emerald-700 border-emerald-100; }
   .chip-amber       { @apply bg-amber-50 text-amber-700 border-amber-100; }
@@ -178,6 +198,12 @@ import ContactModal from '../../components/ContactModal.astro';
 
   .feature-card    { @apply bg-white rounded-2xl border border-slate-200 p-5 flex gap-5 items-start hover:shadow-md transition-shadow; }
   .feature-img     { @apply w-28 h-28 object-cover rounded-xl flex-shrink-0 bg-slate-200; }
+  .feature-icon    { @apply w-28 h-28 rounded-xl flex-shrink-0 flex items-center justify-center; }
+  .feature-img-play { @apply relative w-28 h-28 rounded-xl flex-shrink-0 overflow-hidden; }
+  .feature-img-play img { @apply w-full h-full object-cover; }
+  .feature-play-icon {
+    @apply absolute inset-0 m-auto flex items-center justify-center size-11 rounded-full bg-emerald-500 text-white shadow-lg;
+  }
   .feature-content { @apply flex flex-col gap-1 min-w-0; }
   .feature-title   { @apply text-lg font-bold text-slate-900; }
   .feature-desc    { @apply text-slate-600 leading-relaxed text-sm; }

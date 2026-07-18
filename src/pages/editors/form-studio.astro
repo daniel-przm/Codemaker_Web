@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
 ---
 
-<Layout title="FormStudio | Codemaker">
+<Layout title="FormStudio">
   <Nav />
 
   <main class="bg-white min-h-screen text-slate-900 font-sans">
@@ -16,9 +16,8 @@ import ContactModal from '../../components/ContactModal.astro';
 
         <div class="flex-1 space-y-6">
           <div class="flex flex-wrap gap-2">
-            <span class="chip chip-slate">Todas las edades</span>
-            <span class="chip chip-rose">Creativo</span>
-            <span class="chip chip-purple">3D</span>
+            <span class="chip chip-purple">Diseño 3D</span>
+            <span class="chip chip-rose">todos los niveles</span>
           </div>
           <h1 class="text-4xl md:text-6xl font-black text-slate-900">
             Form <span class="text-[#007AFB]">Studio</span>
@@ -57,14 +56,14 @@ import ContactModal from '../../components/ContactModal.astro';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <div class="feature-card">
-            <div class="feature-img"></div>
+            <img src="/images/FeaturesStudios/Form_Figuras.png" alt="Catálogo de figuras" class="feature-img" />
             <div class="feature-content">
               <h3 class="feature-title">Amplio catálogo de figuras</h3>
               <p class="feature-desc">Empieza con esferas, quadballs, cubos, cilindros, cápsulas, conos, toroides... y combínalos como quieras.</p>
             </div>
           </div>
           <div class="feature-card">
-            <div class="feature-img"></div>
+            <img src="/images/FeaturesStudios/Form_Modos.png" alt="Modos de trabajo" class="feature-img" />
             <div class="feature-content">
               <h3 class="feature-title">Dos modos de trabajo</h3>
               <p class="feature-desc">Utiliza el modo objeto para transformar objetos completos y el modo edición para manipular caras individualmente.</p>
@@ -72,7 +71,7 @@ import ContactModal from '../../components/ContactModal.astro';
           </div>
 
           <div class="feature-card">
-            <div class="feature-img"></div>
+            <img src="/images/FeaturesStudios/Form_Herramientas.png" alt="Herramientas de edición" class="feature-img" />
             <div class="feature-content">
               <h3 class="feature-title">Múltiples herramientas de edición</h3>
               <p class="feature-desc">Herramientas como Mover, Rotar, Escalar, Activar simetrías, Extruir, Afilar, Cortar, Pintar caras de color, etc.</p>
@@ -80,7 +79,7 @@ import ContactModal from '../../components/ContactModal.astro';
           </div>
 
           <div class="feature-card">
-            <div class="feature-img"></div>
+            <img src="/images/FeaturesStudios/Form_Suavizado.png" alt="Subdivisión en tiempo real" class="feature-img" />
             <div class="feature-content">
               <h3 class="feature-title">Subdivisión en tiempo real</h3>
               <p class="feature-desc">El alumno edita algunas caras mientras un complejo algoritmo suaviza y redondea automáticamente la figura.</p>
@@ -164,7 +163,7 @@ import ContactModal from '../../components/ContactModal.astro';
 <style>
   .section-title    { @apply text-3xl md:text-4xl font-black text-slate-900; }
 
-  .chip             { @apply px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border; }
+  .chip             { @apply text-[9px] px-2 py-0.5 rounded-md font-bold uppercase tracking-wider border; }
   .chip-slate       { @apply bg-slate-100 text-slate-600 border-slate-200; }
   .chip-rose        { @apply bg-rose-50 text-rose-700 border-rose-100; }
   .chip-purple      { @apply bg-purple-50 text-purple-600 border-purple-100; }

@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
 ---
 
-<Layout title="Modeling Studio | Codemaker">
+<Layout title="Modeling Studio">
   <Nav />
 
   <main class="bg-white min-h-screen text-slate-900 font-sans">
@@ -16,9 +16,8 @@ import ContactModal from '../../components/ContactModal.astro';
 
         <div class="flex-1 space-y-6">
           <div class="flex flex-wrap gap-2">
-            <span class="chip chip-slate">10 – 16 años</span>
-            <span class="chip chip-amber">Intermedio</span>
-            <span class="chip chip-purple">3D</span>
+            <span class="chip chip-purple">Diseño 3D</span>
+            <span class="chip chip-rose">todos los niveles</span>
           </div>
           <h1 class="text-4xl md:text-6xl font-black text-slate-900">
             Modeling <span class="text-[#007AFB]">Studio</span>
@@ -170,7 +169,7 @@ import ContactModal from '../../components/ContactModal.astro';
 <style>
   .section-title    { @apply text-3xl md:text-4xl font-black text-slate-900; }
 
-  .chip             { @apply px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border; }
+  .chip             { @apply text-[9px] px-2 py-0.5 rounded-md font-bold uppercase tracking-wider border; }
   .chip-slate       { @apply bg-slate-100 text-slate-600 border-slate-200; }
   .chip-emerald     { @apply bg-emerald-50 text-emerald-700 border-emerald-100; }
   .chip-amber       { @apply bg-amber-50 text-amber-700 border-amber-100; }

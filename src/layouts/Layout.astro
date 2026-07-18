@@ -4,17 +4,26 @@ interface Props {
   description?: string;
   image?: string;
   noindex?: boolean;
+  brandFirst?: boolean;
 }
 
 const {
   title = "Codemaker",
   description = "Escuela de programación, diseño 3D y tecnología para todas las edades. Aprende divirtiéndote con nuestra metodología innovadora.",
   image = "/images/og-image.png",
-  noindex = false
+  noindex = false,
+  brandFirst = false
 } = Astro.props;
+
+const pageTitle = brandFirst
+  ? `Codemaker | ${title}`
+  : title === "Codemaker"
+    ? "Codemaker"
+    : `${title} | Codemaker`;
 
 const rawPath = Astro.url.pathname.endsWith("/") ? Astro.url.pathname : Astro.url.pathname + "/";
 const canonicalURL = new URL(rawPath, Astro.site || "https://codemaker.es");
+const ogImageURL = new URL(image, Astro.site || "https://codemaker.es");
 ---
 
 <!doctype html>
@@ -33,7 +42,7 @@ const canonicalURL = new URL(rawPath, Astro.site || "https://codemaker.es");
     />
 
     <!-- SEO -->
-    <title>{title} | Codemaker</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalURL} />
@@ -43,14 +52,14 @@ const canonicalURL = new URL(rawPath, Astro.site || "https://codemaker.es");
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={ogImageURL} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={image} />
+    <meta property="twitter:image" content={ogImageURL} />
   </head>
   <body class="bg-slate-950">
     <slot />

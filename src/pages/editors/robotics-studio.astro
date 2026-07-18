@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
 ---
 
-<Layout title="Robotics Studio | Codemaker">
+<Layout title="Robotics Studio">
   <Nav />
 
   <main class="bg-white min-h-screen text-slate-900 font-sans">
@@ -16,9 +16,8 @@ import ContactModal from '../../components/ContactModal.astro';
 
         <div class="flex-1 space-y-6">
           <div class="flex flex-wrap gap-2">
-            <span class="chip chip-slate">10 – 16 años</span>
-            <span class="chip chip-rose">Avanzado</span>
-            <span class="chip chip-indigo">Robótica</span>
+            <span class="chip chip-indigo">Programación</span>
+            <span class="chip chip-rose">todos los niveles</span>
           </div>
           <h1 class="text-4xl md:text-6xl font-black text-slate-900">
             Robotics <span class="text-[#007AFB]">Studio</span>
@@ -40,8 +39,10 @@ import ContactModal from '../../components/ContactModal.astro';
     </section>
 
     <!-- ═══ QUÉ ES ═══ -->
-    <section class="py-20 px-6 sm:px-10 border-b border-slate-100">
-      <div class="max-w-3xl mx-auto text-center space-y-6">
+    <section class="relative overflow-hidden py-20 px-6 sm:px-10 border-b border-slate-100">
+      <img src="/images/RoboticStudio_Background.png" alt="" aria-hidden="true"
+           class="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none select-none" />
+      <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6">
         <h2 class="section-title">¿Qué es Robotics Studio?</h2>
         <div class="w-16 h-1 bg-[#007AFB] mx-auto rounded-full"></div>
         <p class="text-lg text-slate-600 leading-relaxed">
@@ -168,7 +169,7 @@ import ContactModal from '../../components/ContactModal.astro';
 <style>
   .section-title    { @apply text-3xl md:text-4xl font-black text-slate-900; }
 
-  .chip             { @apply px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border; }
+  .chip             { @apply text-[9px] px-2 py-0.5 rounded-md font-bold uppercase tracking-wider border; }
   .chip-slate       { @apply bg-slate-100 text-slate-600 border-slate-200; }
   .chip-emerald     { @apply bg-emerald-50 text-emerald-700 border-emerald-100; }
   .chip-amber       { @apply bg-amber-50 text-amber-700 border-amber-100; }

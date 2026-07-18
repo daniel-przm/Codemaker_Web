@@ -58,6 +58,8 @@ En Codemaker3D entendemos que no existe una sola alternativa válida para todos 
 
 ### Voxel Studio: el primer paso en 3D para los más pequeños
 
+![Voxel Studio de Codemaker3D](/images/voxelstudio.png)
+
 Si tienes alumnos de primer o segundo ciclo de Primaria —entre 6 y 9 años, aproximadamente—, Tinkercad probablemente sea demasiado complejo para ellos. El modelo de primitivas y operaciones booleanas requiere un pensamiento espacial y una capacidad de abstracción que esos alumnos todavía están desarrollando.
 
 El [Voxel Studio de Codemaker3D](/editors/voxel-studio) parte de un lenguaje que ya les resulta familiar: los bloques. Al igual que en Minecraft, los alumnos construyen sus creaciones apilando y combinando vóxeles de colores en un espacio 3D. No hay menús complicados, no hay transformaciones abstractas: solo bloques que se colocan y se quitan.
@@ -65,6 +67,8 @@ El [Voxel Studio de Codemaker3D](/editors/voxel-studio) parte de un lenguaje que
 Lo importante no es que el resultado sea "menos serio" que un modelo de Tinkercad. Lo importante es que ese trabajo con vóxeles desarrolla exactamente las habilidades espaciales —comprensión del eje Z, lectura de profundidad, simetría en 3D— que luego el alumno necesitará cuando en cursos posteriores pase al Modeling Studio. Es una escalera, no un atajo.
 
 ### Modeling Studio: la transición natural desde Tinkercad
+
+![Modeling Studio de Codemaker3D](/images/modelingstudio.png)
 
 El [Modeling Studio de Codemaker3D](/editors/modeling-studio) es la respuesta más directa para quien viene de Tinkercad y da asignaturas técnicas. El paradigma es el mismo: el alumno arrastra cubos, esferas, cilindros, conos, pirámides y toroides al espacio de trabajo, los combina con uniones, los recorta con sustracciones y los mezcla con intersecciones. Quien venga de Tinkercad migra en una sesión: el modelo conceptual es idéntico, los gizmos de mover, rotar y escalar funcionan igual, y el snap a rejilla está donde se espera.
 
@@ -75,6 +79,8 @@ El [Modeling Studio de Codemaker3D](/editors/modeling-studio) es la respuesta m�
 Los alumnos acceden con código de clase y nombre, sin email ni contraseña. Toda la interfaz está en español nativo. Y el profesor califica directamente desde el dashboard: nota numérica, comentarios y hasta 16 insignias por competencias (precisión, geometría, dibujo técnico, perseverancia...), sin exportar nada ni abrir otra aplicación.
 
 ### Form Studio: modelado orgánico para los proyectos más creativos
+
+![Form Studio de Codemaker3D](/images/formstudio.png)
 
 Ni Tinkercad ni el Modeling Studio están pensados para crear formas orgánicas. Un jarrón, un personaje, una escultura de forma libre: ese tipo de geometría redondeada y fluida es casi imposible de conseguir con primitivas y booleanas.
 

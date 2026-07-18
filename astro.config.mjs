@@ -8,7 +8,17 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://codemaker.es",
   trailingSlash: "always",
-  integrations: [tailwind(), sitemap(), react()],
+  redirects: {
+    "/producto": "/",
+  },
+  integrations: [
+    tailwind(),
+    sitemap({
+      // Páginas "en construcción" (noindex): fuera del sitemap
+      filter: (page) => !["/edu/", "/cursos-online/"].some((p) => page.endsWith(p)),
+    }),
+    react(),
+  ],
   vite: {
     resolve: {
       alias: {
