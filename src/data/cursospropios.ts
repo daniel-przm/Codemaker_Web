@@ -45,7 +45,7 @@ export const cursospropios: SchoolData[] = [
     direccion: "C. Principado de Asturias, 6, 23009 Jaén",
     color: "#007AFB",
     curso: "26/27",
-    niveles: ["Start", "Junior", "Senior"],
+    niveles: ["Start", "Junior", "Senior", "Master"],
     grupos: [
       { horario: "Miércoles, de 16:00 a 17:00", nivel: "Start", precio: "33€/mes" },
       { horario: "Lunes, de 18:00 a 19:30", nivel: "Junior", precio: "35€/mes" },
@@ -53,12 +53,22 @@ export const cursospropios: SchoolData[] = [
       { horario: "Miércoles, de 18:30 a 20:00", nivel: "Senior", precio: "38€/mes" },
       { horario: "Jueves, de 18:00 a 19:30", nivel: "Senior", precio: "38€/mes" },
       { horario: "Viernes, de 18:00 a 19:30 (¡nuevo!)", nivel: "Senior", precio: "38€/mes" },
+      { horario: "Miércoles, de 17:00 a 18:30", nivel: "Master", precio: "40€/mes" },
     ],
     info_general:
       "Nivel Start (1º y 2º de Primaria): ¡vuelve este curso! Primer contacto con la tecnología, con actividades de iniciación.\n" +
       "Nivel Junior (3º a 6º de Primaria) y Nivel Senior (1º y 2º de ESO): actividades diseñadas por curso, con un nuevo grupo los viernes en Senior.\n" +
+      "Nivel Master: grupo impartido directamente por Daniel.\n" +
       "No hay que traer material de casa. Plazas limitadas.",
-    docentes: [CONTACTO_ARTURO],
+    docentes: [
+      { ...CONTACTO_ARTURO, grupos: "Start, Junior y Senior" },
+      {
+        nombre: "Daniel",
+        contacto: "693 062 284",
+        whatsapp: "34693062284",
+        grupos: "Master",
+      },
+    ],
     status: "live",
     tipo: "cursos",
     link_inscripcion: "",
