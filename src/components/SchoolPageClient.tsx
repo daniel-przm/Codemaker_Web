@@ -311,6 +311,25 @@ export default function SchoolPageClient({ schoolId }: Props) {
                             });
                         })()}
                     </div>
+
+                    <div className="rounded-2xl border border-dashed border-blue-200 bg-blue-50/40 px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                        <div>
+                            <p className="font-bold text-slate-800 text-lg">¿Prefieres un grupo online?</p>
+                            <p className="text-slate-500 text-sm mt-1">
+                                También tenemos cursos online con profesor en directo, sin salir de casa.
+                            </p>
+                        </div>
+                        <a
+                            href="/cursos-online"
+                            className="shrink-0 inline-flex items-center gap-2 bg-[#00477A] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#003a62] transition-all active:scale-95 whitespace-nowrap"
+                        >
+                            Ver cursos online
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </section>
 
