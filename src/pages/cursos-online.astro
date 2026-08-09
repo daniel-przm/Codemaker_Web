@@ -3,6 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import ContactModal from '../components/ContactModal.astro';
+import TecnologiasSlide from '../components/TecnologiasSlide.astro';
+import { getGlobalConfig } from '../lib/schools';
+
+const config = await getGlobalConfig();
 ---
 
 <Layout
@@ -13,25 +17,106 @@ import ContactModal from '../components/ContactModal.astro';
   <Nav />
   <ContactModal />
 
-  <main class="bg-white min-h-screen text-slate-900 font-sans">
-    <section class="pt-40 pb-32 px-6 sm:px-10 patron-puntos">
-      <div class="max-w-2xl mx-auto text-center space-y-6">
-        <div class="inline-block px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold uppercase tracking-widest">
-          Disponible próximamente
-        </div>
-        <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
-          Cursos <span class="text-[#007AFB]">online</span>
+  <main class="bg-white overflow-x-hidden">
+    <!-- Hero -->
+    <section class="hero-blue relative pt-32 pb-24 px-6 text-white overflow-hidden">
+      <div class="hero-3d-floor" aria-hidden="true"></div>
+      <div class="max-w-5xl mx-auto relative z-10 space-y-5">
+        <span class="text-xs font-black uppercase tracking-widest opacity-60">
+          Proyecto Educativo Codemaker · Curso {config.curso_actual}
+        </span>
+        <h1 class="text-5xl md:text-7xl font-bold tracking-tight leading-none">
+          Cursos online
         </h1>
-        <p class="text-lg text-slate-500 leading-relaxed">
-          Estamos preparando nuestros cursos online de programación, robótica y diseño 3D para el
-          curso 26/27. Muy pronto tendrás aquí toda la información: grupos, horarios y precios.
-          Mientras tanto, escríbenos si quieres que te avisemos en cuanto abramos matrícula.
+        <p class="text-lg opacity-70 font-medium pt-1 max-w-2xl">
+          Programación, robótica y diseño 3D con profesor en directo, sin salir de casa.
         </p>
-        <button
-          class="contact-trigger inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#007AFB] text-white font-bold hover:bg-[#00477A] transition-all active:scale-95"
-        >
-          Avísame cuando esté listo
-        </button>
+        <TecnologiasSlide />
+      </div>
+    </section>
+
+    <!-- Intro + video -->
+    <section class="py-24 px-6 bg-white relative patron-puntos border-t border-slate-100">
+      <div class="max-w-4xl mx-auto text-center space-y-10">
+        <div class="space-y-6 text-slate-700 text-lg leading-relaxed font-medium">
+          <p>
+            Codemaker es un <span class="text-green-500 font-bold">proyecto educativo nacido en 2014</span>
+            y que ha formado a más de
+            <span class="bg-green-100 px-2 py-0.5 rounded text-green-700 font-bold">1000 alumnos y alumnas</span>
+            en Programación, Robótica, Diseño 3D e Inteligencia Artificial.
+          </p>
+          <p>
+            Con los cursos online llevamos ese mismo programa, con profesor en directo,
+            a cualquier alumno o alumna, viva donde viva, para que pase de ser usuario
+            de tecnología a ser creador.
+          </p>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200">
+          <video
+            src="/videos/presentacion-codemaker.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            class="w-full h-96 object-cover object-center"
+          ></video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grupos y horarios: próximamente -->
+    <section class="py-24 px-6 bg-white patron-puntos border-t border-slate-100">
+      <div class="max-w-4xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+          <h2 class="text-4xl md:text-5xl font-medium text-slate-900 tracking-tight">
+            Grupos y horarios
+          </h2>
+          <p class="text-slate-600 text-lg font-medium">
+            Estamos preparando los grupos, horarios y precios para el curso {config.curso_actual}.
+          </p>
+        </div>
+
+        <div class="bg-blue-50/50 rounded-[2rem] p-10 md:p-14 border border-blue-100 text-center space-y-6">
+          <div class="inline-block px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold uppercase tracking-widest">
+            Disponible próximamente
+          </div>
+          <p class="text-slate-600 text-lg max-w-xl mx-auto leading-relaxed">
+            Muy pronto tendrás aquí toda la información: grupos, horarios y precios.
+            Mientras tanto, escríbenos si quieres que te avisemos en cuanto abramos matrícula.
+          </p>
+          <button
+            class="contact-trigger inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-[#007AFB] text-white font-bold text-lg hover:bg-[#00477A] transition-all active:scale-95 shadow-lg hover:shadow-blue-200"
+          >
+            Avísame cuando esté listo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Información y contacto -->
+    <section class="py-24 px-6 bg-slate-50 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.03] patron-puntos pointer-events-none"></div>
+      <div class="max-w-2xl mx-auto relative z-10">
+        <div class="bg-white rounded-[2.5rem] p-8 md:p-12 border border-slate-200 shadow-xl text-center space-y-6">
+          <h2 class="text-3xl font-bold text-[#00477A] tracking-tight">
+            ¿Tienes alguna pregunta?
+          </h2>
+          <p class="text-slate-600 font-medium text-lg">
+            Escríbenos y te resolvemos cualquier duda sobre los cursos online.
+          </p>
+          <a
+            href="https://wa.me/34693062284"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-2xl font-black text-lg hover:bg-[#128C7E] transition-all shadow-lg hover:shadow-green-100 active:scale-95"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.316 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.818-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+            </svg>
+            WhatsApp
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -39,9 +124,37 @@ import ContactModal from '../components/ContactModal.astro';
   <Footer />
 </Layout>
 
-<style>
+<style is:global>
   .patron-puntos {
     background-image: radial-gradient(rgba(0, 122, 251, 0.15) 0.5px, transparent 0.5px);
     background-size: 10px 10px;
+  }
+
+  /* ── Fondo de wireframe en perspectiva (igual que el hero de la home) ── */
+  .hero-blue {
+    background: linear-gradient(150deg, #0b69ee 0%, #0057c7 45%, #00477a 100%);
+    perspective: 700px;
+  }
+  .hero-blue::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(55% 45% at 12% 0%, rgba(255, 255, 255, 0.16), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-3d-floor {
+    position: absolute;
+    left: -40%;
+    right: -40%;
+    bottom: -4%;
+    height: 88%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
+    background-size: 64px 64px;
+    transform: rotateX(72deg);
+    transform-origin: bottom center;
+    mask-image: linear-gradient(to top, black 4%, transparent 92%);
+    -webkit-mask-image: linear-gradient(to top, black 4%, transparent 92%);
+    pointer-events: none;
   }
 </style>
