@@ -2,12 +2,23 @@ import * as ftp from "basic-ftp";
 import path from "path";
 import fs from "fs";
 
+const required = ["FTP_HOST", "FTP_USER", "FTP_PASSWORD"];
+const missing = required.filter((key) => !process.env[key]);
+if (missing.length > 0) {
+  console.error(
+    `Faltan variables de entorno: ${missing.join(", ")}.\n` +
+    `Copia .env.example a .env, rellena los valores y ejecuta:\n` +
+    `  node --env-file=.env deploy-ftp.mjs`
+  );
+  process.exit(1);
+}
+
 const CONFIG = {
-  host: "89.116.147.140",
-  user: "u222141246",
-  password: "5esediK6",
-  port: 21,
-  remotePath: "/public_html",
+  host: process.env.FTP_HOST,
+  user: process.env.FTP_USER,
+  password: process.env.FTP_PASSWORD,
+  port: Number(process.env.FTP_PORT || 21),
+  remotePath: process.env.FTP_REMOTE_PATH || "/public_html",
   localDir: "./dist",
 };
 
