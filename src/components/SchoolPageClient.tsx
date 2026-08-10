@@ -234,12 +234,36 @@ export default function SchoolPageClient({ schoolId }: Props) {
                         </p>
                     </div>
 
+                    <div className="flex flex-wrap justify-center gap-x-10 gap-y-8 py-2">
+                        {[
+                            { icon: "Programación", label: "Programación" },
+                            { icon: "Robótica", label: "Robótica" },
+                            { icon: "Impresión 3D", label: "Diseño 3D" },
+                            { icon: "Inteligencia Artificial", label: "Inteligencia Artificial" },
+                            { icon: "Desarrollo de Videojuegos", label: "Desarrollo de Videojuegos" },
+                        ].map((item) => (
+                            <div key={item.label} className="flex flex-col items-center gap-3 w-24 text-center">
+                                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center">
+                                    <img
+                                        src={`/svg/${item.icon}.svg`}
+                                        alt={item.label}
+                                        className="w-6 h-6"
+                                        style={{ filter: "brightness(0) invert(1)" }}
+                                    />
+                                </div>
+                                <span className="text-xs font-bold uppercase tracking-wide text-slate-200">
+                                    {item.label}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+
                     <div
                         className={`grid grid-cols-1 ${availableLevels.length === 2
                                 ? "md:grid-cols-2"
                                 : availableLevels.length >= 3
                                     ? "md:grid-cols-3"
-                                    : "max-w-md"
+                                    : "max-w-xl mx-auto"
                             } gap-8 pt-8`}
                     >
                         {availableLevels.map((lvl) => (
@@ -312,24 +336,26 @@ export default function SchoolPageClient({ schoolId }: Props) {
                         })()}
                     </div>
 
-                    <div className="rounded-2xl border border-dashed border-blue-200 bg-blue-50/40 px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                        <div>
-                            <p className="font-bold text-slate-800 text-lg">¿Prefieres un grupo online?</p>
-                            <p className="text-slate-500 text-sm mt-1">
-                                También tenemos cursos online con profesor en directo, sin salir de casa.
-                            </p>
+                    {!school.online && (
+                        <div className="rounded-2xl border border-dashed border-blue-200 bg-blue-50/40 px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                            <div>
+                                <p className="font-bold text-slate-800 text-lg">¿Prefieres un grupo online?</p>
+                                <p className="text-slate-500 text-sm mt-1">
+                                    También tenemos cursos online con profesor en directo, sin salir de casa.
+                                </p>
+                            </div>
+                            <a
+                                href="/cursos-online"
+                                className="shrink-0 inline-flex items-center gap-2 bg-[#00477A] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#003a62] transition-all active:scale-95 whitespace-nowrap"
+                            >
+                                Ver cursos online
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </a>
                         </div>
-                        <a
-                            href="/cursos-online"
-                            className="shrink-0 inline-flex items-center gap-2 bg-[#00477A] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#003a62] transition-all active:scale-95 whitespace-nowrap"
-                        >
-                            Ver cursos online
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M5 12h14" />
-                                <path d="m12 5 7 7-7 7" />
-                            </svg>
-                        </a>
-                    </div>
+                    )}
                 </div>
             </section>
 
@@ -340,7 +366,7 @@ export default function SchoolPageClient({ schoolId }: Props) {
                 <div className="max-w-6xl mx-auto relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
                         {/* Left Column: Info & Contact */}
-                        <div className="lg:col-span-7 h-full">
+                        <div className={`h-full ${school.online ? "lg:col-span-12" : "lg:col-span-7"}`}>
                             <div className="bg-white rounded-[2.5rem] p-8 md:p-12 border border-slate-200 shadow-xl h-full flex flex-col justify-between space-y-10 transition-all hover:shadow-2xl hover:border-blue-100">
                                 <div className="space-y-8">
                                     <div className="space-y-4">
@@ -471,6 +497,7 @@ export default function SchoolPageClient({ schoolId }: Props) {
                         </div>
 
                         {/* Right Column: Enrollment Card */}
+                        {!school.online && (
                         <div className="lg:col-span-5 h-full">
                             <div className="bg-[#00477A] rounded-[2.5rem] p-8 md:p-12 text-white text-center h-full flex flex-col justify-center gap-8 shadow-2xl relative overflow-hidden group border border-white/10">
                                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl transition-transform group-hover:scale-150 duration-700" />
@@ -555,6 +582,7 @@ export default function SchoolPageClient({ schoolId }: Props) {
                                 </div>
                             </div>
                         </div>
+                        )}
                     </div>
                 </div>
             </section>

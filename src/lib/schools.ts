@@ -28,6 +28,8 @@ export interface SchoolData {
     status: 'live' | 'past';
     tipo: 'cursos' | 'centros';
     link_inscripcion: string;
+    /** true si es un curso 100% online (sin sede física): oculta el CTA cruzado a /cursos-online y el panel de inscripción. */
+    online?: boolean;
 }
 
 export interface CentroAsociado {

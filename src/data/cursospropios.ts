@@ -157,6 +157,7 @@ export const cursospropios: SchoolData[] = [
     status: "live",
     tipo: "cursos",
     link_inscripcion: "",
+    online: true,
   },
 
   // ── HISTÓRICO ─────────────────────────────────────────────────────────────
