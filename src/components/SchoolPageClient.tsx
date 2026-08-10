@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Laptop, GraduationCap } from "lucide-react";
+import { Laptop, GraduationCap, Glasses } from "lucide-react";
 import type { SchoolData } from "@/lib/schools";
 import { getSchools } from "@/lib/schools";
 
@@ -249,36 +249,78 @@ export default function SchoolPageClient({ schoolId }: Props) {
                         </p>
                     </div>
 
-                    <div className="flex flex-wrap justify-center gap-4 py-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                         {[
-                            { icon: "Programación", label: "Programación" },
-                            { icon: "Robótica", label: "Robótica" },
-                            { icon: "Impresión 3D", label: "Diseño 3D" },
-                            { icon: "Inteligencia Artificial", label: "Inteligencia Artificial" },
-                            { icon: "Desarrollo de Videojuegos", label: "Desarrollo de Videojuegos" },
+                            {
+                                icon: "Programación",
+                                label: "Programación",
+                                descripcion: "Desde lógica básica hasta lenguajes de programación profesionales.",
+                            },
+                            {
+                                icon: "Robótica",
+                                label: "Robótica",
+                                descripcion: "Programación de sensores y actuadores para crear robots autónomos.",
+                            },
+                            {
+                                icon: "Impresión 3D",
+                                label: "Diseño 3D",
+                                descripcion: "Desde diseño técnico de piezas, objetos y edificios hasta diseño creativo de personajes.",
+                            },
+                            {
+                                icon: "Inteligencia Artificial",
+                                label: "Inteligencia Artificial",
+                                descripcion: "Fundamentos de la IA y su aplicación en diferentes campos como la visión artificial.",
+                            },
+                            {
+                                icon: "Desarrollo de Videojuegos",
+                                label: "Entornos Interactivos",
+                                descripcion: "Desarrollo de entornos y videojuegos.",
+                            },
+                            {
+                                icon: null,
+                                label: "VR & AR",
+                                descripcion: "Aplicación práctica de la realidad virtual y aumentada.",
+                            },
                         ].map((item) => (
                             <div
                                 key={item.label}
-                                className="relative overflow-hidden flex flex-col items-center justify-center gap-3 w-32 h-32 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all text-center p-4"
+                                className="relative overflow-hidden flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all text-left p-6"
                             >
-                                <img
-                                    src={`/svg/${item.icon}.svg`}
-                                    alt=""
-                                    aria-hidden="true"
-                                    className="absolute -right-4 -bottom-4 w-20 h-20 opacity-[0.14] rotate-[-10deg] pointer-events-none"
-                                    style={{ filter: "brightness(0) invert(1)" }}
-                                />
-                                <div className="relative z-10 w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                                {item.icon ? (
                                     <img
                                         src={`/svg/${item.icon}.svg`}
-                                        alt={item.label}
-                                        className="w-5 h-5"
+                                        alt=""
+                                        aria-hidden="true"
+                                        className="absolute -right-6 -bottom-6 w-28 h-28 opacity-[0.12] rotate-[-10deg] pointer-events-none"
                                         style={{ filter: "brightness(0) invert(1)" }}
                                     />
+                                ) : (
+                                    <Glasses
+                                        className="absolute -right-5 -bottom-5 w-28 h-28 text-white/[0.12] rotate-[-10deg] pointer-events-none"
+                                        strokeWidth={1.25}
+                                        aria-hidden="true"
+                                    />
+                                )}
+                                <div className="relative z-10 w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                                    {item.icon ? (
+                                        <img
+                                            src={`/svg/${item.icon}.svg`}
+                                            alt=""
+                                            className="w-6 h-6"
+                                            style={{ filter: "brightness(0) invert(1)" }}
+                                        />
+                                    ) : (
+                                        <Glasses className="w-6 h-6 text-white" strokeWidth={1.75} aria-hidden="true" />
+                                    )}
                                 </div>
-                                <span className="relative z-10 text-[11px] font-bold uppercase tracking-wide text-slate-200 leading-tight">
-                                    {item.label}
-                                </span>
+                                <div className="relative z-10 space-y-1.5">
+                                    <h3 className="text-base font-bold uppercase tracking-wide text-white">
+                                        {item.label}
+                                    </h3>
+                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                        {item.descripcion}
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>
