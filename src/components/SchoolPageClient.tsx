@@ -310,6 +310,30 @@ export default function SchoolPageClient({ schoolId }: Props) {
                             <LevelCard key={lvl} level={lvl} />
                         ))}
                     </div>
+
+                    <div className="relative overflow-hidden rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50 to-purple-100 px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                        <GraduationCap
+                            className="absolute -right-4 -bottom-8 w-36 h-36 text-violet-600/10 rotate-[8deg] pointer-events-none"
+                            strokeWidth={1.25}
+                            aria-hidden="true"
+                        />
+                        <div className="relative z-10">
+                            <p className="font-bold text-slate-800 text-lg">¿Buscas un curso para más mayores?</p>
+                            <p className="text-slate-500 text-sm mt-1">
+                                Club Codemaker es el espacio de Codemaker para 3º de ESO a 2º de Bachillerato.
+                            </p>
+                        </div>
+                        <a
+                            href="/club"
+                            className="relative z-10 shrink-0 inline-flex items-center gap-2 bg-violet-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-violet-700 transition-all active:scale-95 whitespace-nowrap"
+                        >
+                            Ver Club Codemaker
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -402,30 +426,6 @@ export default function SchoolPageClient({ schoolId }: Props) {
                             </a>
                         </div>
                     )}
-
-                    <div className="relative overflow-hidden rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50 to-purple-100 px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                        <GraduationCap
-                            className="absolute -right-4 -bottom-8 w-36 h-36 text-violet-600/10 rotate-[8deg] pointer-events-none"
-                            strokeWidth={1.25}
-                            aria-hidden="true"
-                        />
-                        <div className="relative z-10">
-                            <p className="font-bold text-slate-800 text-lg">¿Buscas un curso para más mayores?</p>
-                            <p className="text-slate-500 text-sm mt-1">
-                                Club Codemaker es el espacio de Codemaker para 3º de ESO a 2º de Bachillerato.
-                            </p>
-                        </div>
-                        <a
-                            href="/club"
-                            className="relative z-10 shrink-0 inline-flex items-center gap-2 bg-violet-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-violet-700 transition-all active:scale-95 whitespace-nowrap"
-                        >
-                            Ver Club Codemaker
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M5 12h14" />
-                                <path d="m12 5 7 7-7 7" />
-                            </svg>
-                        </a>
-                    </div>
                 </div>
             </section>
 
@@ -442,7 +442,7 @@ export default function SchoolPageClient({ schoolId }: Props) {
                     </div>
 
                     <div className="space-y-4">
-                        <details className="group bg-slate-50/50 rounded-3xl border border-slate-100 overflow-hidden transition-all hover:bg-white hover:border-blue-200">
+                        <details className="group bg-white rounded-3xl border border-slate-100 overflow-hidden transition-all hover:border-blue-200">
                             <summary className="flex justify-between items-center p-6 cursor-pointer font-bold text-slate-800 list-none">
                                 <div className="flex items-center gap-4">
                                     <div className="w-10 h-10 bg-blue-100 rounded-2xl flex items-center justify-center text-xl">
@@ -479,7 +479,7 @@ export default function SchoolPageClient({ schoolId }: Props) {
                         </details>
 
                         <details
-                            className="group bg-slate-50/50 rounded-3xl border border-slate-100 overflow-hidden transition-all hover:bg-white hover:border-blue-200"
+                            className="group bg-white rounded-3xl border border-slate-100 overflow-hidden transition-all hover:border-blue-200"
                             open
                         >
                             <summary className="flex justify-between items-center p-6 cursor-pointer font-bold text-slate-800 list-none">
@@ -514,22 +514,9 @@ export default function SchoolPageClient({ schoolId }: Props) {
                                         className="p-6 bg-white rounded-2xl border border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all hover:border-blue-100 hover:shadow-sm"
                                     >
                                         <div className="space-y-2">
-                                            <div className="flex items-center gap-2 flex-wrap">
-                                                <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">
-                                                    Responsable docente
-                                                </p>
-                                                {docente.niveles.map((nivel) => {
-                                                    const meta = getLevelMeta(nivel);
-                                                    return (
-                                                        <span
-                                                            key={nivel}
-                                                            className={`text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider ${meta.badge}`}
-                                                        >
-                                                            {meta.label}
-                                                        </span>
-                                                    );
-                                                })}
-                                            </div>
+                                            <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">
+                                                Responsable docente
+                                            </p>
                                             <p className="text-slate-800 font-black text-xl whitespace-pre-line">
                                                 {docente.nombre}
                                             </p>
@@ -566,83 +553,80 @@ export default function SchoolPageClient({ schoolId }: Props) {
 
             {/* Enrollment Section */}
             {!school.online && (
-                <section className="py-24 px-6 bg-white patron-puntos border-t border-slate-100">
-                    <div className="max-w-xl mx-auto">
-                        <div className="bg-[#00477A] rounded-[2.5rem] p-8 md:p-12 text-white text-center shadow-2xl relative overflow-hidden group border border-white/10">
-                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl transition-transform group-hover:scale-150 duration-700" />
+                <section className="py-24 px-6 bg-[#00477A] text-white overflow-hidden relative">
+                    <div className="absolute inset-0 opacity-[0.07] patron-puntos-luz pointer-events-none" />
+                    <div className="max-w-xl mx-auto relative z-10 text-center space-y-8">
+                        <div className="space-y-4">
+                            <h2 className="text-4xl font-bold tracking-tight leading-none text-white">
+                                Únete ahora
+                            </h2>
+                            <p className="text-blue-100 font-medium text-lg leading-relaxed pt-2">
+                                Asegura tu plaza para el curso{" "}
+                                <span className="text-white font-bold">{school.curso}</span>
+                                . Inscripción gratuita durante el mes de septiembre.
+                            </p>
+                        </div>
 
-                            <div className="space-y-4 relative z-10">
-                                <h2 className="text-4xl font-bold tracking-tight leading-none text-white">
-                                    Únete ahora
-                                </h2>
-                                <p className="text-blue-100 font-medium text-lg leading-relaxed pt-2">
-                                    Asegura tu plaza para el curso{" "}
-                                    <span className="text-white font-bold">{school.curso}</span>
-                                    . Inscripción gratuita durante el mes de septiembre.
-                                </p>
-                            </div>
-
-                            <div className="pt-6 relative z-10 space-y-4">
-                                {school.link_inscripcion ? (
-                                    <a
-                                        href={school.link_inscripcion}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center justify-center gap-3 bg-white text-[#00477A] w-full py-5 rounded-2xl font-black text-xl hover:bg-blue-50 transition-all shadow-xl active:scale-[0.98]"
-                                    >
-                                        INSCRÍBETE
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="22"
-                                            height="22"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="4"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        >
-                                            <path d="M5 12h14" />
-                                            <path d="m12 5 7 7-7 7" />
-                                        </svg>
-                                    </a>
-                                ) : (
-                                    <button
-                                        type="button"
-                                        disabled
-                                        className="relative w-full inline-flex items-center justify-center gap-3 bg-white/25 text-white/80 py-5 rounded-2xl font-black text-xl cursor-not-allowed"
-                                    >
-                                        INSCRÍBETE
-                                        <span className="absolute -top-3 right-4 bg-amber-400 text-[#00477A] text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
-                                            Próximamente
-                                        </span>
-                                    </button>
-                                )}
-
+                        <div className="space-y-4">
+                            {school.link_inscripcion ? (
                                 <a
-                                    href="/cursos/condicionesmatricula"
-                                    className="inline-flex items-center justify-center gap-2 text-blue-200/80 hover:text-white font-bold uppercase tracking-widest text-xs transition-colors"
+                                    href={school.link_inscripcion}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center gap-3 bg-white text-[#00477A] w-full py-5 rounded-2xl font-black text-xl hover:bg-blue-50 transition-all shadow-xl active:scale-[0.98]"
                                 >
+                                    INSCRÍBETE
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        width="16"
-                                        height="16"
+                                        width="22"
+                                        height="22"
                                         viewBox="0 0 24 24"
                                         fill="none"
                                         stroke="currentColor"
-                                        strokeWidth="2.5"
+                                        strokeWidth="4"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                     >
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                                        <polyline points="14 2 14 8 20 8" />
-                                        <line x1="16" y2="13" x2="8" y1="13" />
-                                        <line x1="16" y2="17" x2="8" y1="17" />
-                                        <polyline points="10 9 9 9 8 9" />
+                                        <path d="M5 12h14" />
+                                        <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    Condiciones de matrícula
                                 </a>
-                            </div>
+                            ) : (
+                                <button
+                                    type="button"
+                                    disabled
+                                    className="relative w-full inline-flex items-center justify-center gap-3 bg-white/15 text-white/80 py-5 rounded-2xl font-black text-xl cursor-not-allowed"
+                                >
+                                    INSCRÍBETE
+                                    <span className="absolute -top-3 right-4 bg-amber-400 text-[#00477A] text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
+                                        Próximamente
+                                    </span>
+                                </button>
+                            )}
+
+                            <a
+                                href="/cursos/condicionesmatricula"
+                                className="inline-flex items-center justify-center gap-2 text-blue-200/80 hover:text-white font-bold uppercase tracking-widest text-xs transition-colors"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y2="13" x2="8" y1="13" />
+                                    <line x1="16" y2="17" x2="8" y1="17" />
+                                    <polyline points="10 9 9 9 8 9" />
+                                </svg>
+                                Condiciones de matrícula
+                            </a>
                         </div>
                     </div>
                 </section>
