@@ -14,6 +14,11 @@ export interface Docente {
     grupos: string;
 }
 
+export interface InfoItem {
+    emoji: string;
+    texto: string;
+}
+
 export interface SchoolData {
     id: string;
     nombre: string;
@@ -23,7 +28,7 @@ export interface SchoolData {
     color: string;
     niveles: string[];
     grupos: SchoolGroup[];
-    info_general: string;
+    info_general: InfoItem[];
     docentes: Docente[];
     status: 'live' | 'past';
     tipo: 'cursos' | 'centros';

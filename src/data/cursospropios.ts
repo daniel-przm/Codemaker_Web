@@ -30,7 +30,7 @@ const CONTACTO_ARTURO = {
 //   curso            → curso escolar activo, ej. "26/27"
 //   niveles          → ["Start"] | ["Junior"] | ["Senior"] | ["Master"] | combinaciones
 //   grupos           → lista de grupos: { horario, nivel, precio }
-//   info_general     → texto libre que aparece en la página del centro
+//   info_general     → lista de puntos { emoji, texto } que aparece en la página del centro
 //   docentes         → [{ nombre, contacto, whatsapp, grupos }]
 //   status           → "live" → activo este curso | "past" → histórico
 //   link_inscripcion → URL del formulario de inscripción (dejar "" si no hay todavía)
@@ -55,11 +55,12 @@ export const cursospropios: SchoolData[] = [
       { horario: "Viernes, de 18:00 a 19:30 (¡nuevo!)", nivel: "Senior", precio: "38€/mes" },
       { horario: "Miércoles, de 17:00 a 18:30", nivel: "Master", precio: "40€/mes" },
     ],
-    info_general:
-      "Nivel Start (1º y 2º de Primaria): ¡vuelve este curso! Primer contacto con la tecnología, con actividades de iniciación.\n" +
-      "Nivel Junior (3º a 6º de Primaria) y Nivel Senior (1º y 2º de ESO): actividades diseñadas por curso, con un nuevo grupo los viernes en Senior.\n" +
-      "Nivel Master: grupo impartido directamente por Daniel.\n" +
-      "No hay que traer material de casa. Plazas limitadas.",
+    info_general: [
+      { emoji: "🌱", texto: "El nivel Start vuelve este curso, con actividades de iniciación para los más pequeños." },
+      { emoji: "🆕", texto: "Nuevo grupo de Senior los viernes." },
+      { emoji: "🎒", texto: "No hay que traer material de casa." },
+      { emoji: "🎟️", texto: "Plazas limitadas." },
+    ],
     docentes: [
       { ...CONTACTO_ARTURO, grupos: "Start, Junior y Senior" },
       {
@@ -84,8 +85,11 @@ export const cursospropios: SchoolData[] = [
       { horario: "Lunes, de 16:00 a 17:30", nivel: "Junior", precio: "40€/mes" },
       { horario: "Jueves, de 16:00 a 17:30", nivel: "Junior", precio: "40€/mes" },
     ],
-    info_general:
-      "Para alumnado de 3º a 6º de Educación Primaria. No hay que traer material de casa; todas las actividades están diseñadas por curso.",
+    info_general: [
+      { emoji: "🎒", texto: "No hay que traer material de casa." },
+      { emoji: "📚", texto: "Actividades diseñadas por curso." },
+      { emoji: "🎟️", texto: "Plazas limitadas." },
+    ],
     docentes: [CONTACTO_ARTURO],
     status: "live",
     tipo: "cursos",
@@ -101,8 +105,11 @@ export const cursospropios: SchoolData[] = [
     grupos: [
       { horario: "Martes, de 18:00 a 19:30", nivel: "Junior", precio: "35€/mes" },
     ],
-    info_general:
-      "Para alumnado de 3º a 6º de Educación Primaria. No hay que traer material de casa; todas las actividades están diseñadas por curso.",
+    info_general: [
+      { emoji: "🎒", texto: "No hay que traer material de casa." },
+      { emoji: "📚", texto: "Actividades diseñadas por curso." },
+      { emoji: "🎟️", texto: "Plazas limitadas." },
+    ],
     docentes: [CONTACTO_ARTURO],
     status: "live",
     tipo: "cursos",
@@ -118,8 +125,11 @@ export const cursospropios: SchoolData[] = [
     grupos: [
       { horario: "Martes, de 16:00 a 17:30", nivel: "Junior", precio: "35€/mes" },
     ],
-    info_general:
-      "Para alumnado de 3º a 6º de Educación Primaria. No hay que traer material de casa; todas las actividades están diseñadas por curso.",
+    info_general: [
+      { emoji: "🎒", texto: "No hay que traer material de casa." },
+      { emoji: "📚", texto: "Actividades diseñadas por curso." },
+      { emoji: "🎟️", texto: "Plazas limitadas." },
+    ],
     docentes: [CONTACTO_ARTURO],
     status: "live",
     tipo: "cursos",
@@ -135,8 +145,11 @@ export const cursospropios: SchoolData[] = [
     grupos: [
       { horario: "Viernes, de 16:00 a 17:30", nivel: "Junior", precio: "35€/mes" },
     ],
-    info_general:
-      "Para alumnado de 3º a 6º de Educación Primaria. No hay que traer material de casa; todas las actividades están diseñadas por curso.",
+    info_general: [
+      { emoji: "🎒", texto: "No hay que traer material de casa." },
+      { emoji: "📚", texto: "Actividades diseñadas por curso." },
+      { emoji: "🎟️", texto: "Plazas limitadas." },
+    ],
     docentes: [CONTACTO_ARTURO],
     status: "live",
     tipo: "cursos",
@@ -151,8 +164,11 @@ export const cursospropios: SchoolData[] = [
     grupos: [
       { horario: "Online, lunes de 16:00 a 17:00 + taller presencial trimestral (1,5h)", nivel: "Junior", precio: "40€/mes" },
     ],
-    info_general:
-      "Programa adaptado para alumnado con altas capacidades: clase online todos los lunes, complementada con un taller presencial de 1,5 horas cada trimestre.",
+    info_general: [
+      { emoji: "💻", texto: "Clase online cada lunes." },
+      { emoji: "🤝", texto: "Taller presencial cada trimestre (1,5h)." },
+      { emoji: "🧠", texto: "Programa adaptado para alumnado con altas capacidades." },
+    ],
     docentes: [CONTACTO_ARTURO],
     status: "live",
     tipo: "cursos",
@@ -170,7 +186,7 @@ export const cursospropios: SchoolData[] = [
     curso: "",
     niveles: [],
     grupos: [],
-    info_general: "",
+    info_general: [],
     docentes: [],
     status: "past",
     tipo: "cursos",
@@ -184,7 +200,7 @@ export const cursospropios: SchoolData[] = [
     curso: "",
     niveles: [],
     grupos: [],
-    info_general: "",
+    info_general: [],
     docentes: [],
     status: "past",
     tipo: "cursos",
