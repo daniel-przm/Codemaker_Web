@@ -11,7 +11,8 @@ export interface Docente {
     nombre: string;
     contacto: string;
     whatsapp: string;
-    grupos: string;
+    /** Niveles que imparte este docente en este centro, ej. ["Junior", "Senior"]. Vacío si imparte todos. */
+    niveles: string[];
 }
 
 export interface InfoItem {

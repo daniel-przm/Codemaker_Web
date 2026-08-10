@@ -8,66 +8,98 @@ interface Props {
 
 // --- Helpers ---
 
-function levelStyles(nivel: string) {
-    const lvl = nivel.toLowerCase();
-    if (lvl.includes("start")) return { dot: "bg-[#14b8a6]", badge: "bg-teal-100 text-teal-700" };
-    if (lvl.includes("junior")) return { dot: "bg-[#22c55e]", badge: "bg-green-100 text-green-700" };
-    if (lvl.includes("senior")) return { dot: "bg-[#f97316]", badge: "bg-orange-100 text-orange-700" };
-    if (lvl.includes("master")) return { dot: "bg-[#a855f7]", badge: "bg-purple-100 text-purple-700" };
-    return { dot: "bg-[#FFC800]", badge: "bg-slate-200 text-slate-700" };
+interface LevelMeta {
+    label: string;
+    edad: string;
+    color: string;
+    badge: string;
+    dot: string;
+    emoji: string;
+    descripcion: string;
+}
+
+const LEVEL_META: Record<string, LevelMeta> = {
+    start: {
+        label: "Start",
+        edad: "1º y 2º de Primaria",
+        color: "#14b8a6",
+        badge: "bg-teal-100 text-teal-700",
+        dot: "bg-[#14b8a6]",
+        emoji: "🌱",
+        descripcion:
+            "Primer contacto con la tecnología: iniciación a la programación con bloques y actividades pensadas para los más pequeños.",
+    },
+    junior: {
+        label: "Junior",
+        edad: "3º de Primaria a 1º de ESO",
+        color: "#22c55e",
+        badge: "bg-green-100 text-green-700",
+        dot: "bg-[#22c55e]",
+        emoji: "🚀",
+        descripcion: "Introducción a la programación con bloques, robótica básica y primeros pasos en diseño 3D.",
+    },
+    senior: {
+        label: "Senior",
+        edad: "2º a 4º de ESO",
+        color: "#f97316",
+        badge: "bg-orange-100 text-orange-700",
+        dot: "bg-[#f97316]",
+        emoji: "🎮",
+        descripcion: "Programación de videojuegos, diseño 3D avanzado y primeros conceptos de Inteligencia Artificial.",
+    },
+    master: {
+        label: "Master",
+        edad: "Bachillerato y adultos",
+        color: "#a855f7",
+        badge: "bg-purple-100 text-purple-700",
+        dot: "bg-[#a855f7]",
+        emoji: "🤖",
+        descripcion: "Programación profesional, IA aplicada, desarrollo web y proyectos reales de ingeniería.",
+    },
+};
+
+const DEFAULT_LEVEL_META: LevelMeta = {
+    label: "",
+    edad: "",
+    color: "#FFC800",
+    badge: "bg-slate-200 text-slate-700",
+    dot: "bg-[#FFC800]",
+    emoji: "⭐",
+    descripcion: "Consulta disponibilidad y contenido con tu docente.",
+};
+
+function getLevelMeta(nivel: string): LevelMeta {
+    const key = nivel.toLowerCase();
+    const match = Object.entries(LEVEL_META).find(([k]) => key.includes(k));
+    return match ? match[1] : { ...DEFAULT_LEVEL_META, label: nivel };
 }
 
 // --- Sub-components ---
 
 function LevelCard({ level }: { level: string }) {
-    const lvl = level.toLowerCase();
-    const isStart = lvl.includes("start");
-    const isJunior = lvl.includes("junior");
-    const isSenior = lvl.includes("senior");
-    const isMaster = lvl.includes("master");
-
-    const color = isStart
-        ? { bg: "#14b8a6", text: "white", label: "Start" }
-        : isJunior
-            ? { bg: "#22c55e", text: "white", label: "Junior" }
-            : isSenior
-                ? { bg: "#f97316", text: "white", label: "Senior" }
-                : isMaster
-                    ? { bg: "#a855f7", text: "white", label: "Master" }
-                    : { bg: "#FFC800", text: "white", label: level };
-
-    const description = isStart
-        ? "De 1º a 2º de Primaria. Primer contacto con la tecnología: iniciación a la programación con bloques y actividades pensadas para los más pequeños."
-        : isJunior
-            ? "De 3º de Primaria a 1º de ESO. Introducción a la programación con bloques, robótica básica y primeros pasos en diseño 3D."
-            : isSenior
-                ? "De 2º a 4º de ESO. Programación de videojuegos, diseño 3D avanzado y primeros conceptos de Inteligencia Artificial."
-                : isMaster
-                    ? "Bachillerato y adultos. Programación profesional, IA aplicada, desarrollo web y proyectos reales de ingeniería."
-                    : "Consulta disponibilidad y contenido con tu docente.";
-
-    const emoji = isStart ? "🌱" : isJunior ? "🚀" : isSenior ? "🎮" : isMaster ? "🤖" : "⭐";
+    const meta = getLevelMeta(level);
 
     return (
         <div
-            style={{ borderTop: `4px solid ${color.bg}` }}
+            style={{ borderTop: `4px solid ${meta.color}` }}
             className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-md transition-all flex flex-col gap-4"
         >
             <div
                 className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl"
-                style={{ backgroundColor: color.bg + "22" }}
+                style={{ backgroundColor: meta.color + "22" }}
             >
-                {emoji}
+                {meta.emoji}
             </div>
             <div>
                 <span
-                    className="text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full"
-                    style={{ backgroundColor: color.bg + "22", color: color.bg }}
+                    className="text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full inline-block"
+                    style={{ backgroundColor: meta.color + "22", color: meta.color }}
                 >
-                    {color.label}
+                    {meta.label}
+                    {meta.edad && <> - {meta.edad}</>}
                 </span>
             </div>
-            <p className="text-slate-600 leading-relaxed">{description}</p>
+            <p className="text-slate-600 leading-relaxed">{meta.descripcion}</p>
         </div>
     );
 }
@@ -298,7 +330,7 @@ export default function SchoolPageClient({ schoolId }: Props) {
                             const countByLevel: Record<string, number> = {};
                             return school.grupos.map((grupo, index) => {
                                 countByLevel[grupo.nivel] = (countByLevel[grupo.nivel] ?? 0) + 1;
-                                const { dot, badge } = levelStyles(grupo.nivel);
+                                const meta = getLevelMeta(grupo.nivel);
                                 return (
                                     <div
                                         key={index}
@@ -307,12 +339,13 @@ export default function SchoolPageClient({ schoolId }: Props) {
                                         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
                                             {/* Dot + Level Chip */}
                                             <div className="flex items-center gap-3">
-                                                <div className={`w-3 h-3 rounded-full shrink-0 ${dot}`} />
+                                                <div className={`w-3 h-3 rounded-full shrink-0 ${meta.dot}`} />
                                                 {grupo.nivel && (
                                                     <span
-                                                        className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${badge}`}
+                                                        className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${meta.badge}`}
                                                     >
                                                         {grupo.nivel}
+                                                        {meta.edad && <> - {meta.edad}</>}
                                                     </span>
                                                 )}
                                             </div>
@@ -363,6 +396,25 @@ export default function SchoolPageClient({ schoolId }: Props) {
                             </a>
                         </div>
                     )}
+
+                    <div className="rounded-2xl border border-dashed border-blue-200 bg-blue-50/40 px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                        <div>
+                            <p className="font-bold text-slate-800 text-lg">¿Buscas un curso para mayores?</p>
+                            <p className="text-slate-500 text-sm mt-1">
+                                ClubMaker es el espacio de Codemaker para bachillerato y adultos.
+                            </p>
+                        </div>
+                        <a
+                            href="/clubmaker"
+                            className="shrink-0 inline-flex items-center gap-2 bg-[#00477A] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#003a62] transition-all active:scale-95 whitespace-nowrap"
+                        >
+                            Ver ClubMaker
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -458,15 +510,21 @@ export default function SchoolPageClient({ schoolId }: Props) {
                                                         className="p-6 bg-white rounded-2xl border border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all hover:border-blue-100 hover:shadow-sm"
                                                     >
                                                         <div className="space-y-2">
-                                                            <div className="flex items-center gap-2">
+                                                            <div className="flex items-center gap-2 flex-wrap">
                                                                 <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">
                                                                     Responsable docente
                                                                 </p>
-                                                                {docente.grupos && (
-                                                                    <span className="bg-blue-50 text-[#007AFB] text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider border border-blue-100/50">
-                                                                        {docente.grupos}
-                                                                    </span>
-                                                                )}
+                                                                {docente.niveles.map((nivel) => {
+                                                                    const meta = getLevelMeta(nivel);
+                                                                    return (
+                                                                        <span
+                                                                            key={nivel}
+                                                                            className={`text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider ${meta.badge}`}
+                                                                        >
+                                                                            {meta.label}
+                                                                        </span>
+                                                                    );
+                                                                })}
                                                             </div>
                                                             <p className="text-slate-800 font-black text-xl whitespace-pre-line">
                                                                 {docente.nombre}
