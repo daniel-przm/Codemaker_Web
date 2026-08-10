@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Laptop, GraduationCap } from "lucide-react";
 import type { SchoolData } from "@/lib/schools";
 import { getSchools } from "@/lib/schools";
 
@@ -31,7 +32,7 @@ const LEVEL_META: Record<string, LevelMeta> = {
     },
     junior: {
         label: "Junior",
-        edad: "3º de Primaria a 1º de ESO",
+        edad: "3º a 6º de Primaria",
         color: "#22c55e",
         badge: "bg-green-100 text-green-700",
         dot: "bg-[#22c55e]",
@@ -40,7 +41,7 @@ const LEVEL_META: Record<string, LevelMeta> = {
     },
     senior: {
         label: "Senior",
-        edad: "2º a 4º de ESO",
+        edad: "1º y 2º de ESO",
         color: "#f97316",
         badge: "bg-orange-100 text-orange-700",
         dot: "bg-[#f97316]",
@@ -377,8 +378,13 @@ export default function SchoolPageClient({ schoolId }: Props) {
                     </div>
 
                     {!school.online && (
-                        <div className="rounded-2xl border border-dashed border-blue-200 bg-blue-50/40 px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                            <div>
+                        <div className="relative overflow-hidden rounded-2xl border border-sky-200 bg-gradient-to-br from-sky-50 to-blue-100 px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                            <Laptop
+                                className="absolute -right-4 -bottom-8 w-36 h-36 text-sky-600/10 rotate-[-8deg] pointer-events-none"
+                                strokeWidth={1.25}
+                                aria-hidden="true"
+                            />
+                            <div className="relative z-10">
                                 <p className="font-bold text-slate-800 text-lg">¿Prefieres un grupo online?</p>
                                 <p className="text-slate-500 text-sm mt-1">
                                     También tenemos cursos online con profesor en directo, sin salir de casa.
@@ -386,7 +392,7 @@ export default function SchoolPageClient({ schoolId }: Props) {
                             </div>
                             <a
                                 href="/cursos-online"
-                                className="shrink-0 inline-flex items-center gap-2 bg-[#00477A] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#003a62] transition-all active:scale-95 whitespace-nowrap"
+                                className="relative z-10 shrink-0 inline-flex items-center gap-2 bg-sky-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-sky-700 transition-all active:scale-95 whitespace-nowrap"
                             >
                                 Ver cursos online
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -397,18 +403,23 @@ export default function SchoolPageClient({ schoolId }: Props) {
                         </div>
                     )}
 
-                    <div className="rounded-2xl border border-dashed border-blue-200 bg-blue-50/40 px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                        <div>
-                            <p className="font-bold text-slate-800 text-lg">¿Buscas un curso para mayores?</p>
+                    <div className="relative overflow-hidden rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50 to-purple-100 px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                        <GraduationCap
+                            className="absolute -right-4 -bottom-8 w-36 h-36 text-violet-600/10 rotate-[8deg] pointer-events-none"
+                            strokeWidth={1.25}
+                            aria-hidden="true"
+                        />
+                        <div className="relative z-10">
+                            <p className="font-bold text-slate-800 text-lg">¿Buscas un curso para más mayores?</p>
                             <p className="text-slate-500 text-sm mt-1">
-                                ClubMaker es el espacio de Codemaker para bachillerato y adultos.
+                                Club Codemaker es el espacio de Codemaker para 3º de ESO a 2º de Bachillerato.
                             </p>
                         </div>
                         <a
-                            href="/clubmaker"
-                            className="shrink-0 inline-flex items-center gap-2 bg-[#00477A] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#003a62] transition-all active:scale-95 whitespace-nowrap"
+                            href="/club"
+                            className="relative z-10 shrink-0 inline-flex items-center gap-2 bg-violet-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-violet-700 transition-all active:scale-95 whitespace-nowrap"
                         >
-                            Ver ClubMaker
+                            Ver Club Codemaker
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M5 12h14" />
                                 <path d="m12 5 7 7-7 7" />

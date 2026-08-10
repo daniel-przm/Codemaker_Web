@@ -53,7 +53,7 @@ export const cursospropios: SchoolData[] = [
     direccion: "C. Principado de Asturias, 6, 23009 Jaén",
     color: "#007AFB",
     curso: "26/27",
-    niveles: ["Start", "Junior", "Senior", "Master"],
+    niveles: ["Start", "Junior", "Senior"],
     grupos: [
       { horario: "Miércoles, de 16:00 a 17:00", nivel: "Start", precio: "33€/mes" },
       { horario: "Lunes, de 18:00 a 19:30", nivel: "Junior", precio: "35€/mes" },
@@ -61,7 +61,6 @@ export const cursospropios: SchoolData[] = [
       { horario: "Miércoles, de 18:30 a 20:00", nivel: "Senior", precio: "38€/mes" },
       { horario: "Jueves, de 18:00 a 19:30", nivel: "Senior", precio: "38€/mes" },
       { horario: "Viernes, de 18:00 a 19:30 (¡nuevo!)", nivel: "Senior", precio: "38€/mes" },
-      { horario: "Miércoles, de 17:00 a 18:30", nivel: "Master", precio: "40€/mes" },
     ],
     info_general: [
       { emoji: "⏱️", texto: "Una sesión de 1,5h a la semana (excepto Start, que es de 1h)." },
@@ -70,15 +69,7 @@ export const cursospropios: SchoolData[] = [
       { emoji: "📅", texto: "Duración: de octubre a mayo, según el calendario escolar." },
       { emoji: "🎒", texto: "No hay que traer ni comprar material extra: está todo en el aula." },
     ],
-    docentes: [
-      { ...CONTACTO_ARTURO, niveles: ["Start", "Junior", "Senior"] },
-      {
-        nombre: "Daniel",
-        contacto: "693 062 284",
-        whatsapp: "34693062284",
-        niveles: ["Master"],
-      },
-    ],
+    docentes: [{ ...CONTACTO_ARTURO, niveles: ["Start", "Junior", "Senior"] }],
     status: "live",
     tipo: "cursos",
     link_inscripcion: "",
