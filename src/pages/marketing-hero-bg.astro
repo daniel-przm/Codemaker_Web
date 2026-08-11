@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Fondo Hero" noindex={true}>
+  <div class="hero-blue relative w-screen h-screen overflow-hidden">
+    <div class="hero-3d-floor" aria-hidden="true"></div>
+  </div>
+</Layout>
+
+<style is:global>
+  /* ── Fondo de wireframe en perspectiva (igual que el hero de la home) ── */
+  .hero-blue {
+    background: linear-gradient(150deg, #0b69ee 0%, #0057c7 45%, #00477a 100%);
+    perspective: 700px;
+  }
+  .hero-blue::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(55% 45% at 12% 0%, rgba(255, 255, 255, 0.16), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-3d-floor {
+    position: absolute;
+    left: -40%;
+    right: -40%;
+    bottom: -4%;
+    height: 88%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
+    background-size: 64px 64px;
+    transform: rotateX(72deg);
+    transform-origin: bottom center;
+    mask-image: linear-gradient(to top, black 4%, transparent 92%);
+    -webkit-mask-image: linear-gradient(to top, black 4%, transparent 92%);
+    pointer-events: none;
+  }
+</style>

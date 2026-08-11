@@ -171,8 +171,7 @@ export default function SchoolPageClient({ schoolId }: Props) {
 
     const availableLevels = school.niveles;
 
-    const [primeraPalabraNombre, ...restoPalabrasNombre] = school.nombre.split(" ");
-    const restoNombre = restoPalabrasNombre.join(" ");
+    const restoNombre = school.nombre.split(" ").slice(1).join(" ");
 
     return (
         <>
@@ -185,12 +184,19 @@ export default function SchoolPageClient({ schoolId }: Props) {
                         <p>Curso {school.curso}</p>
                     </div>
                     <h1 className="text-5xl md:text-7xl tracking-tight leading-none">
-                        <span className="font-medium">{primeraPalabraNombre}</span>{" "}
+                        <span className="font-medium">Codemaker</span>{" "}
                         <span className="font-black">{restoNombre}</span>
                     </h1>
-                    {school.direccion && (
-                        <p className="text-sm opacity-70 font-medium pt-1">{school.direccion}</p>
-                    )}
+                    <p className="text-sm md:text-base font-bold pt-1 max-w-xl">
+                        <span className="text-sky-300">Programación</span>
+                        <span className="opacity-70">, </span>
+                        <span className="text-orange-300">Robótica</span>
+                        <span className="opacity-70">, </span>
+                        <span className="text-emerald-300">Diseño 3D</span>
+                        <span className="opacity-70"> e </span>
+                        <span className="text-fuchsia-300">Inteligencia Artificial</span>
+                        <span className="opacity-70"> para niños, niñas y jóvenes.</span>
+                    </p>
                 </div>
             </section>
 
